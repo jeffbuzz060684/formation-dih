@@ -40,30 +40,30 @@ button:active { transform: scale(0.97); }
 .title { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; margin: 0.25rem 0 0; }
 .thelo { color: var(--sky); }
 .subtitle { color: var(--muted); font-size: 0.95rem; font-weight: 600; margin: 0.1rem 0 0; }
-.page { max-width: 48rem; margin: 0 auto; padding: 0.6rem 0.85rem 7.2rem; }
+.page { max-width: 48rem; margin: 0 auto; padding: 0.6rem 0.85rem 8.1rem; }
 footer { max-width: 48rem; margin: 0 auto; padding: 0 0.85rem; text-align: center; font-size: 0.7rem; color: #475569; }
 .tabbar {
   position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
   display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.2rem;
-  padding: 0.35rem 0.4rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+  padding: 0.45rem 0.4rem calc(0.5rem + env(safe-area-inset-bottom, 0px));
   background: rgba(11, 18, 32, 0.92);
   border-top: 1px solid rgba(51, 65, 85, 0.7);
   backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
 }
 .tab {
   display: flex; flex-direction: column; align-items: center; gap: 0.18rem;
-  padding: 0.42rem 0.1rem; min-height: 3rem;
+  padding: 0.55rem 0.1rem; min-height: 3.5rem;
   border-radius: 0.85rem; border: 1px solid transparent; background: transparent;
-  color: var(--muted); font-family: inherit; font-size: 0.6rem; font-weight: 700; cursor: pointer;
+  color: var(--muted); font-family: inherit; font-size: 0.74rem; font-weight: 700; cursor: pointer;
 }
-.tab-ico { font-size: 1.2rem; line-height: 1; }
+.tab-ico { font-size: 1.75rem; line-height: 1; }
 .tab-lab { white-space: nowrap; }
 .tab.active {
   background: linear-gradient(180deg, rgba(251,191,36,0.22), rgba(251,191,36,0.08));
   border-color: rgba(251,191,36,0.55); color: var(--amber);
 }
 .badge {
-  position: fixed; right: 0.6rem; bottom: calc(4.9rem + env(safe-area-inset-bottom, 0px)); z-index: 50;
+  position: fixed; right: 0.6rem; bottom: calc(5.8rem + env(safe-area-inset-bottom, 0px)); z-index: 50;
   background: rgba(22, 33, 58, 0.95); border: 1px solid var(--line);
   color: var(--muted); font-size: 0.68rem; font-weight: 600;
   padding: 0.3rem 0.65rem; border-radius: 999px;
@@ -95,6 +95,15 @@ tr.odd td { background: rgba(15,23,42,0.5); }
 .note.warn { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.4); color: #fca5a5; }
 .drawing { border-radius: 0.85rem; background: #0b1220; border: 1px solid var(--line-soft); padding: 0.6rem; margin: 0.75rem 0; overflow-x: auto; }
 .drawing svg { width: 100%; height: auto; display: block; min-width: 340px; }
+.zhint { text-align: center; font-size: 0.8rem; color: var(--muted); margin: 0.35rem 0 0; }
+.zoombox { position: fixed; inset: 0; z-index: 90; background: rgba(7, 11, 20, 0.97); display: flex; flex-direction: column; }
+.zoombar { display: flex; align-items: center; gap: 0.5rem; padding: 0.7rem 0.9rem; padding-top: calc(0.7rem + env(safe-area-inset-top, 0px)); border-bottom: 1px solid var(--line-soft); }
+.zoomlab { flex: 1; font-size: 0.9rem; font-weight: 700; color: #cbd5e1; }
+.zbtn { min-width: 2.8rem; min-height: 2.8rem; border-radius: 0.8rem; border: 1px solid var(--line); background: rgba(30,41,59,0.6); color: var(--txt); font-family: inherit; font-size: 1.15rem; font-weight: 800; cursor: pointer; }
+.zclose { background: rgba(239,68,68,0.18); border-color: rgba(239,68,68,0.5); }
+.zoomstage { flex: 1; overflow: hidden; touch-action: none; display: flex; align-items: center; justify-content: center; user-select: none; -webkit-user-select: none; }
+.zoominner { width: 100%; transform-origin: center center; will-change: transform; }
+.zoominner svg { width: 100%; height: auto; display: block; }
 .headband {
   border-radius: var(--radius); border: 1px solid; padding: 0.95rem 1.05rem; margin-bottom: 0.85rem;
   display: flex; gap: 0.9rem; align-items: flex-start;
@@ -1449,7 +1458,7 @@ SVGS.mpFyrpak = function () {
   var LS_CHECKS = "dih-checks-v1";
   var LS_QUIZ = "dih-quiz-v1";
   var LS_UI = "dih-ui-v1";
-  var FB_VERSION = "v6";
+  var FB_VERSION = "v7";
 
   function loadLS(key, fb) {
     try {
@@ -1570,11 +1579,11 @@ SVGS.mpFyrpak = function () {
   function renderSection(sec) {
     var h = "";
     if (sec.intro) h += '<p class="intro">' + sec.intro + '</p>';
-    if (sec.svg && SVGS[sec.svg]) h += '<div class="drawing">' + SVGS[sec.svg]() + '</div>';
+    if (sec.svg && SVGS[sec.svg]) h += '<div class="drawing" title="Toucher pour agrandir">' + SVGS[sec.svg]() + '</div><div class="zhint">👆 Touche le dessin pour l\'agrandir</div>';
     if (sec.blocks) {
       for (var i = 0; i < sec.blocks.length; i++) {
         var b = sec.blocks[i];
-        if (b.svg && SVGS[b.svg]) h += '<div class="drawing">' + SVGS[b.svg]() + '</div>';
+        if (b.svg && SVGS[b.svg]) h += '<div class="drawing" title="Toucher pour agrandir">' + SVGS[b.svg]() + '</div><div class="zhint">👆 Touche le dessin pour l\'agrandir</div>';
         h += renderBlock(b);
       }
     }
@@ -1807,7 +1816,7 @@ SVGS.mpFyrpak = function () {
     var n = 0;
     var h = renderHead({ name: p.name, subtitle: p.subtitle, emoji: p.emoji, accent: p.accent });
     h += accCard(tk, n++, accHead("⛽", "Carburant"), '<div class="note key">🔑 ' + esc(p.fuelNote) + '</div>');
-    h += '<div class="drawing">' + SVGS[p.svg]() + '</div>';
+    h += '<div class="drawing" title="Toucher pour agrandir">' + SVGS[p.svg]() + '</div><div class="zhint">👆 Touche le dessin pour l\'agrandir</div>';
     var specsInner = '<div class="specs">';
     for (var i = 0; i < p.specs.length; i++) {
       specsInner += '<div class="spec"><span class="k">' + esc(p.specs[i][0]) + '</span><span class="v">' + esc(p.specs[i][1]) + '</span></div>';
@@ -1998,6 +2007,115 @@ SVGS.mpFyrpak = function () {
     html += bar;
     root.innerHTML = html;
     bindEvents(root);
+    wireZoomDrawings();
+  }
+
+  // ===== ZOOM DESSSINS (v7) =====
+  var ZOOM = { open: false, svg: "", scale: 1, tx: 0, ty: 0 };
+  function zoomState() { return { open: ZOOM.open, scale: ZOOM.scale, tx: ZOOM.tx, ty: ZOOM.ty }; }
+  function applyZoomTransform() {
+    var inner = (typeof document !== "undefined" && document && document.getElementById) ? document.getElementById("zoominner") : null;
+    if (inner && inner.style) inner.style.transform = "translate(" + ZOOM.tx + "px," + ZOOM.ty + "px) scale(" + ZOOM.scale + ")";
+  }
+  function renderZoom() {
+    var host = (typeof document !== "undefined" && document && document.getElementById) ? document.getElementById("zoombox") : null;
+    if (!ZOOM.open) { if (host && host.parentNode) host.parentNode.removeChild(host); return; }
+    if (!host && document.createElement && document.body && document.body.appendChild) {
+      host = document.createElement("div");
+      host.id = "zoombox";
+      document.body.appendChild(host);
+    }
+    if (!host) return;
+    host.className = "zoombox";
+    host.innerHTML = ""
+      + '<div class="zoombar">'
+      + '<span class="zoomlab">🔍 Pincer ou boutons ± pour agrandir</span>'
+      + '<button type="button" class="zbtn" data-zb="minus">−</button>'
+      + '<button type="button" class="zbtn" data-zb="reset">↺</button>'
+      + '<button type="button" class="zbtn" data-zb="plus">＋</button>'
+      + '<button type="button" class="zbtn zclose" data-zb="close">✕</button>'
+      + '</div>'
+      + '<div class="zoomstage" id="zoomstage"><div class="zoominner" id="zoominner">' + ZOOM.svg + '</div></div>';
+    wireZoomBtns(host);
+    setupPinch(host);
+  }
+  function wireZoomBtns(host) {
+    if (!host.querySelectorAll) return;
+    var btns = host.querySelectorAll("[data-zb]");
+    for (var i = 0; i < btns.length; i++) (function (b) {
+      if (b.addEventListener) b.addEventListener("click", function () { zoomAction(b.getAttribute("data-zb")); });
+    })(btns[i]);
+  }
+  function setupPinch(host) {
+    var stage = host.querySelector ? host.querySelector(".zoomstage") : null;
+    if (!stage || !stage.addEventListener) return;
+    var pts = {}, lastDist = 0, moved = false, downAt = 0;
+    stage.addEventListener("pointerdown", function (e) {
+      var fresh = true;
+      for (var k in pts) fresh = false;
+      pts[e.pointerId] = { x: e.clientX, y: e.clientY };
+      lastDist = 0;
+      if (fresh) { moved = false; downAt = Date.now(); }
+    });
+    stage.addEventListener("pointermove", function (e) {
+      var p = pts[e.pointerId];
+      if (!p) return;
+      var dx = e.clientX - p.x, dy = e.clientY - p.y;
+      p.x = e.clientX; p.y = e.clientY;
+      var others = 0;
+      for (var k in pts) if (k != e.pointerId) others++;
+      if (others >= 1) {
+        var q = null;
+        for (var k2 in pts) if (k2 != e.pointerId) q = pts[k2];
+        var dist = Math.sqrt((p.x - q.x) * (p.x - q.x) + (p.y - q.y) * (p.y - q.y));
+        if (lastDist && dist) {
+          ZOOM.scale = Math.max(1, Math.min(6, ZOOM.scale * (dist / lastDist)));
+          applyZoomTransform();
+        }
+        lastDist = dist;
+        moved = true;
+      } else {
+        if (ZOOM.scale > 1) { ZOOM.tx += dx; ZOOM.ty += dy; applyZoomTransform(); }
+        if (Math.abs(dx) + Math.abs(dy) > 6) moved = true;
+      }
+    });
+    function lift(e) {
+      delete pts[e.pointerId];
+      lastDist = 0;
+    }
+    stage.addEventListener("pointerup", function (e) {
+      var wasFresh = moved === false && (Date.now() - downAt) < 400;
+      lift(e);
+      var left = 0;
+      for (var k in pts) left++;
+      if (wasFresh && left === 0) zoomAction("close");
+    });
+    stage.addEventListener("pointercancel", lift);
+  }
+  function zoomAction(a) {
+    if (a === "plus") ZOOM.scale = Math.min(6, ZOOM.scale + 0.25);
+    else if (a === "minus") ZOOM.scale = Math.max(1, ZOOM.scale - 0.25);
+    else if (a === "reset") { ZOOM.scale = 1; ZOOM.tx = 0; ZOOM.ty = 0; }
+    else if (a === "close") { ZOOM.open = false; renderZoom(); return; }
+    applyZoomTransform();
+  }
+  function openZoom(svgHtml) {
+    ZOOM.open = true; ZOOM.svg = svgHtml || ""; ZOOM.scale = 1; ZOOM.tx = 0; ZOOM.ty = 0;
+    renderZoom();
+  }
+  function closeZoom() { ZOOM.open = false; renderZoom(); }
+  function wireZoomDrawings() {
+    if (typeof document === "undefined" || !document.querySelectorAll) return;
+    var drs = document.querySelectorAll(".drawing");
+    for (var i = 0; i < drs.length; i++) (function (d) {
+      if (d.addEventListener && !d.getAttribute("data-zoom-ok")) {
+        try { d.setAttribute("data-zoom-ok", "1"); } catch (e) {}
+        d.addEventListener("click", function () {
+          var svgEl = d.querySelector ? d.querySelector("svg") : null;
+          openZoom(svgEl && svgEl.outerHTML ? svgEl.outerHTML : d.innerHTML);
+        });
+      }
+    })(drs[i]);
   }
 
   function bindEvents(root) {
@@ -2080,7 +2198,7 @@ SVGS.mpFyrpak = function () {
   }
 
   if (typeof window !== "undefined" && window) {
-    window.__DIH_APP = { APP: APP, boot: boot, render: render, setTab: setTab, setPump: setPump, toggleCheck: toggleCheck, resetChecks: resetChecks, pick: pick, quizScore: quizScore, resetQuiz: resetQuiz, toggleAcc: toggleAcc, setAllAcc: setAllAcc };
+    window.__DIH_APP = { APP: APP, boot: boot, render: render, setTab: setTab, setPump: setPump, toggleCheck: toggleCheck, resetChecks: resetChecks, pick: pick, quizScore: quizScore, resetQuiz: resetQuiz, toggleAcc: toggleAcc, setAllAcc: setAllAcc, openZoom: openZoom, closeZoom: closeZoom, zoomAction: zoomAction, zoomState: zoomState };
   }
 })();
 </script>

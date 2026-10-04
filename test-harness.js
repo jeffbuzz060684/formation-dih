@@ -1,4 +1,4 @@
-// test-harness.js — Formation DIH v6 — harnais de tests
+// test-harness.js — Formation DIH v7 — harnais de tests
 // Usage : node test-harness.js (à la racine du dépôt)
 // Vérifie : structure index.html, cœur de données, rendu app, interactions,
 // checklists, quiz, persistance, accordéons v3, PWA (sw/manifest/version/workflow), icônes.
@@ -52,6 +52,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("structure: clé N°23 retirée", index.indexOf("N°23") === -1);
   ok("v6: base 18px", index.indexOf("html { font-size: 18px; }") !== -1);
   ok("v6: interligne 1.58", index.indexOf("line-height: 1.58") !== -1);
+  ok("v7: onglets agrandis (icônes 1.75rem, labels 0.74rem)", index.indexOf(".tab-ico { font-size: 1.75rem") !== -1 && index.indexOf("font-size: 0.74rem; font-weight: 700; cursor: pointer;") !== -1);
+  ok("v7: css zoom dessins (overlay + pinch)", index.indexOf(".zoombox") !== -1 && index.indexOf("touch-action: none") !== -1);
   ok("structure: BIP LONG", index.indexOf("BIP LONG") !== -1);
   ok("structure: STANAG", index.indexOf("STANAG") !== -1);
   ok("structure: 13 hommes", index.indexOf("13 HOMMES") !== -1);
@@ -77,7 +79,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   var fetchCalls = [];
   var fetch = function (url, opts) {
     fetchCalls.push(url);
-    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v6", date: "2026-10-04" }); } });
+    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v7", date: "2026-10-04" }); } });
   };
   var APP_EL = { innerHTML: "", querySelectorAll: function (sel) { return QSA(this.innerHTML, sel.slice(1, -1)); } };
   var BADGE_EL = { textContent: "💾 Hors ligne" };
@@ -310,8 +312,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // ============================================================
   await null; await null; await null; await null;
   ok("badge: fetch version.json", fetchCalls.length >= 1 && fetchCalls[0] === "version.json");
-  ok("badge: texte 💾 Hors ligne · v6", BADGE_EL.textContent === "💾 Hors ligne · v6");
-  ok("badge: APP.version v6", A.APP.version === "v6");
+  ok("badge: texte 💾 Hors ligne · v7", BADGE_EL.textContent === "💾 Hors ligne · v7");
+  ok("badge: APP.version v7", A.APP.version === "v7");
 
   // ============================================================
   // 9. PERSISTANCE (ré-éval = rechargement)
@@ -330,7 +332,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // 10. PWA — sw, manifest, version, workflow, icône
   // ============================================================
   var sw = slurp("sw.js");
-  ok("sw: cache formation-dih-v6", sw.indexOf('"formation-dih-v6"') !== -1);
+  ok("sw: cache formation-dih-v7", sw.indexOf('"formation-dih-v7"') !== -1);
   ok("sw: shell index.html", sw.indexOf('"./index.html"') !== -1);
   ok("sw: shell manifest + icon svg", sw.indexOf('"./manifest.webmanifest"') !== -1 && sw.indexOf('"./icon.svg"') !== -1);
   ok("sw: shell icônes PNG", sw.indexOf("icon-192.png") !== -1 && sw.indexOf("icon-512.png") !== -1);
@@ -351,7 +353,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
 
   var version = JSON.parse(slurp("version.json"));
   ok("version: app formation-dih", version.app === "formation-dih");
-  ok("version: v6", version.version === "v6");
+  ok("version: v7", version.version === "v7");
   ok("version: date", version.date === "2026-10-04");
 
   var yml = slurp(".github/workflows/pages.yml");
@@ -474,6 +476,18 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   for (var g = 0; g < D.grue.phases.length; g++) grueTotal += D.grue.phases[g].steps.length;
   ok("v3: vue d'ensemble grue 3/" + grueTotal, APP_EL.innerHTML.indexOf("3/" + grueTotal) !== -1);
   ok("v3: API v3 exposée", typeof A2.toggleAcc === "function" && typeof A2.setAllAcc === "function" && typeof A2.resetQuiz === "function");
+  ok("v7: API zoom exposée", typeof A2.openZoom === "function" && typeof A2.zoomAction === "function" && typeof A2.zoomState === "function" && typeof A2.closeZoom === "function");
+  A2.openZoom('<svg viewBox="0 0 10 10"><circle cx="5" cy="5" r="4"></circle></svg>');
+  ok("v7: zoom ouvert, échelle 1", A2.zoomState().open === true && A2.zoomState().scale === 1);
+  A2.zoomAction("plus"); A2.zoomAction("plus");
+  ok("v7: zoom échelle 1.5 (2 × plus)", A2.zoomState().scale === 1.5);
+  A2.zoomAction("minus");
+  ok("v7: zoom échelle 1.25 (moins)", A2.zoomState().scale === 1.25);
+  A2.zoomAction("reset");
+  ok("v7: zoom reset échelle 1", A2.zoomState().scale === 1);
+  A2.zoomAction("close");
+  ok("v7: zoom fermé", A2.zoomState().open === false);
+  ok("v7: hint dessin rendu (zhint)", index.indexOf("zhint") !== -1 && index.indexOf("Touche le dessin") !== -1);
 
   // ============================================================
   // RAPPORT
