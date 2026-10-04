@@ -1,0 +1,2099 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Formation DIH — BMPM</title>
+<meta name="description" content="Formation DIH — Détachement d'Intervention Héliporté BMPM/SOS HELI : équipier, chef d'équipe, fiche réflexe N°1, grue CM + notices des 4 motopompes (MARK 3, TOHATSU VE 1500, EFP-500-FL, FYR PAK).">
+<meta name="theme-color" content="#0f172a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #0b1220;
+  --card: #16213a;
+  --line: #2c3b55;
+  --line-soft: rgba(51, 65, 85, 0.55);
+  --txt: #f1f5f9;
+  --muted: #94a3b8;
+  --amber: #fbbf24;
+  --sky: #38bdf8;
+  --radius: 1.1rem;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 50% -200px, rgba(56,189,248,0.09), transparent), radial-gradient(900px 500px at 100% 0, rgba(251,191,36,0.06), transparent), var(--bg);
+  color: var(--txt);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+}
+a { color: var(--sky); }
+button { transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; }
+button:active { transform: scale(0.97); }
+:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; border-radius: 0.4rem; }
+.topbar { max-width: 48rem; margin: 0 auto; padding: 1rem 0.85rem 0.2rem; }
+.title { font-size: 1.55rem; font-weight: 800; letter-spacing: -0.02em; margin: 0.25rem 0 0; }
+.thelo { color: var(--sky); }
+.subtitle { color: var(--muted); font-size: 0.85rem; font-weight: 600; margin: 0.1rem 0 0; }
+.page { max-width: 48rem; margin: 0 auto; padding: 0.6rem 0.85rem 7.2rem; }
+footer { max-width: 48rem; margin: 0 auto; padding: 0 0.85rem; text-align: center; font-size: 0.7rem; color: #475569; }
+.tabbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.2rem;
+  padding: 0.35rem 0.4rem calc(0.4rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(11, 18, 32, 0.92);
+  border-top: 1px solid rgba(51, 65, 85, 0.7);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+}
+.tab {
+  display: flex; flex-direction: column; align-items: center; gap: 0.18rem;
+  padding: 0.42rem 0.1rem; min-height: 3rem;
+  border-radius: 0.85rem; border: 1px solid transparent; background: transparent;
+  color: var(--muted); font-family: inherit; font-size: 0.6rem; font-weight: 700; cursor: pointer;
+}
+.tab-ico { font-size: 1.2rem; line-height: 1; }
+.tab-lab { white-space: nowrap; }
+.tab.active {
+  background: linear-gradient(180deg, rgba(251,191,36,0.22), rgba(251,191,36,0.08));
+  border-color: rgba(251,191,36,0.55); color: var(--amber);
+}
+.badge {
+  position: fixed; right: 0.6rem; bottom: calc(4.9rem + env(safe-area-inset-bottom, 0px)); z-index: 50;
+  background: rgba(22, 33, 58, 0.95); border: 1px solid var(--line);
+  color: var(--muted); font-size: 0.68rem; font-weight: 600;
+  padding: 0.3rem 0.65rem; border-radius: 999px;
+}
+.card {
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(30,41,59,0.75), rgba(22,33,58,0.75));
+  border: 1px solid var(--line-soft);
+  box-shadow: 0 2px 10px rgba(2, 6, 17, 0.35);
+  padding: 0.95rem 1rem; margin-bottom: 0.85rem;
+}
+.st { font-size: 1.05rem; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 0.5rem; color: var(--txt); }
+.intro { color: #cbd5e1; font-size: 0.92rem; margin: 0 0 0.5rem; }
+.bh { font-size: 0.95rem; font-weight: 700; margin: 0.85rem 0 0.4rem; color: var(--txt); }
+.bl { list-style: none; padding: 0; margin: 0.5rem 0; }
+.bl li { display: flex; gap: 0.55rem; align-items: flex-start; font-size: 0.92rem; padding: 0.15rem 0; }
+.bl li::before { content: ""; flex-shrink: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); margin-top: 0.5rem; }
+.li-txt { flex: 1; }
+.twrap { overflow-x: auto; margin: 0.6rem 0; border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; min-width: 380px; font-size: 0.85rem; }
+th { text-align: left; color: var(--muted); font-size: 0.75rem; padding: 0.45rem; border-bottom: 1px solid #475569; }
+td { padding: 0.45rem; border-bottom: 1px solid rgba(51,65,85,0.6); color: var(--txt); }
+tr.odd td { background: rgba(15,23,42,0.5); }
+.chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.6rem 0; }
+.chip { font-size: 0.75rem; font-weight: 600; background: #0f172a; border: 1px solid #475569; color: #cbd5e1; padding: 0.35rem 0.8rem; border-radius: 999px; }
+.signe-code { color: var(--amber); }
+.note { border-radius: 0.8rem; padding: 0.75rem 0.9rem; margin: 0.75rem 0; font-size: 0.9rem; font-weight: 600; }
+.note.key { background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.4); color: #7dd3fc; }
+.note.warn { background: rgba(248,113,113,0.1); border: 1px solid rgba(248,113,113,0.4); color: #fca5a5; }
+.drawing { border-radius: 0.85rem; background: #0b1220; border: 1px solid var(--line-soft); padding: 0.6rem; margin: 0.75rem 0; overflow-x: auto; }
+.drawing svg { width: 100%; height: auto; display: block; min-width: 340px; }
+.headband {
+  border-radius: var(--radius); border: 1px solid; padding: 0.95rem 1.05rem; margin-bottom: 0.85rem;
+  display: flex; gap: 0.9rem; align-items: flex-start;
+  box-shadow: 0 2px 10px rgba(2, 6, 17, 0.3);
+}
+.hb-emoji { font-size: 2.2rem; line-height: 1; }
+.headband h2 { margin: 0; font-size: 1.25rem; font-weight: 800; color: #ffffff; }
+.headband p { margin: 0.15rem 0 0; font-size: 0.8rem; color: #cbd5e1; }
+.src { font-size: 0.72rem; color: #64748b; padding: 0 0.25rem; }
+.hero {
+  border-radius: var(--radius); border: 1px solid rgba(251,191,36,0.5);
+  background: linear-gradient(135deg, rgba(251,191,36,0.16), rgba(56,189,248,0.14));
+  box-shadow: 0 4px 18px rgba(2, 6, 17, 0.4);
+  padding: 1.1rem; margin-bottom: 0.85rem;
+}
+.hero h2 { margin: 0; font-size: 1.4rem; font-weight: 800; }
+.hero p { margin: 0.25rem 0 0; color: #cbd5e1; font-size: 0.85rem; }
+.dash { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.donut { width: 7.6rem; height: 7.6rem; flex-shrink: 0; }
+.donut-bg { fill: none; stroke: #334155; stroke-width: 11; }
+.donut-fg { fill: none; stroke: var(--amber); stroke-width: 11; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 60px 60px; transition: stroke-dashoffset 0.6s ease; }
+.donut-num { fill: var(--txt); font-size: 1.45rem; font-weight: 800; }
+.donut-lab { fill: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: 0.06em; }
+.dash-stats { flex: 1; min-width: 10rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.dstat { padding: 0.5rem 0.75rem; border-radius: 0.65rem; background: rgba(15,23,42,0.55); border: 1px solid var(--line-soft); font-size: 0.8rem; color: #cbd5e1; }
+.dstat b { color: var(--amber); }
+.quickgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem; }
+.quick {
+  display: flex; align-items: center; gap: 0.6rem; padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem; border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(30,41,59,0.8), rgba(22,33,58,0.6));
+  color: inherit; font-family: inherit; cursor: pointer; text-align: left; min-height: 3.4rem;
+}
+.quick-ico { font-size: 1.35rem; line-height: 1; }
+.quick-txt { flex: 1; display: flex; flex-direction: column; }
+.quick-txt b { font-size: 0.85rem; color: var(--txt); }
+.quick-txt small { color: var(--muted); font-size: 0.68rem; font-weight: 600; }
+.quick .chev { width: 1.4rem; height: 1.4rem; font-size: 0.9rem; }
+.parc { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.6rem 0; border-bottom: 1px solid rgba(51,65,85,0.6); }
+.parc:last-child { border-bottom: none; }
+.parc-emoji { font-size: 1.5rem; }
+.parc b { font-size: 0.95rem; color: var(--txt); }
+.parc p { margin: 0.1rem 0 0; font-size: 0.82rem; color: var(--muted); }
+.toolbar { display: flex; gap: 0.5rem; margin-bottom: 0.85rem; }
+.tbtn {
+  flex: 1; padding: 0.55rem 0.6rem; border-radius: 0.75rem; border: 1px solid var(--line);
+  background: rgba(22,33,58,0.7); color: #cbd5e1; font-family: inherit;
+  font-size: 0.78rem; font-weight: 700; cursor: pointer; min-height: 2.6rem;
+}
+.acchead {
+  display: flex; align-items: center; gap: 0.5rem; width: 100%; text-align: left;
+  background: transparent; border: none; padding: 0.1rem 0; color: inherit;
+  font-family: inherit; cursor: pointer; min-height: 2.6rem;
+}
+.acchead .st { flex: 1; }
+.chev {
+  flex-shrink: 0; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+  background: rgba(51,65,85,0.55); color: var(--muted);
+  display: flex; align-items: center; justify-content: center; font-size: 0.78rem;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+}
+.acchead.open .chev { transform: rotate(180deg); background: rgba(251,191,36,0.25); color: var(--amber); }
+.accbody { display: none; }
+.accbody.open { display: block; }
+.accbody.open > :first-child { margin-top: 0.85rem; }
+.ov-head { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.7rem; }
+.ov-head .st { flex: 1; }
+.pgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+.ptile {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0.28rem;
+  padding: 0.6rem 0.7rem; border-radius: 0.8rem; border: 1px solid var(--line);
+  background: rgba(15,23,42,0.55); color: inherit; font-family: inherit;
+  cursor: pointer; text-align: left; min-height: 3.2rem;
+}
+.ptile.full { border-color: rgba(16,185,129,0.55); background: rgba(16,185,129,0.08); }
+.pt-ico { font-size: 1.05rem; line-height: 1; }
+.ptile b { font-size: 0.76rem; color: var(--txt); line-height: 1.25; }
+.pt-count { font-size: 0.72rem; color: var(--sky); font-weight: 800; }
+.pt-bar { width: 100%; height: 0.28rem; border-radius: 999px; background: #334155; overflow: hidden; margin-top: 0.1rem; }
+.pt-bar span { display: block; height: 100%; border-radius: 999px; background: var(--amber); transition: width 0.3s; }
+.pbarrow { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+.pbar { flex: 1; height: 0.75rem; border-radius: 999px; background: #334155; overflow: hidden; }
+.pbar-fill { height: 100%; background: linear-gradient(90deg, #f59e0b, var(--amber)); border-radius: 999px; transition: width 0.35s; }
+.pcount { font-size: 0.85rem; font-weight: 700; color: #cbd5e1; flex-shrink: 0; }
+.reset { font-size: 0.72rem; font-weight: 600; padding: 0.32rem 0.6rem; border-radius: 0.55rem; background: #334155; color: #e2e8f0; border: none; cursor: pointer; flex-shrink: 0; font-family: inherit; min-height: 1.9rem; }
+.steps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.step {
+  width: 100%; text-align: left; display: flex; align-items: flex-start; gap: 0.75rem;
+  border-radius: 0.85rem; border: 1px solid var(--line); background: rgba(30,41,59,0.4);
+  padding: 0.7rem; cursor: pointer; color: inherit; font-family: inherit; min-height: 2.9rem;
+}
+.step.done { background: rgba(251,191,36,0.14); border-color: rgba(251,191,36,0.45); }
+.snum { flex-shrink: 0; width: 1.8rem; height: 1.8rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; background: #334155; color: #e2e8f0; }
+.step.done .snum { background: var(--amber); color: #0f172a; }
+.stxt { flex: 1; }
+.stitle { display: block; font-size: 0.92rem; color: var(--txt); }
+.step.done .stitle { color: var(--muted); text-decoration: line-through; }
+.stitle.swarn { color: #fde047; }
+.sd { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+.phase-ok { margin-top: 0.75rem; border-radius: 0.8rem; background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.4); padding: 0.75rem; color: #6ee7b7; font-weight: 700; text-align: center; }
+.qscore { margin-left: auto; font-size: 0.78rem; color: var(--sky); background: rgba(56,189,248,0.1); padding: 0.15rem 0.6rem; border-radius: 999px; font-weight: 700; flex-shrink: 0; }
+.acchead .qscore { margin-left: 0; }
+.qitem { margin-bottom: 1rem; }
+.qq { font-size: 0.92rem; font-weight: 700; color: var(--txt); margin: 0 0 0.4rem; }
+.opt { display: block; width: 100%; text-align: left; margin: 0.35rem 0; padding: 0.65rem 0.9rem; border-radius: 0.8rem; border: 1px solid var(--line); background: rgba(30,41,59,0.4); color: #e2e8f0; font-family: inherit; font-size: 0.88rem; cursor: pointer; min-height: 2.8rem; }
+.opt.correct { border-color: #10b981; background: rgba(16,185,129,0.15); color: #a7f3d0; }
+.opt.wrong { border-color: #ef4444; background: rgba(239,68,68,0.1); color: #fca5a5; }
+.qex { font-size: 0.8rem; color: var(--muted); margin: 0.4rem 0 0; }
+.qreset-row { display: flex; justify-content: flex-end; margin: 0 0 0.4rem; }
+.subtabs { display: flex; gap: 0.4rem; overflow-x: auto; padding-bottom: 0.4rem; margin: 0.4rem 0 0.85rem; -webkit-overflow-scrolling: touch; }
+.subtab { flex-shrink: 0; padding: 0.5rem 0.9rem; border-radius: 999px; border: 1px solid var(--line); background: rgba(22,33,58,0.6); color: #cbd5e1; font-family: inherit; font-size: 0.8rem; font-weight: 700; cursor: pointer; min-height: 2.5rem; }
+.subtab.active { background: rgba(56,189,248,0.16); border-color: rgba(56,189,248,0.6); color: #e2e8f0; }
+.barrow { display: flex; align-items: center; gap: 0.6rem; margin: 0.45rem 0; }
+.barlab { width: 8.2rem; flex: none; font-size: 0.74rem; font-weight: 700; color: #cbd5e1; text-align: right; }
+.barbg { flex: 1; height: 1.1rem; border-radius: 999px; background: rgba(15,23,42,0.85); overflow: hidden; }
+.barfill { height: 100%; border-radius: 999px; transition: width 0.4s; }
+.barval { width: 5rem; flex: none; font-size: 0.72rem; color: var(--muted); }
+.specs { display: flex; flex-direction: column; gap: 0.35rem; }
+.spec { display: flex; gap: 0.7rem; padding: 0.4rem 0.6rem; border-radius: 0.55rem; background: rgba(30,41,59,0.5); }
+.spec .k { min-width: 10rem; max-width: 45%; font-size: 0.74rem; font-weight: 700; color: var(--muted); }
+.spec .v { font-size: 0.8rem; color: #e2e8f0; }
+.mpgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.45rem; }
+.mpitem { display: flex; gap: 0.6rem; padding: 0.45rem 0.6rem; border-radius: 0.55rem; background: rgba(30,41,59,0.5); }
+.mpitem .k { font-weight: 800; color: var(--sky); min-width: 1.1rem; }
+.mpitem .v { font-size: 0.8rem; color: #e2e8f0; }
+.del { display: flex; flex-direction: column; gap: 0.4rem; }
+.dot { padding: 0.45rem 0.65rem; border-radius: 0.55rem; font-size: 0.8rem; border: 1px solid transparent; }
+.dot b { margin-right: 0.3rem; }
+.dot-info { background: rgba(56,189,248,0.1); border-color: rgba(56,189,248,0.35); }
+.dot-ok { background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.4); }
+.dot-warn { background: rgba(251,191,36,0.1); border-color: rgba(251,191,36,0.4); }
+.dot-danger { background: rgba(248,113,113,0.12); border-color: rgba(248,113,113,0.45); }
+.link-btn { display: inline-block; padding: 0.35rem 0.85rem; border-radius: 999px; border: 1px solid rgba(251,191,36,0.5); background: rgba(251,191,36,0.12); color: var(--amber); font-family: inherit; font-size: 0.82rem; font-weight: 700; cursor: pointer; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="badge" class="badge">💾 Hors ligne</div>
+<script>
+var D = {
+
+accueil: {
+  titre: "FORMATION DIH",
+  sousTitre: "Détachement d'Intervention Héliporté — BMPM / SOS HELI",
+  objectifs: [
+    "Connaître le matériel et l'organisation du stick à 13 hommes",
+    "Savoir établir l'eau et la faire durer (fontainier, sectionnement)",
+    "Travailler en sécurité avec un hélicoptère (DZ, sling, signes)",
+    "Guider une machine et organiser une zone de travail aérienne",
+    "Dérouler la fiche réflexe N°1 (départ en mission) sans omission",
+    "Mettre en œuvre la grue du CM DIH en sécurité"
+  ],
+  parcours: [
+    ["👷", "ÉQUIPIER DIH", "Savoirs essentiels : matériel, stick, établissements, bivouac, sécurité hélico, sling"],
+    ["⭐", "CHEF D'ÉQUIPE", "Perfectionnement : hydraulique, guidage radio, zones DZ, rotations, soutien"],
+    ["🚨", "FICHE RÉFLEXE N°1", "Départ en mission « Feux de forêts » — 4 phases à cocher"],
+    ["🏗", "GRUE CM DIH", "Fiche de tâche — 5 phases à cocher"],
+  ],
+},
+
+modules: [
+  {
+    id: "equipier",
+    name: "ÉQUIPIER DIH",
+    emoji: "👷",
+    accent: "sky",
+    subtitle: "Connaissances essentielles — BMPM/SOS HELI, août 2020",
+    source: "Formation équipier DIH, BMPM/SOS HELI, août 2020 (20 p.)",
+    sections: [
+      {
+        title: "Le matériel de lutte", icon: "🧰", svg: "matos",
+        blocks: [
+          { h: "Des matériels « commando » : rustiques et portables" },
+          { ul: [
+            "Motopompes identiques aux CCF de l'unité : débit/pression 250/4 ou 160/9 ou 80/12 — 16 kg — mélange 4 % — autonomie 8 h mini (avec 20 L).",
+            "Motopompe flottante (type Fyrflot) : caractéristiques quasi identiques — 22 kg.",
+            "Motopompe type WAJAX : 250/10, 25 kg, orifices DN 65.",
+            "Toutes installées sur claie de portage."
+          ]},
+          { h: "Citernes souples" },
+          { ul: [
+            "Là où il n'y a pas de réserve d'eau naturelle (mer, rivière) ou artificielle (bassin, piscine), où l'engin tonne ne peut pas accéder et où l'établissement de tuyaux n'est pas envisageable (relief, distance).",
+            "Capacités : 500 – 800 ou 1000 litres — transportées en sling avec un hélicoptère."
+          ]},
+          { h: "Agrès hydrauliques — composition des claies" },
+          { ul: [
+            "Claie de 45 : 1 robinet mono EN PLUS de la division à clapet 45/45/2×23 — une seule est armée d'une lance 40/14.",
+            "Claie de 23 : 2 lances 20/7 — une seule armée d'une division 45/2×23, une autre d'un étrangleur à tuyaux.",
+            "CM DIH : 4 claies de 45 + 4 claies de 23 (certaines en sacs de portage souples) + 2 claies de 70 (sacs souples, 1 tuyau 70/40 chacune).",
+            "Intérêt des sacs souples : établissement sac sur le dos, ergonomie du portage."
+          ]},
+          { h: "Matériel de forestage" },
+          { ul: [
+            "Outils thermiques : tronçonneuse et débroussailleuse (EPI : casque avec visière + pantalon anti-coupure) — création d'espaces de manœuvre et de zones d'accueil hélicoptère.",
+            "Outils à main : machette et couteau-scie (nettoyage du terrain) ; râteau RICH ou GORGUI, batte à feu, gilet seau-pompe (noyage du sinistre)."
+          ]},
+          { h: "Transport de charge" },
+          { ul: [
+            "Le SLING (charge externe en filet) : moyen privilégié de transport de matériel avec un hélicoptère — achemine citernes souples et matériel vers le massif."
+          ]},
+          { h: "Soutien de l'homme" },
+          { ul: [
+            "Éclairage : claie avec groupe électrogène alimentant 2 projecteurs 500 W + trépieds — 27 kg — mélange 4 %.",
+            "Bivouac : sac individuel = tente 1 place, tapis de sol, duvet, veste polaire, coupe-vent, lampe frontale — autonomie 48 h."
+          ]},
+        ],
+      },
+      {
+        title: "L'organisation du stick", icon: "🧑‍🤝‍🧑", svg: "stick",
+        blocks: [
+          { h: "13 hommes = 1 stick (unité élémentaire de lutte en relief accidenté)" },
+          { ul: [
+            "Le groupe travaille avec ses moyens terrestres propres OU avec des moyens aériens alloués — il intègre la capacité à travailler avec un vecteur aérien.",
+            "Binômes : 1 binôme de manœuvres hélicoptères + 4 binômes de manœuvres d'établissements + 1 binôme d'alimentation.",
+            "Le groupe est sous la direction d'un CHEF DE STICK.",
+            "Période FDF : le CDG issu d'un CIS peut être intégré ou non avec son CD non DIH."
+          ]},
+          { table: {
+            head: ["Ressource", "Personnel", "Emploi stick", "Moyen HELI"],
+            rows: [
+              ["6 GPTS", "CA", "DZE", "CM DIH"],
+              ["", "CE1 + EQ1", "BIN", ""],
+              ["", "CE2 + EQ2", "BIN", "TPHR DIH"],
+              ["", "CD", "MECA", "VRCG DIH"],
+              ["6 GPTN", "CA/CDIP", "DZP", "CCF GPTN"],
+              ["", "EQ", "MECA", ""],
+              ["", "CD", "ALIM", ""],
+              ["", "CA + EQ", "BIN", "CCF GPTN"],
+              ["", "CD", "ALIM", ""],
+              ["VRCG XX", "CDG", "CDG", "VRCG DIH"],
+              ["", "CD (*)", "NON DIH", "TPHR DIH"],
+            ],
+          }},
+          { h: "Les engins de lutte" },
+          { ul: [
+            "1 VRCG DIH (2 hommes) + 1 CM DIH (3 hommes) + 2 CCF (2 × 3 hommes) + 1 TPHR DIH (2 hommes) = 13 hommes.",
+            "Hélicoptères : collectivités territoriales (HBE loués en période estivale), Sécurité civile, exceptionnellement flottille de la Marine nationale."
+          ]},
+          { h: "Les appareils rencontrés" },
+          { chips: ["ECUREUIL (BMPM/SDIS)", "EC145 (SC)", "DAUPHIN-PANTHER (MN)", "CAIMAN-NH90 (MN)"] },
+        ],
+      },
+      {
+        title: "Les établissements", icon: "💧", svg: "etab",
+        blocks: [
+          { ul: [
+            "Réalisés par binômes de manœuvre. Selon l'analyse du chef de stick, chaque binôme peut recevoir : claies de tuyaux 45 ou 23 mm, ou claies motopompe + carburant."
+          ]},
+          { h: "Établir les lances depuis…" },
+          { ul: [
+            "Un engin pompe-tonne ou un vecteur nautique : claies en version commando — éventuellement commencer en 70 mm pour limiter les pertes de charge. Version héliportée : dévidoir aérien (600 m DN 45 ou 400 m DN 70).",
+            "Une motopompe en aspiration sur un plan d'eau naturel ou artificiel + claies de portage.",
+            "Une citerne souple déposée en sling + claies de portage."
+          ]},
+          { h: "Alimenter l'engin pompe-tonne" },
+          { ul: [
+            "Avec le concours d'un DAFF si nécessaire ; par noria de CCF si la ressource existe."
+          ]},
+          { note: "IMPORTANT — le fontainier : le positionnement judicieux des organes de sectionnement (claies de 45) garantit la permanence de l'eau. Le chef du binôme d'alimentation ouvre/ferme chaque robinet (rôle de fontainier), en liaison radio permanente avec le chef de manœuvre à la pointe de l'établissement — il est aussi prêt à remplacer un tuyau avarié.", kind: "warn" },
+        ],
+      },
+      {
+        title: "Le bivouac (48 h)", icon: "⛺",
+        blocks: [
+          { ul: ["Le bivouac n'est pas la règle, mais c'est une possibilité réelle — soutien de l'homme en mode dégradé."] },
+          { h: "Principes de réalisation" },
+          { ul: [
+            "Installation 1 h AVANT le coucher du soleil.",
+            "Endroit plat, sans aspérité, hors zone humide.",
+            "Ouverture de tente face au soleil du matin ou dos au vent.",
+            "Tente à distance du feu (feu seulement si nécessaire)."
+          ]},
+          { h: "Confort" },
+          { ul: [
+            "Sac disposé ouvert, matelas gonflé, tente fermée avant usage.",
+            "Espace intérieur organisé ; produit répulsif.",
+            "Nuit froide : tee-shirt manches longues, bonnet, chaussettes PROPRES.",
+            "Ne rien laisser à l'extérieur ; linge mouillé dehors avant la nuit, dedans ensuite."
+          ]},
+          { h: "Hygiène collective" },
+          { ul: [
+            "Latrines pas trop loin / pas trop près des tentes (un trou à la pelle suffit).",
+            "Papier hygiénique dans un sachet Ziploc (protection humidité)."
+          ]},
+          { note: "Autonomie 48 h = 3 repas/homme/jour + 8 L d'eau/homme/jour. Pour le stick : 42 repas ou équivalent + 112 litres d'eau.", kind: "key" },
+        ],
+      },
+      {
+        title: "Les zones DZ", icon: "🚁", svg: "dz",
+        blocks: [
+          { ul: ["Les hélicoptères utilisent des hélistations (DZ — dropping zone). Au moins DEUX DZ sur un chantier :"] },
+          { h: "Zone d'emport — dirigée par le DZE" },
+          { ul: [
+            "Accueille la (les) machine(s), le personnel embarque, les slings sont prêts.",
+            "PLANE : sécurité posé machine et embarquement.",
+            "ETENDUE : surface minimum 30 × 30 m.",
+            "DEGAGEE : sécurité des vols d'approche et de dégagement.",
+            "ACCESSIBLE par la route (engins + ravitailleur)."
+          ]},
+          { h: "Zone de poser — dirigée par le DZP" },
+          { ul: [
+            "Dépose du personnel et du matériel, au plus proche du sinistre.",
+            "DEGAGEE pour dépose/récupération (posé machine PAS nécessaire).",
+            "PLANE au minimum selon les dimensions des citernes souples."
+          ]},
+          { note: "IMPORTANT — la zone de poser est la zone de REPLI du personnel en cas de danger.", kind: "warn" },
+        ],
+      },
+      {
+        title: "La projection du personnel", icon: "🧍", svg: "approche",
+        blocks: [
+          { ul: ["Le travail près de la machine (rotors principal et de queue) présente des risques potentiellement MORTELS (contact direct) ou de projections (contact indirect)."] },
+          { h: "Embarquement / débarquement — règles de sécurité" },
+          { ul: [
+            "Attente accroupi en bordure de zone (A/O DZE) — casque, protections auditives, lunettes, gants.",
+            "Embarquement sur ordre de l'équipage (relayé par le DZE avec le geste conventionnel).",
+            "Approche par le SECTEUR AVANT en terrain plat ; par le côté AVAL si terrain en dévers.",
+            "Passage sous le disque rotor TÊTE BASSE, sans précipitation.",
+            "Matériel transporté à bout de bras en partie basse, JAMAIS à l'épaule.",
+            "Monter sans à-coups ; placement à bord aux ordres de l'équipage ; boucler la ceinture.",
+            "NOTA : ces règles s'appliquent indifféremment à l'embarquement et au débarquement."
+          ]},
+          { note: "POUR MÉMOIRE — disque rotor principal : 12 à 16 m selon l'appareil ; souffle au sol important et proportionnel.", kind: "key" },
+          { h: "En vol — règles de sécurité" },
+          { ul: [
+            "Brassière de sécurité si survol maritime (A/O commandant de bord).",
+            "Pas de déplacement dans la machine après installation.",
+            "Accessoires transportés non mobiles (risque d'accrochage).",
+            "Aucune action sur les éléments du bord ; ne pas s'appuyer sur les sièges du personnel navigant.",
+            "Dialogue seulement avec l'équipage désigné, hors manœuvre critique.",
+            "Toute anomalie/erreur repérée est signalée sans délai."
+          ]},
+        ],
+      },
+      {
+        title: "La projection du matériel (sling)", icon: "📦", svg: "sling",
+        blocks: [
+          { ul: ["Le sling : charge externe conditionnée dans un filet sous l'appareil — rapide, et permet des charges volumineuses ne tenant pas à l'intérieur."] },
+          { h: "Conditionnement — règles" },
+          { ul: [
+            "Filet de taille unique : 3,4 m de côté — charge maximale 1 à 1,4 t selon le filet (selon contraintes aéronautiques).",
+            "CENTRER la charge sur le filet (équilibre une fois suspendue).",
+            "Parties sensibles du matériel À L'ABRI des mailles (filet suspendu et en tension).",
+            "Regrouper méthodiquement tous les anneaux du filet avec une manille connectée à une élingue textile."
+          ]},
+          { h: "Le dispositif de transport de charge" },
+          { ul: [
+            "Crochet délesteur (crochet de charge externe) : intégral à l'aéronef, situé sous celui-ci.",
+            "Agrès manuel : élingue de 10 m (validée par le commandant de bord au briefing d'avant vol) + POINT TOURNANT le plus près possible de la charge + anneau métallique/manille à l'extrémité pour le crochet délesteur.",
+            "OU agrès électrique : décrochage par commande du pilote, dédié à la machine (aucune manipulation au sol).",
+            "Emport/dépose réalisés en vol STATIONNAIRE très proche du sol."
+          ]},
+          { h: "Les opérateurs" },
+          { ul: [
+            "Binôme : 1 opérateur (accroche/décroche) + 1 chef d'équipe qui garde le contact visuel et assure la liaison avec le pilote.",
+            "Guide au sol (DZE ou DZP) : casque, protections auditives, lunettes, gants, chaussures de sécurité, CHASUBLE JAUNE, radio mains libres éventuelle.",
+            "Le guide est placé vers l'AVANT de l'appareil, assez loin de la charge pour être vu du pilote (place droite) — signes conventionnels STANAG-3117 / OTAN 2014."
+          ]},
+          { signes: ["A-15", "A-16", "A-52", "B-17", "B-18"] },
+        ],
+      },
+    ],
+    quiz: [
+      { q: "De combien d'hommes se compose le stick DIH ?", opts: ["7 hommes", "10 hommes", "13 hommes", "15 hommes"], a: 2, ex: "Le stick = 13 hommes : 2 (VRCG) + 3 (CM) + 6 (2 CCF) + 2 (TPHR)." },
+      { q: "Quelles sont les capacités des citernes souples ?", opts: ["300 / 500 / 800 L", "500 / 800 / 1000 L", "600 / 900 / 1200 L"], a: 1, ex: "500 – 800 ou 1000 litres, transportées en sling." },
+      { q: "Quelle zone sert de repli au personnel en cas de danger ?", opts: ["La zone d'emport", "La zone de poser", "La zone de soutien logistique"], a: 1, ex: "IMPORTANT : la zone de poser (DZP) est la zone de repli du personnel en cas de danger." },
+      { q: "Surface minimale d'une zone d'emport ?", opts: ["20 × 20 m", "30 × 30 m", "40 × 40 m"], a: 1, ex: "PLANE, ETENDUE (30 × 30 m mini), DEGAGEE, ACCESSIBLE par la route." },
+      { q: "Quelle est la composition du sac de bivouac individuel ?", opts: ["Tente 2 places, duvet, réchaud", "Tente 1 place, tapis de sol, duvet, polaire, coupe-vent, frontale", "Tente 1 place, sac de couchage, lanterne"], a: 1, ex: "Tente une place, tapis de sol, duvet, veste polaire, coupe-vent, lampe frontale." },
+      { q: "Pour un bivouac de 48 h, combien d'eau par homme et par jour ?", opts: ["3 litres", "5 litres", "8 litres"], a: 2, ex: "8 L/homme/jour + 3 repas/homme/jour → stick : 112 L et 42 repas." },
+      { q: "Comment transporte-t-on le matériel dans un hélicoptère ?", opts: ["À bout de bras, à l'épaule", "À bout de bras en partie basse", "Sur le dos, tête haute"], a: 1, ex: "Sous le disque rotor tête basse : matériel à bout de bras en partie basse, JAMAIS à l'épaule." },
+      { q: "Dimensions d'un filet de sling ?", opts: ["2,4 m de côté, 500 kg", "3,4 m de côté, 1 à 1,4 t", "4,4 m de côté, 2 t"], a: 1, ex: "Filet de taille unique : 3,4 m de côté, charge max 1 à 1,4 t selon le filet." },
+      { q: "Où se place l'opérateur sol qui guide la machine ?", opts: ["À l'arrière de l'appareil, près de la charge", "Vers l'avant de l'appareil, assez loin de la charge", "Sous l'appareil, au plus près du crochet"], a: 1, ex: "Vers l'avant, visible du pilote en place droite — chasuble jaune, signes STANAG-3117." },
+      { q: "Quel est le diamètre d'un disque rotor principal ?", opts: ["6 à 10 m", "12 à 16 m", "20 à 24 m"], a: 1, ex: "12 à 16 m selon l'hélicoptère — souffle au sol important et proportionnel." },
+    ],
+  },
+
+  {
+    id: "chef",
+    name: "CHEF D'ÉQUIPE DIH",
+    emoji: "⭐",
+    accent: "amber",
+    subtitle: "Connaissances essentielles — BMPM/SOS HELI, août 2019",
+    source: "Formation chef d'équipe DIH, BMPM/SOS HELI, août 2019 (13 p.)",
+    sections: [
+      {
+        title: "La permanence de l'eau", icon: "💦",
+        blocks: [
+          { ul: ["Principe : l'établissement ne progresse que si la progression de l'EAU dans l'établissement est garantie. Deux paramètres :"] },
+          { h: "La ressource en eau" },
+          { ul: [
+            "Remplir l'établissement consomme une quantité d'eau non négligeable — encore plus si on utilise une grosse section pour limiter les pertes de charge.",
+            "Capacité instantanée des 2 CCFM du groupe : 7 000 à 8 000 litres (selon modèles).",
+            "Contenance des tuyaux : 70 mm → 4 L/m · 45 mm → 2 L/m · 25 mm → 0,5 L/m."
+          ]},
+          { h: "Le sectionnement de l'établissement" },
+          { ul: [
+            "Positionnement judicieux des organes de sectionnement sur les claies de 45 = pérennité de l'eau.",
+            "Le chef du binôme d'alimentation (fontainier) ouvre/ferme chaque robinet, en liaison radio permanente avec le chef de manœuvre à la pointe.",
+            "Il gère aussi la résolution des avaries : prêt à remplacer un tuyau."
+          ]},
+        ],
+      },
+      {
+        title: "Lances, pertes de charge, indice de pompe", icon: "🔥",
+        blocks: [
+          { h: "Le travail des lances (modèle HUGJET)" },
+          { table: {
+            head: ["Type", "Débit (l/min) / pression (bar)"],
+            rows: [["40/12", "250 / 3,5"], ["20/7", "80 / 3,5"]],
+          }},
+          { h: "Les pertes de charge (J) en bar/hm au débit nominal" },
+          { table: {
+            head: ["Tuyau / débit nominal", "Jn / hm"],
+            rows: [["70 / 500", "0,5"], ["45 / 250", "1,5"], ["25 / 80", "3,5"]],
+          }},
+          { ul: [
+            "Ajouter J/Z : ± 1 bar par 10 m de dénivelé (Z+ montée, Z− descente) — le paramètre le plus difficile à quantifier sur le terrain sauf avec un altimètre.",
+            "Préparer la manœuvre à minima sur éléments cartographiques (distance / dénivelé) : pertes de charge, pompe en relais.",
+            "Cette réflexion relève du chef de groupe, partagée avec son adjoint."
+          ]},
+          { h: "L'indice de pompe" },
+          { table: {
+            head: ["Pompe", "Débit/pression"],
+            rows: [
+              ["U 5000 GIMAEX", "1000/15"], ["U 5000 CAMIVA", "1500/15"],
+              ["RVI GIMAEX", "1500/15"], ["RVI SIDES", "2000/15"],
+              ["FYRPACK (DSP 45)", "250/4 ou 80/12"], ["WAJAX (DSP 70)", "250/10"],
+            ],
+          }},
+          { note: "Les tuyaux ne supportent PAS plus de 15 bars de pression de service. Sur motopompe portative : ne pas utiliser plus de 2/3 de la capacité disponible sous peine de contraintes mécaniques et de perte du matériel.", kind: "warn" },
+        ],
+      },
+      {
+        title: "Guider un hélicoptère", icon: "📡", svg: "signes",
+        blocks: [
+          { h: "Le contact précoce (avant l'arrivée sur zone)" },
+          { ul: [
+            "Indicatif radio du contact au sol : « PIROX ».",
+            "Fréquence de travail retenue (communiquée par le COSSIM).",
+            "Position du chantier ; dangers aéronautiques.",
+            "Situation générale sur la DZ : identification au sol, secteur et force du vent (anémomètre).",
+            "Procédure : note de service n°31 DIV OPS du 16 juin 2017."
+          ]},
+          { h: "Le matériel de transmission" },
+          { ul: [
+            "Section HELI : réseaux ANTARES et VHF MARINE.",
+            "HBE des collectivités : indicatif MORANE… ; Sécurité civile : DRAGON… ; Marine nationale : GUEPARD / HELIOS ou ARES selon la flottille.",
+            "Armée de l'air / ALAT : liaison possible seulement après posé de l'appareil et contact physique avec l'équipage.",
+            "Radio de tête = ergonomie et qualité de transmission dans le bruit.",
+            "Le chef de stick est en liaison avec l'appareil sur la fréquence dédiée ; DZE et DZP veillent cette fréquence sur leur zone. Organisation précisée au briefing d'avant vol."
+          ]},
+          { h: "Les signes conventionnels au sol (STANAG-3117 / OTAN 2014)" },
+          { ul: [
+            "L'opérateur au sol et l'équipage utilisent la MÊME fréquence radio.",
+            "Les signes permettent de se faire comprendre du pilote même en cas de problème radio, et des équipes qui accrochent/décrochent.",
+            "Les DZE/DZP (chasuble JAUNE, eux seuls) réalisent le guidage sur leur zone respective."
+          ]},
+          { signes: ["A-8", "A-11", "A-15", "A-16", "B-1", "B-2", "B-3", "B-4", "B-5", "B-10", "B-11", "B-17", "B-18"] },
+        ],
+      },
+      {
+        title: "Organiser une zone de travail avec hélicoptère", icon: "🏗", svg: "dz",
+        blocks: [
+          { h: "Zone d'emport (DZE) — prévoir :" },
+          { ul: [
+            "La présentation de l'appareil attendu et son atterrissage.",
+            "Le conditionnement du matériel en slings (possiblement AVANT l'arrivée de l'appareil).",
+            "L'approvisionnement en eau des citernes souples projetées, tout au long de l'opération.",
+            "L'avitaillement en carburant de l'appareil (éventuellement) par un engin spécialisé.",
+            "Dimensionner la zone selon le nombre et le type d'appareils engagés."
+          ]},
+          { h: "Zone de poser (DZP)" },
+          { ul: ["Un espace au sol correspondant à la présence SIMULTANÉE de DEUX citernes souples suffit (à minima)."] },
+          { h: "La sécurité sur la zone" },
+          { ul: [
+            "Points sensibles d'une zone d'emport : superficie, revêtement / végétation / équipements présents, nombre d'accès (véhicules et piétons).",
+            "Rechercher un personnel présent pour assurer une veille physique quand on guide un appareil proche du sol.",
+            "Inspection minutieuse et rigoureuse du sol AVANT l'arrivée de l'appareil (principe tarmac d'aérodrome) : écarter tout objet/débris projetables par le souffle rotor.",
+            "Humidifier le sol si très poussiéreux."
+          ]},
+        ],
+      },
+      {
+        title: "Le plan des rotations & les slings", icon: "🔄",
+        blocks: [
+          { ul: [
+            "Les paramètres d'emploi de l'appareil (lieu, moment) influencent le déroulement prévu par le chef de groupe, qui ne maîtrise pas le vecteur aérien.",
+            "Le pilote/commandant de bord et le chef de groupe conviennent de la meilleure façon : c'est l'enjeu du BRIEFING D'AVANT VOL (les directeurs de zone y assistent).",
+            "Le directeur de zone est responsable du respect du plan des rotations."
+          ]},
+          { note: "Le devis de poids est établi au briefing et validé par le pilote. L'agrès d'élingage est également validé. Une charge qui subit une modification est DE NOUVEAU contrôlée. AUCUNE charge n'est accrochée et enlevée sans l'accord du chef de zone.", kind: "warn" },
+          { h: "Sécurité du transport de charge externe = sa préparation" },
+          { ul: ["Poids · Équilibrage · Arrimage."] },
+          { h: "Poids de référence des matériels projetables" },
+          { table: {
+            head: ["Matériel", "Capacité", "Poids (kg)"],
+            rows: [
+              ["Claie de portage", "DN 45", "35"],
+              ["", "DN 23 / carburant / motopompe", "25"],
+              ["Citerne souple (vide)", "500 L", "20"],
+              ["", "800 / 1000 L", "30"],
+              ["Dévidoir aérien", "DN 70", "280"],
+              ["", "DN 45", "220"],
+              ["", "vide", "60"],
+              ["Tronçonneuse", "", "7"],
+            ],
+          }},
+          { note: "POUR MÉMOIRE — poids de référence d'un pax : 80 kg.", kind: "key" },
+        ],
+      },
+      {
+        title: "L'approvisionnement des besoins", icon: "🚚",
+        blocks: [
+          { h: "Soutien logistique" },
+          { ul: [
+            "Zone de soutien logistique = au niveau de la ZONE D'EMPORT, sous la responsabilité du DZE.",
+            "Mieux vaut laisser un établissement EN CHARGE pour approvisionner l'eau que de réaliser des mouvements d'engins sur la DZ.",
+            "Avitaillement de l'hélicoptère sur chantier : réalisé par un service spécialisé selon l'origine de l'appareil (DZE coordonne).",
+            "C'est le COS qui pourvoie sur le chantier aux besoins exprimés par le chef de groupe DIH."
+          ]},
+          { h: "Soutien de l'homme" },
+          { ul: [
+            "Zone de soutien de l'homme ÉLOIGNÉE de la zone d'emport (contraintes des mouvements d'aéronefs, nuisances, bivouac).",
+            "Rechercher un endroit à l'écart ; une structure en dur est généralement source de confort.",
+            "Besoins physiologiques : eau 8 L/personne/jour · repas 3/personne/jour · toilettes (espace réservé, préparé, connu) · douche 1/personne/jour · couchage à l'abri de l'humidité."
+          ]},
+        ],
+      },
+      {
+        title: "Annexe — station météo KESTREL", icon: "🌬️",
+        blocks: [
+          { ul: [
+            "Mesure : vitesse du vent et déclinaisons ; température de l'air et déclinaisons ; altitude et pression.",
+            "L'appareil devient un altimètre une fois l'altitude de référence du lieu renseignée (carte topographique) et la pression mesurée.",
+            "Température : mesurer À L'OMBRE — agiter l'appareil 15 s pour une réponse rapide, sinon attendre 1 min.",
+            "Limites : mesures entre −15 °C et +50 °C (appareil allumé) ; stockage entre −30 °C et +80 °C.",
+            "Étanche à 1 m et flotte. Hauteur de chute maximum : 2 m."
+          ]},
+        ],
+      },
+    ],
+    quiz: [
+      { q: "Contenance d'un tuyau de 70 mm ?", opts: ["0,5 litre par mètre", "2 litres par mètre", "4 litres par mètre"], a: 2, ex: "70 → 4 L/m · 45 → 2 L/m · 25 → 0,5 L/m." },
+      { q: "Quelle est la perte de charge d'un tuyau de 45 à 250 l/min ?", opts: ["0,5 bar/hm", "1,5 bar/hm", "3,5 bar/hm"], a: 1, ex: "70/500 → 0,5 · 45/250 → 1,5 · 25/80 → 3,5 bar/hm." },
+      { q: "J/Z : à quoi correspond ± 1 bar ?", opts: ["10 m de dénivelé", "50 m de dénivelé", "100 m de tuyau"], a: 0, ex: "Z+ ou Z− : 1 bar par 10 mètres de hauteur — le paramètre le plus dur à quantifier sans altimètre." },
+      { q: "Pression de service maximale des tuyaux ?", opts: ["12 bars", "15 bars", "20 bars"], a: 1, ex: "Jamais plus de 15 bars sous peine de détérioration — la capacité des autopompes n'est jamais pleinement exploitée." },
+      { q: "Quelle part de la capacité d'une motopompe portative ne faut-il pas dépasser pour durer ?", opts: ["1/2", "2/3", "3/4"], a: 1, ex: "Plus de 2/3 = contraintes mécaniques au risque de perdre le matériel." },
+      { q: "Quel est l'indicatif radio du contact au sol DIH ?", opts: ["HELI MARSEILLE", "DIH MARSEILLE", "STICK MARSEILLE", "PIROX"], a: 3, ex: "« PIROX » — indicatif du contact au sol ; fréquence communiquée par le COSSIM." },
+      { q: "Quelle est la longueur d'une élingue d'agrès manuel ?", opts: ["5 m", "10 m", "15 m"], a: 1, ex: "10 m, validée par le commandant de bord au briefing d'avant vol." },
+      { q: "Poids d'un dévidoir aérien DN 70 ?", opts: ["220 kg", "280 kg", "320 kg"], a: 1, ex: "DN 70 → 280 kg · DN 45 → 220 kg · vide → 60 kg." },
+      { q: "Qui est le seul à porter la chasuble jaune sur une DZ ?", opts: ["Le chef de stick", "Les DZE et DZP", "Tous les chefs d'équipe"], a: 1, ex: "Les directeurs de zone d'emport et de poser — identifiables par le pilote, à l'exclusion de toute autre personne." },
+      { q: "Comment mesurer la température de l'air avec le KESTREL ?", opts: ["Au soleil, immobile", "À l'ombre, en agitant 15 s", "Dans l'eau, 1 min"], a: 1, ex: "À l'ombre — agiter 15 s pour une réponse rapide, sinon attendre 1 min." },
+    ],
+  },
+],
+
+reflexe: {
+  id: "reflexe",
+  name: "FICHE RÉFLEXE N°1",
+  emoji: "🚨",
+  accent: "red",
+  subtitle: "Version DIH « FEUX DE FORÊTS » — Intervention sur commune / hors commune",
+  source: "Fiche réflexe DIH N°1, HELI, mise à jour 16/04/2020 (2 p.)",
+  phases: [
+    {
+      title: "Phase 1 — Réception de l'alerte", icon: "📞",
+      steps: [
+        { t: "Prise en compte de la mission", d: "Localisation · nature de la mission · présence ou pas d'un hélicoptère." },
+        { t: "Informer l'adjudant de SOS — 06 32 87 16 70", d: "Action du chef de groupe HELI et du COSSIM." },
+        { t: "Informer l'autorité HELI (action COSSIM)", d: "Incluse au stick si départ hors commune." },
+        { t: "Demander au COSSIM :", d: "Une fréquence de chantier · la fréquence de contact avec l'hélicoptère et son indicatif · le type d'hélicoptère et sa provenance · le point de rendez-vous avec l'hélicoptère (DZ)." },
+        { t: "Prendre connaissance des moyens se rendant au point de rassemblement (a/o CdG)", d: "S'assurer de l'engagement minimum de 2 CCF pour la constitution du stick." },
+      ],
+    },
+    {
+      title: "Phase 2 — Accueil et prise en compte du personnel", icon: "🧑‍🤝‍🧑",
+      intro: "Personnel réuni : le chef de stick communique à l'OGEM le délai estimé de préparation de la mission et l'estimation du temps de ralliement sur zone.",
+      steps: [
+        { t: "Désigner un adjoint au chef de stick" },
+        { t: "Réaliser l'ordre préparatoire — PATRACDR", d: "Personnel : vérifier qualité, habilitations, état physique (DIH 1 : équipier, conducteur PL · DIH 2 : DZE, DZP, chef d'équipe) · Armement : vérifier matériels, inventaires · Tenues : vérifier les EPI · Radios : vérifier postes mobiles et portatifs · Alimentation (a/o 2e chef) : rations, boissons, carburants, ingrédients — autonomie 48 h · Commandement : répartir rôles et affectations par véhicules (DZE = adjoint au chef de stick · 1er chef = responsable matériel CM DIH · répartition selon mission et lieu) · Déroulement : phases essentielles, durée prévisible, quand, comment, pourquoi, autres moyens engagés · Rendez-vous : lieu et heure." },
+      ],
+    },
+    {
+      title: "Phase 3 — Préparation de la mission", icon: "🎒",
+      steps: [
+        { t: "Se munir de la clé N°23 du bureau HELI (Bat A, 1er étage)", d: "A/o CdG LVN, ou à défaut STD LVN. Trousseau sur les portatifs ANTARES pour : mezzanine, réserve carburant, petit local Bat B (PAS le local GIMAé)." },
+        { t: "Préparer le sac du chef de stick", d: "Cartes IGN, DFCI et boussole · radios (7 Antarès 80 MHz, VHF marine et aéro + accus) · chargeurs accus, multi-prises." },
+        { t: "Selon le lieu et le type de mission — matériels supplémentaires", d: "Rations (local DIH Bat B) et eau pour 48 h minimum · couchages et vêtements chauds DIH (duvets, polaires, tentes, rechanges) : sacs OPS DIH déjà constitués · trousse de premiers secours · trousse à outils · sac protection auditive et lunettes." },
+        { t: "Matériel complémentaire", d: "Groupe éclairage / électrogènes portables · tronçonneuses · débroussailleuses · bâches supplémentaires (500, 800, 1000) · bidons carburant (mélange) supplémentaires (garage caisson carburant HELI)." },
+      ],
+    },
+    {
+      title: "Phase 4 — Départ en mission", icon: "🚀",
+      steps: [
+        { t: "Communiquer la liste du personnel au COSSIM", d: "Renseigner la fiche « personnel » dans le bureau HELI : qualité · quantité · coordonnées individuelles · éventuellement le numéro de mobile du chef de stick." },
+        { t: "Si intervention hors commune : perception à l'état-major (a/o CdC HELI et OGEM)", d: "Carte carburant · cartes autoroute · argent en numéraire · si départ pour la Corse : voir le CMP pour médicaments contre le mal de mer." },
+        { t: "Réaliser l'ordre de mouvement — DPIF", d: "Direction (direction générale à suivre) · Point à atteindre (point précis où le groupe devra s'arrêter) · Itinéraire (à suivre par le groupe) · Formation (ordre de marche des engins, intervalle, vitesse, signaux, canal à veiller, consignes de sécurité)." },
+      ],
+    },
+  ],
+  obs: [
+    "Pour mémoire — renfort extérieur : VRCC, VRCG, CM DIH, 2 CCF, TPHR.",
+    "Dans le cadre du référentiel, le stick peut travailler à 7 pax en attente d'être complété.",
+  ],
+  quiz: [
+    { q: "Que signifie le A de PATRACDR ?", opts: ["Armement", "Alimentation", "Antenne"], a: 1, ex: "Personnel · Armement · Tenues · Radios · Alimentation · Commandement · Déroulement · Rendez-vous." },
+    { q: "Quel est le numéro de l'adjudant de SOS ?", opts: ["06 32 87 16 70", "06 23 78 61 07", "06 87 32 16 70"], a: 0, ex: "06 32 87 16 70 — à informer dès la réception de l'alerte." },
+    { q: "Quel engagement minimum pour constituer le stick ?", opts: ["1 CCF", "2 CCF", "3 CCF"], a: 1, ex: "S'assurer de l'engagement minimum de 2 CCF." },
+    { q: "Quelle clé ouvre le bureau HELI ?", opts: ["Clé N°13", "Clé N°23", "Clé N°32"], a: 1, ex: "La clé N°23 — bureau HELI, Bat A 1er étage, a/o CdG LVN ou STD LVN." },
+    { q: "Le D de DPIF signifie…", opts: ["Direction", "Départ", "Distance"], a: 0, ex: "Direction · Point à atteindre · Itinéraire · Formation." },
+    { q: "À combien de pax le stick peut-il travailler en attendant d'être complété ?", opts: ["5 pax", "7 pax", "9 pax"], a: 1, ex: "7 pax en attente d'être complété (référentiel)." },
+    { q: "Où se trouve la clé N°23 si le CdG LVN est absent ?", opts: ["Au STD LVN", "Au COSSIM", "Au garage HELI"], a: 0, ex: "A/o CdG LVN, si absent au STD LVN." },
+    { q: "Combien de radios Antarès dans le sac du chef de stick ?", opts: ["5", "7", "9"], a: 1, ex: "7 Antarès (80 MHz) + VHF marine et aéro + accus." },
+  ],
+},
+
+grue: {
+  id: "grue",
+  name: "GRUE AUXILIAIRE DU CM DIH",
+  emoji: "🏗",
+  accent: "violet",
+  subtitle: "Fiche de tâche DIH — mise en œuvre",
+  source: "Fiche de tâche DIH — Mise en œuvre de la grue auxiliaire du CM DIH (4 p.)",
+  phases: [
+    {
+      title: "1 — Mise sous tension de l'équipement", icon: "🔌",
+      steps: [
+        { t: "Enclencher la prise de mouvement au poste de conduite en cabine", d: "Émission d'un BIP LONG.", },
+        { t: "Déverrouiller les boutons d'arrêt d'urgence (BAU) de la grue ET de la télécommande" },
+        { t: "Allumer la télécommande (bouton POWER)", d: "Émission d'un BIP COURT — vérifier la charge de la batterie sur l'écran." },
+      ],
+    },
+    {
+      title: "2 — Stabilisation du véhicule", icon: "🛠",
+      steps: [
+        { t: "Sélectionner l'icône stabilisation sur la télécommande", d: "Menu déroulant : molette (rotation) puis valider (appui sur le bouton)." },
+        { t: "Vérifier l'affichage « stabilisateurs ? » et valider", d: "Avec les deux boutons situés de part et d'autre du BAU — émission d'un BIP court." },
+        { t: "Vérifier sur l'écran de la grue le schéma de position des stabilisateurs" },
+        { t: "Déverrouiller les deux sécurités mécaniques du stabilisateur" },
+        { t: "Sortir la poutre de la largeur du [véhicule] seulement" },
+        { t: "Retirer la goupille anti-rotation du vérin" },
+        { t: "Amener le vérin en position basse par rotation vers l'arrière du véhicule" },
+        { t: "Remettre la goupille anti-rotation du vérin" },
+        { t: "Sortir la poutre jusqu'au repère et verrouiller celle-ci" },
+        { t: "Positionner la vanne trois voies sur le stabilisateur besoin (1 ou 2)" },
+        { t: "Mettre le vérin en appui au sol (manette rouge) pour mettre à niveau le véhicule", d: "Utiliser les niveaux à bulles sur le support stabilisateurs." },
+        { t: "Vérifier l'acquittement de la stabilisation sur l'écran de la grue", d: "Remplissage des symboles stabilisateurs en noir." },
+        { t: "Répéter les opérations du §2.4 au §2.12 pour le second stabilisateur" },
+      ],
+    },
+    {
+      title: "3 — Utilisation de la grue", icon: "🏗",
+      steps: [
+        { t: "Sélectionner l'icône grue sur la télécommande", d: "Menu déroulant : bouton molette de sélection puis appuyer." },
+        { t: "Vérifier l'affichage « grue ? » et valider", d: "Avec les deux boutons situés de part et d'autre du BAU." },
+        { t: "Vérifier l'affichage « grue au repos » (sécurité)" },
+        { t: "Actionner la manette de mouvement du bras secondaire pendant 10 s", d: "Faire disparaître « grue au repos » pour autoriser les mouvements." },
+        { t: "Manipuler la grue en déployant d'abord le bras principal" },
+      ],
+      warn: [
+        "Ne JAMAIS se placer sous le bras ou la charge.",
+        "BIP ALTERNATIF = 90 % de la charge autorisée.",
+        "BIP CONTINU = 100 % de la charge et ARRÊT du mouvement — effectuer une manœuvre non aggravante pour pouvoir continuer à utiliser la grue.",
+      ],
+    },
+    {
+      title: "4 — Remise en place de la grue", icon: "↩",
+      steps: [
+        { t: "Reployer le bras entièrement" },
+        { t: "Effectuer la rotation et positionner la grue sur le repère côté conducteur (flèches)" },
+        { t: "Finaliser la mise en place en position route côté passager", d: "Positionner la grue dans son logement et vérifier le verrouillage du télescope." },
+      ],
+    },
+    {
+      title: "5 — Mise en position route du véhicule", icon: "🚚",
+      steps: [
+        { t: "Sélectionner l'icône stabilisation sur la télécommande", d: "Menu déroulant : molette (rotation) puis valider (appui sur le bouton)." },
+        { t: "Vérifier l'affichage « stabilisateurs ? » et valider", d: "Avec les deux boutons de part et d'autre du BAU — émission d'un BIP court." },
+        { t: "Ranger les stabilisateurs", d: "Effectuer les opérations du §2.11 au §2.4 (ordre inverse)." },
+        { t: "Appuyer sur les deux BAU (grue et télécommande) pour les mettre hors tension" },
+        { t: "Annuler la prise de mouvement au poste de conduite en cabine" },
+      ],
+      note: "La position route dispose de 3 sécurités : un capteur sur la grue et un capteur sur chaque stabilisateur, qui valident le boîtier MOL au poste de conduite.",
+    },
+  ],
+  quiz: [
+    { q: "Que signifie un BIP LONG à la mise sous tension ?", opts: ["Batterie faible", "Prise de mouvement enclenchée", "Fin de stabilisation"], a: 1, ex: "BIP LONG = prise de mouvement en cabine · BIP COURT = télécommande allumée / validation stabilisateurs." },
+    { q: "Un BIP ALTERNATIF pendant la manœuvre signifie…", opts: ["90 % de la charge autorisée", "100 % de la charge — arrêt du mouvement", "Défaut stabilisateur"], a: 0, ex: "Bip alternatif = 90 % · bip continu = 100 % + arrêt du mouvement (manœuvre non aggravante)." },
+    { q: "Quel bras déploie-t-on en premier ?", opts: ["Le bras secondaire", "Le bras principal", "Peu importe"], a: 1, ex: "Déployer d'abord le bras principal." },
+    { q: "Combien de sécurités valident la position route ?", opts: ["1 (capteur grue)", "2 (stabilisateurs)", "3 (capteur grue + 2 stabilisateurs)"], a: 2, ex: "Un capteur sur la grue + un sur chaque stabilisateur → valide le boîtier MOL au poste de conduite." },
+    { q: "Comment ranger les stabilisateurs ?", opts: ["Du §2.4 au §2.12", "Du §2.11 au §2.4 (ordre inverse)", "Tous en même temps"], a: 1, ex: "Opérations du §2.11 au §2.4 — puis BAU hors tension et annulation de la prise de mouvement." },
+  ],
+},
+};
+
+// ============================================================
+// DESSINS (SVG partagés canvas + PWA)
+// ============================================================
+
+var SVGS = {
+
+// ---- Schéma du stick : 13 hommes, engins, binômes ----
+stick: function () {
+  return '<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<defs><marker id="ar1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/></marker></defs>'
+  + '<rect x="175" y="8" width="210" height="30" rx="8" fill="#f59e0b"/>'
+  + '<text x="280" y="28" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">CHEF DE STICK (DZE en adjoint)</text>'
+  + '<line x1="280" y1="38" x2="280" y2="58" stroke="#f59e0b" stroke-width="2" marker-end="url(#ar1)"/>'
+  // engins
+  + '<rect x="10" y="62" width="150" height="58" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<text x="85" y="84" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">VRCG DIH</text>'
+  + '<text x="85" y="103" text-anchor="middle" fill="#cbd5e1" font-size="12">2 hommes · MECA</text>'
+  + '<rect x="175" y="62" width="150" height="58" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<text x="250" y="84" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">CM DIH</text>'
+  + '<text x="250" y="103" text-anchor="middle" fill="#cbd5e1" font-size="12">3 hommes · matériel</text>'
+  + '<rect x="340" y="62" width="100" height="58" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<text x="390" y="84" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">CCF ×1</text>'
+  + '<text x="390" y="103" text-anchor="middle" fill="#cbd5e1" font-size="12">3 hommes · DZP</text>'
+  + '<rect x="450" y="62" width="100" height="58" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<text x="500" y="84" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">CCF ×1</text>'
+  + '<text x="500" y="103" text-anchor="middle" fill="#cbd5e1" font-size="12">3 hommes · ALIM</text>'
+  + '<rect x="10" y="132" width="150" height="58" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<text x="85" y="154" text-anchor="middle" fill="#38bdf8" font-size="13" font-weight="700">TPHR DIH</text>'
+  + '<text x="85" y="173" text-anchor="middle" fill="#cbd5e1" font-size="12">2 hommes</text>'
+  + '<rect x="175" y="132" width="375" height="58" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-dasharray="5 3" stroke-width="1.5"/>'
+  + '<text x="362" y="154" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="700">BINÔMES DE MANŒUVRE</text>'
+  + '<text x="362" y="176" text-anchor="middle" fill="#e2e8f0" font-size="12">1 hélicoptère · 4 établissements · 1 alimentation</text>'
+  // hélicos
+  + '<rect x="10" y="205" width="540" height="52" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>'
+  + '<text x="280" y="227" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">VECTEURS AÉRIENS POSSIBLES</text>'
+  + '<text x="280" y="245" text-anchor="middle" fill="#e2e8f0" font-size="12">ECUREUIL (BMPM/SDIS) · EC145 (SC) · DAUPHIN-PANTHER (MN) · CAIMAN-NH90 (MN)</text>'
+  // total
+  + '<rect x="10" y="272" width="540" height="46" rx="10" fill="#38bdf8"/>'
+  + '<text x="280" y="300" text-anchor="middle" fill="#0f172a" font-size="15" font-weight="800">13 HOMMES = 2 (VRCG) + 3 (CM) + 6 (2 CCF) + 2 (TPHR)</text>'
+  + '</svg>';
+},
+
+// ---- Zones DZ : emport / poser ----
+dz: function () {
+  return '<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/></marker></defs>'
+  // zone d'emport
+  + '<rect x="10" y="40" width="220" height="170" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>'
+  + '<text x="120" y="68" text-anchor="middle" fill="#38bdf8" font-size="14" font-weight="800">ZONE D\u2019EMPORT</text>'
+  + '<text x="120" y="86" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="700">DZE — chasuble jaune</text>'
+  + '<text x="120" y="110" text-anchor="middle" fill="#e2e8f0" font-size="11.5">• PLANE — ETENDUE 30 × 30 m</text>'
+  + '<text x="120" y="128" text-anchor="middle" fill="#e2e8f0" font-size="11.5">• DEGAGEE — ACCESSIBLE route</text>'
+  + '<text x="120" y="152" text-anchor="middle" fill="#cbd5e1" font-size="11.5">Embarquement personnel</text>'
+  + '<text x="120" y="170" text-anchor="middle" fill="#cbd5e1" font-size="11.5">Slings prêts · ravitailleur</text>'
+  + '<rect x="45" y="185" width="150" height="14" rx="4" fill="#f59e0b" opacity="0.25"/>'
+  + '<text x="120" y="196" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">SOUTIEN LOGISTIQUE</text>'
+  // hélico
+  + '<g transform="translate(280,60)">'
+  + '<ellipse cx="30" cy="40" rx="34" ry="20" fill="#f8fafc"/><rect x="52" y="33" width="60" height="14" rx="7" fill="#f8fafc"/><line x1="30" y1="10" x2="30" y2="22" stroke="#f8fafc" stroke-width="4"/><line x1="0" y1="16" x2="60" y2="16" stroke="#38bdf8" stroke-width="5"/><line x1="105" y1="26" x2="105" y2="58" stroke="#f8fafc" stroke-width="4"/><line x1="88" y1="42" x2="122" y2="42" stroke="#38bdf8" stroke-width="4"/>'
+  + '<circle cx="30" cy="40" r="6" fill="#0f172a"/><text x="30" y="14" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">HÉLICO</text></g>'
+  // flèches rotations
+  + '<path d="M270,130 L150,140" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#ar2)" fill="none"/>'
+  + '<path d="M350,130 L420,140" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#ar2)" fill="none"/>'
+  + '<text x="205" y="120" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">rotations</text>'
+  + '<text x="375" y="120" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">sling</text>'
+  // zone de poser
+  + '<rect x="330" y="40" width="220" height="170" rx="12" fill="#1e293b" stroke="#f87171" stroke-width="2"/>'
+  + '<text x="440" y="68" text-anchor="middle" fill="#f87171" font-size="14" font-weight="800">ZONE DE POSER</text>'
+  + '<text x="440" y="86" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="700">DZP — chasuble jaune</text>'
+  + '<text x="440" y="110" text-anchor="middle" fill="#e2e8f0" font-size="11.5">• DEGAGEE (posé machine inutile)</text>'
+  + '<text x="440" y="128" text-anchor="middle" fill="#e2e8f0" font-size="11.5">• PLANE — 2 citernes souples</text>'
+  + '<text x="440" y="152" text-anchor="middle" fill="#cbd5e1" font-size="11.5">Au plus proche du sinistre</text>'
+  + '<rect x="365" y="163" width="150" height="36" rx="8" fill="#f87171" opacity="0.2"/>'
+  + '<text x="440" y="178" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">⚠ ZONE DE REPLI</text>'
+  + '<text x="440" y="192" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">du personnel en cas de danger</text>'
+  // légende
+  + '<text x="280" y="245" text-anchor="middle" fill="#94a3b8" font-size="12">Chaque zone a son directeur dédié — ils organisent l\u2019espace, le fonctionnement et la sécurité.</text>'
+  + '<text x="280" y="268" text-anchor="middle" fill="#94a3b8" font-size="12">Au moins 2 DZ sur un chantier (hélistations / dropping zones).</text>'
+  + '</svg>';
+},
+
+// ---- Établissement hydraulique + fontainier ----
+etab: function () {
+  return '<svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<defs><marker id="ar3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8"/></marker></defs>'
+  // réserve d'eau
+  + '<rect x="10" y="60" width="90" height="90" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>'
+  + '<path d="M20,110 q15,-28 35,-28 q35,0 35,42 q0,22 -35,22 q-35,0 -35,-36 Z" fill="#38bdf8" opacity="0.3"/>'
+  + '<text x="55" y="52" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">EAU</text>'
+  + '<text x="55" y="106" text-anchor="middle" fill="#e2e8f0" font-size="10.5">citerne souple</text>'
+  + '<text x="55" y="120" text-anchor="middle" fill="#e2e8f0" font-size="10.5">/ plan d\u2019eau / tonne</text>'
+  // motopompe
+  + '<rect x="130" y="70" width="100" height="70" rx="10" fill="#f59e0b"/>'
+  + '<text x="180" y="100" text-anchor="middle" fill="#0f172a" font-size="12.5" font-weight="800">MOTOPOMPE</text>'
+  + '<text x="180" y="118" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="600">≤ 2/3 capacité</text>'
+  + '<path d="M100,105 L128,105" stroke="#38bdf8" stroke-width="5" marker-end="url(#ar3)"/>'
+  // tuyaux
+  + '<path d="M230,105 L310,105" stroke="#38bdf8" stroke-width="7"/>'
+  + '<path d="M310,105 L310,70 L450,70" stroke="#38bdf8" stroke-width="5"/>'
+  + '<path d="M310,105 L310,140 L450,140" stroke="#38bdf8" stroke-width="4"/>'
+  + '<rect x="252" y="82" width="60" height="15" rx="4" fill="#0f172a" stroke="#38bdf8"/>'
+  + '<text x="282" y="93" text-anchor="middle" fill="#38bdf8" font-size="9.5" font-weight="700">70 puis 45</text>'
+  // sectionnement
+  + '<circle cx="310" cy="105" r="9" fill="#f59e0b"/><text x="310" y="109" text-anchor="middle" fill="#0f172a" font-size="10" font-weight="800">R</text>'
+  + '<text x="310" y="170" text-anchor="middle" fill="#f59e0b" font-size="10.5" font-weight="700">robinet mono (claie 45)</text>'
+  // lances
+  + '<path d="M450,70 L475,62 L475,78 Z" fill="#f8fafc"/>'
+  + '<text x="500" y="68" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">lance 40/12</text>'
+  + '<text x="500" y="83" text-anchor="middle" fill="#94a3b8" font-size="10">250/3,5</text>'
+  + '<path d="M450,140 L475,132 L475,148 Z" fill="#f8fafc"/>'
+  + '<text x="500" y="138" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">lance 20/7</text>'
+  + '<text x="500" y="153" text-anchor="middle" fill="#94a3b8" font-size="10">80/3,5</text>'
+  // fontainier + radio
+  + '<g transform="translate(130,160)"><circle cx="14" cy="8" r="7" fill="#f8fafc"/><rect x="6" y="17" width="16" height="22" rx="5" fill="#f8fafc"/><rect x="24" y="20" width="8" height="16" rx="2" fill="#f59e0b"/><text x="18" y="56" text-anchor="middle" fill="#f59e0b" font-size="10.5" font-weight="700">FONTAINIER</text></g>'
+  + '<path d="M215,180 L340,185" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ar3)"/>'
+  + '<text x="290" y="205" text-anchor="middle" fill="#f59e0b" font-size="10.5" font-weight="700">liaison radio permanente</text>'
+  + '<text x="290" y="220" text-anchor="middle" fill="#94a3b8" font-size="10.5">avec le chef de manœuvre à la pointe de l\u2019établissement</text>'
+  // pertes de charge
+  + '<rect x="10" y="216" width="540" height="36" rx="8" fill="#1e293b"/>'
+  + '<text x="280" y="238" text-anchor="middle" fill="#e2e8f0" font-size="11.5" font-weight="600">J (bar/hm) : 70/500 → 0,5 · 45/250 → 1,5 · 25/80 → 3,5 — Z ± 1 bar / 10 m — tuyaux ≤ 15 bars</text>'
+  + '</svg>';
+},
+
+// ---- Sling : hélico + élingue + filet ----
+sling: function () {
+  return '<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  // hélicoptère (vue de côté)
+  + '<g transform="translate(160,20)">'
+  + '<line x1="40" y1="38" x2="320" y2="38" stroke="#38bdf8" stroke-width="6"/>'
+  + '<line x1="180" y1="44" x2="180" y2="58" stroke="#94a3b8" stroke-width="4"/>'
+  + '<ellipse cx="180" cy="92" rx="66" ry="34" fill="#f8fafc"/>'
+  + '<rect x="230" y="80" width="120" height="22" rx="11" fill="#f8fafc"/>'
+  + '<line x1="330" y1="70" x2="330" y2="112" stroke="#94a3b8" stroke-width="4"/>'
+  + '<line x1="312" y1="91" x2="348" y2="91" stroke="#38bdf8" stroke-width="5"/>'
+  + '<circle cx="140" cy="86" r="10" fill="#0f172a"/>'
+  + '</g>'
+  + '<text x="260" y="20" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">disque rotor 12–16 m — souffle proportionnel</text>'
+  // crochet délesteur
+  + '<rect x="330" y="140" width="26" height="14" rx="4" fill="#f59e0b"/>'
+  + '<path d="M343,154 q-16,20 0,32 q16,-12 0,-32" fill="none" stroke="#f59e0b" stroke-width="5"/>'
+  + '<text x="372" y="168" fill="#f59e0b" font-size="11" font-weight="700">crochet délesteur</text>'
+  // élingue 10 m
+  + '<line x1="343" y1="186" x2="343" y2="216" stroke="#f8fafc" stroke-width="3"/>'
+  + '<text x="352" y="205" fill="#e2e8f0" font-size="11.5" font-weight="700">élingue 10 m</text>'
+  + '<text x="352" y="220" fill="#94a3b8" font-size="10.5">(validée au briefing)</text>'
+  // point tournant
+  + '<circle cx="343" cy="222" r="8" fill="#f59e0b"/>'
+  + '<text x="358" y="240" fill="#f59e0b" font-size="11" font-weight="700">point tournant — le plus près possible de la charge</text>'
+  // filet + charge
+  + '<line x1="343" y1="230" x2="268" y2="262" stroke="#94a3b8" stroke-width="2"/>'
+  + '<line x1="343" y1="230" x2="418" y2="262" stroke="#94a3b8" stroke-width="2"/>'
+  + '<rect x="250" y="256" width="186" height="26" rx="4" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 3"/>'
+  + '<rect x="290" y="228" width="80" height="30" rx="6" fill="#f8fafc"/>'
+  + '<text x="330" y="248" text-anchor="middle" fill="#0f172a" font-size="11" font-weight="700">CHARGE</text>'
+  + '<text x="343" y="280" text-anchor="middle" fill="#38bdf8" font-size="11.5" font-weight="700">filet 3,4 m de côté — max 1 à 1,4 t</text>'
+  // règles à gauche
+  + '<text x="12" y="150" fill="#e2e8f0" font-size="11.5" font-weight="700">CONDITIONNER :</text>'
+  + '<text x="12" y="170" fill="#cbd5e1" font-size="11">• centrer la charge (équilibre)</text>'
+  + '<text x="12" y="188" fill="#cbd5e1" font-size="11">• parties sensibles à l\u2019abri des mailles</text>'
+  + '<text x="12" y="206" fill="#cbd5e1" font-size="11">• anneaux regroupés, manille + élingue textile</text>'
+  + '<text x="12" y="228" fill="#94a3b8" font-size="11">Vol stationnaire très proche du sol</text>'
+  + '<text x="12" y="246" fill="#94a3b8" font-size="11">pour l\u2019accrochage et le décrochage.</text>'
+  + '<text x="12" y="272" fill="#f87171" font-size="11" font-weight="700">Guide : chasuble JAUNE, vers l\u2019avant,</text>'
+  + '<text x="12" y="288" fill="#f87171" font-size="11" font-weight="700">visible du pilote place droite.</text>'
+  + '</svg>';
+},
+
+// ---- Approche de la machine ----
+approche: function () {
+  return '<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<defs><marker id="ar5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f59e0b"/></marker></defs>'
+  // zone
+  + '<rect x="10" y="10" width="540" height="240" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5" stroke-dasharray="7 5"/>'
+  + '<text x="280" y="32" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="700">ZONE DZ — DÉGAGÉE, SOL INSPECTÉ (PRINCIPE TARMAC)</text>'
+  // disque rotor (top view)
+  + '<circle cx="280" cy="130" r="105" fill="#38bdf8" opacity="0.08" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6 4"/>'
+  + '<text x="280" y="86" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">disque rotor : 12 à 16 m</text>'
+  // hélico top view
+  + '<g transform="translate(280,130)">'
+  + '<ellipse cx="0" cy="0" rx="46" ry="24" fill="#f8fafc"/>'
+  + '<rect x="-14" y="-68" width="28" height="46" rx="10" fill="#f8fafc"/>'
+  + '<rect x="-20" y="-70" width="40" height="8" rx="4" fill="#38bdf8"/>'
+  + '<circle cx="30" cy="0" r="7" fill="#0f172a"/>'
+  + '</g>'
+  + '<text x="280" y="160" text-anchor="middle" fill="#94a3b8" font-size="10.5">côté aval si terrain en dévers</text>'
+  // personnel attente
+  + '<g transform="translate(70,180)">'
+  + '<circle cx="0" cy="0" r="6" fill="#f59e0b"/><rect x="-7" y="8" width="14" height="10" rx="4" fill="#f59e0b"/>'
+  + '<circle cx="26" cy="0" r="6" fill="#f59e0b"/><rect x="19" y="8" width="14" height="10" rx="4" fill="#f59e0b"/>'
+  + '<circle cx="52" cy="0" r="6" fill="#f59e0b"/><rect x="45" y="8" width="14" height="10" rx="4" fill="#f59e0b"/>'
+  + '</g>'
+  + '<text x="100" y="222" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">attente accroupi en bordure de zone</text>'
+  + '<text x="100" y="238" text-anchor="middle" fill="#cbd5e1" font-size="10.5">casque · auditifs · lunettes · gants</text>'
+  // flèche approche secteur avant
+  + '<path d="M100,120 L170,120 L228,120" stroke="#f59e0b" stroke-width="3.5" marker-end="url(#ar5)" fill="none"/>'
+  + '<text x="100" y="106" text-anchor="middle" fill="#f59e0b" font-size="11.5" font-weight="700">APPROCHE SECTEUR AVANT</text>'
+  + '<text x="100" y="92" text-anchor="middle" fill="#e2e8f0" font-size="10.5">(terrain plat — tête basse sous le disque)</text>'
+  // consignes
+  + '<text x="440" y="200" fill="#e2e8f0" font-size="11" font-weight="700">EMBARQUEMENT :</text>'
+  + '<text x="440" y="217" fill="#cbd5e1" font-size="10.5">sur ordre de l\u2019équipage</text>'
+  + '<text x="440" y="232" fill="#cbd5e1" font-size="10.5">(geste relayé par le DZE)</text>'
+  + '<text x="280" y="272" text-anchor="middle" fill="#f87171" font-size="12" font-weight="800">MATÉRIEL : À BOUT DE BRAS EN PARTIE BASSE — JAMAIS À L\u2019ÉPAULE</text>'
+  + '<text x="280" y="290" text-anchor="middle" fill="#94a3b8" font-size="11">Mêmes règles pour l\u2019embarquement et le débarquement.</text>'
+  + '</svg>';
+},
+
+// ---- Matériel (icônes poids) ----
+matos: function () {
+  return '<svg viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<rect x="10" y="10" width="130" height="100" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<circle cx="75" cy="50" r="24" fill="#38bdf8"/><circle cx="75" cy="50" r="9" fill="#0f172a"/>'
+  + '<text x="75" y="92" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">MOTOPOMPE 16 kg</text>'
+  + '<text x="75" y="106" text-anchor="middle" fill="#94a3b8" font-size="10">250/4 · 160/9 · 80/12</text>'
+  + '<rect x="150" y="10" width="130" height="100" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>'
+  + '<path d="M215,30 q-24,0 -24,26 q0,10 24,34 q24,-24 24,-34 q0,-26 -24,-26 Z" fill="#f59e0b" opacity="0.8"/>'
+  + '<text x="215" y="92" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">FLOTTANTE 22 kg</text>'
+  + '<text x="215" y="106" text-anchor="middle" fill="#94a3b8" font-size="10">type Fyrflot</text>'
+  + '<rect x="290" y="10" width="130" height="100" rx="10" fill="#1e293b" stroke="#f87171" stroke-width="1.5"/>'
+  + '<rect x="325" y="34" width="60" height="36" rx="8" fill="#f87171"/><rect x="349" y="70" width="12" height="14" fill="#94a3b8"/>'
+  + '<text x="355" y="92" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">WAJAX 25 kg</text>'
+  + '<text x="355" y="106" text-anchor="middle" fill="#94a3b8" font-size="10">250/10 · DN 65</text>'
+  + '<rect x="430" y="10" width="120" height="100" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>'
+  + '<ellipse cx="490" cy="54" rx="34" ry="16" fill="#a78bfa"/><path d="M456,54 q-14,26 34,30 q48,-4 34,-30" fill="none" stroke="#a78bfa" stroke-width="2"/>'
+  + '<text x="490" y="92" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">CITERNE SOUPLE</text>'
+  + '<text x="490" y="106" text-anchor="middle" fill="#94a3b8" font-size="10">500 / 800 / 1000 L</text>'
+  + '<rect x="10" y="120" width="260" height="90" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>'
+  + '<text x="140" y="142" text-anchor="middle" fill="#e2e8f0" font-size="11.5" font-weight="700">CLAIES (sacs souples)</text>'
+  + '<text x="140" y="160" text-anchor="middle" fill="#cbd5e1" font-size="10.5">4 × 45 (robinet mono + div. 45/45/2×23)</text>'
+  + '<text x="140" y="176" text-anchor="middle" fill="#cbd5e1" font-size="10.5">4 × 23 (2 lances 20/7) · 2 × 70 (1 tuyau 70/40)</text>'
+  + '<text x="140" y="196" text-anchor="middle" fill="#94a3b8" font-size="10.5">CM DIH — établissement sac sur le dos</text>'
+  + '<rect x="280" y="120" width="270" height="90" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>'
+  + '<text x="415" y="142" text-anchor="middle" fill="#e2e8f0" font-size="11.5" font-weight="700">MÉLANGE 4 % PARTOUT</text>'
+  + '<text x="415" y="160" text-anchor="middle" fill="#cbd5e1" font-size="10.5">motopompes · groupe électrogène éclairage</text>'
+  + '<text x="415" y="176" text-anchor="middle" fill="#cbd5e1" font-size="10.5">éclairage : 2 × 500 W — 27 kg · autonomie 8 h (20 L)</text>'
+  + '<text x="415" y="196" text-anchor="middle" fill="#94a3b8" font-size="10.5">Bivouac individuel : autonomie 48 h</text>'
+  + '</svg>';
+},
+
+// ---- Signes conventionnels (pictos) ----
+signes: function () {
+  function picto(id, label, body) {
+    return '<g transform="translate(' + (20 + (id % 6) * 90) + ',' + (20 + Math.floor(id / 6) * 130) + ')">'
+    + '<rect x="0" y="0" width="80" height="112" rx="10" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>'
+    + body
+    + '<text x="40" y="106" text-anchor="middle" font-size="9.5" font-weight="700" fill="#e2e8f0">' + label + '</text>'
+    + '</g>';
+  }
+  var tete = '<circle cx="40" cy="30" r="8" fill="#f59e0b"/>';
+  var bras = function (d) { return '<path d="' + d + '" stroke="#f8fafc" stroke-width="4" stroke-linecap="round" fill="none"/>'; };
+  var corps = '<line x1="40" y1="38" x2="40" y2="64" stroke="#f8fafc" stroke-width="5" stroke-linecap="round"/>';
+  var jambes = '<line x1="40" y1="64" x2="28" y2="86" stroke="#f8fafc" stroke-width="4" stroke-linecap="round"/><line x1="40" y1="64" x2="52" y2="86" stroke="#f8fafc" stroke-width="4" stroke-linecap="round"/>';
+  return '<svg viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + picto(0, "A-8 · avancez tout droit", tete + corps + bras("M40,46 L18,26 M40,46 L62,26") + jambes)
+  + picto(1, "A-11 · reculez", tete + corps + bras("M40,46 L18,58 M40,46 L62,58") + jambes)
+  + picto(2, "A-15 · faites avancer le personnel", tete + corps + bras("M40,44 L20,30 M40,44 L60,30") + jambes)
+  + picto(3, "A-16 · personnel approchant", tete + corps + bras("M40,46 L24,56 M40,46 L56,56") + jambes)
+  + picto(4, "B-1 · décollez", tete + corps + bras("M40,46 L20,28 M40,46 L60,28") + jambes)
+  + picto(5, "B-2 · restez en stationnaire", tete + corps + bras("M40,44 L14,44 M40,44 L66,44") + jambes)
+  + picto(6, "B-3 · montez", tete + corps + bras("M40,46 L26,24 M40,46 L54,24") + '<circle cx="40" cy="18" r="6" fill="none" stroke="#f87171" stroke-width="3"/>')
+  + picto(7, "B-4 · vers la gauche", tete + corps + bras("M40,46 L14,38 M40,46 L66,54") + jambes)
+  + picto(8, "B-5 · vers la droite", tete + corps + bras("M40,46 L66,38 M40,46 L14,54") + jambes)
+  + picto(9, "B-10 · descendez", tete + corps + bras("M40,46 L26,68 M40,46 L54,68") + '<circle cx="40" cy="78" r="6" fill="none" stroke="#f87171" stroke-width="3"/>')
+  + picto(10, "B-17 · décrochez la charge", tete + corps + bras("M40,46 L22,28 M40,46 L58,28") + '<line x1="40" y1="60" x2="40" y2="80" stroke="#38bdf8" stroke-width="4"/><circle cx="40" cy="84" r="5" fill="#38bdf8"/>')
+  + picto(11, "B-18 · charge non libérée", tete + corps + bras("M40,46 L22,28 M40,46 L58,28") + '<line x1="40" y1="60" x2="40" y2="76" stroke="#38bdf8" stroke-width="4"/><text x="40" y="92" text-anchor="middle" font-size="16" font-weight="800" fill="#f87171">✕</text>')
+  + '<text x="280" y="284" text-anchor="middle" fill="#94a3b8" font-size="11">Signes conventionnels de circulation au sol des aéronefs — STANAG-3117 / OTAN 2014 (représentation simplifiée).</text>'
+  + '</svg>';
+},
+};
+
+var SIGNES = {
+  "A-8": "avancez tout droit",
+  "A-11": "reculez",
+  "A-15": "demande de faire avancer du personnel vers l'aéronef",
+  "A-16": "personnel approchant de l'aéronef",
+  "A-52": "maintenez la position / attendez",
+  "B-1": "décollez",
+  "B-2": "restez en vol stationnaire",
+  "B-3": "montez",
+  "B-4": "déplacez-vous vers la gauche",
+  "B-5": "déplacez-vous vers la droite",
+  "B-10": "descendez",
+  "B-11": "atterrissez",
+  "B-17": "décrochez la charge",
+  "B-18": "la charge n'est pas libérée (problème avec la charge)",
+};
+
+
+// ============================================================
+// MOTOPOMPES — intégrées en v2 (04/10/2026)
+// Données verbatim des 4 notices PDF (validées par l'app HELI)
+// ============================================================
+
+D.motopompes = [
+  {
+    id: "mark3", name: "MARK 3 WATSON", emoji: "🌲", accent: "orange",
+    subtitle: "Portable feu de forêt — Code Gallin G221123", svg: "mpMark3",
+    fuelNote: "CARBURANT = ASPEN 2 (mélange 50:1) — jerrican déporté 20 L",
+    specs: [
+      ["Type pompe", "Centrifuge amovible haute pression à 4 étages"],
+      ["Aspiration / Refoulement", "SYM 40 / DSP 40"],
+      ["Hauteur de charge max.", "267 m"],
+      ["Pression max.", "26,2 bars"],
+      ["Débit max.", "379 l/min"],
+      ["Performances", "303 l/min à 6,9 bars · 265 l/min à 10,3 bars · 151 l/min à 17,2 bars"],
+      ["Dimensions (L × l × h)", "549 × 305 × 356 mm"],
+      ["Poids", "19 kg"],
+      ["Moteur", "WATERAX 140 cm³, 2 temps, refroidi par air, cylindre Nikasil"],
+      ["Puissance max.", "7,9 kW — 10,6 ch à 7 700 tr/min"],
+      ["Démarrage", "Démarreur à rappel automatique avec poulie d'urgence"],
+      ["Carburant", "Mélange 50:1 essence/huile — essence sans plomb indice d'octane mini 87 (max 10 % éthanol) — huile 2 temps certifiée API-TC, JASO FD, ISO-L-EGD"],
+      ["Réservoir", "Jerrican déporté 20 L"],
+      ["Consommation", "5,7 L/h"]
+    ],
+    start: [
+      { t: "Basculer le harnais vers l'avant" },
+      { t: "Raccorder le flexible carburant", d: "Sur le jerrican déporté de 20 L (Aspen 2)." },
+      { t: "Mettre le starter en position démarrage", d: "Le starter doit être dans la position « fermée »." },
+      { t: "Placer le levier d'accélérateur sur START", d: "3e position à partir d'IDLE." },
+      { t: "Mettre en eau avant le démarrage" },
+      { t: "Faire tourner lentement la corde", d: "Pour mettre en tension la corde du démarreur." },
+      { t: "Tirer rapidement sur la corde du démarreur" },
+      { t: "Ajuster l'accélérateur une fois démarré" }
+    ],
+    stop: [{ t: "Appuyer seulement sur le bouton OFF pour couper la motopompe" }],
+    del: [
+      ["Vert clignotant", "Moteur en phase de préchauffage.", "info"],
+      ["Vert fixe", "Moteur réchauffé — peut fonctionner en toute sécurité à plein régime.", "ok"],
+      ["Jaune clignotant", "Régime < 1 000 tr/min (bas régime) : ARRÊT DU MOTEUR — probablement manque de carburant.", "warn"],
+      ["Jaune fixe", "Problème de câblage, capteur de température déconnecté, court-circuit capteur, bouton d'arrêt déconnecté ou contact desserré — n'entraîne jamais l'arrêt du moteur.", "warn"],
+      ["Bleu clignotant", "Régime > 9 000 tr/min (survitesse) : ARRÊT DU MOTEUR — condition de désamorçage de la pompe.", "warn"],
+      ["Rouge clignotant", "Température moteur au-dessus du seuil d'avertissement ; au-delà de la température max autorisée : ARRÊT DU MOTEUR.", "danger"],
+      ["Rouge fixe", "Gradient de température trop élevé : ARRÊT DU MOTEUR — carburateur trop pauvre ou pas d'huile dans le carburant.", "danger"]
+    ],
+    source: "Notice « démarrage motopompe MARCK-3 » (PDF, 2 pages)"
+  },
+  {
+    id: "tohatsu", name: "TOHATSU VE 1500", emoji: "🚁", accent: "sky",
+    subtitle: "Motopompe sur panier hélitransportable — 271 kg avec panier", svg: "mpTohatsu",
+    fuelNote: "CARBURANT = ESSENCE SUPER (PAS de mélange) — réservoir 24 L",
+    specs: [
+      ["Moteur — type", "2 temps, 2 cylindres, refroidi par eau"],
+      ["Cylindrée", "804 cm³"],
+      ["Puissance nominale / max.", "60 ch / 44 kW"],
+      ["Carburant", "Essence Super"],
+      ["Capacité réservoir", "24 L"],
+      ["Consommation", "22 L/h"],
+      ["Démarrage", "Électrique + lanceur à corde retour automatique"],
+      ["Lubrification", "Autograissage automatique"],
+      ["Batterie", "12 V — 16 Ah"],
+      ["Pompe — type", "Centrifuge, mono-étage haute pression"],
+      ["Refoulement", "2 × DSP 65"],
+      ["Aspiration", "AR 100"],
+      ["Amorçage (aspiration à 3 m)", "Manuel (levier d'amorçage)"],
+      ["Performances (aspiration à 3 m)", "1 800 l/min à 8 bars · 1 500 l/min à 10 bars"],
+      ["Débit max.", "120 m³/h (2 000 l/min)"],
+      ["Pression max.", "16 bars"],
+      ["Granulométrie", "0,5 mm"],
+      ["Dimensions (L × l × h)", "75 × 73 × 83 cm"],
+      ["Poids (unité)", "127 kg"]
+    ],
+    controls: [
+      ["a", "Interrupteur général"],
+      ["b", "Commande des gaz"],
+      ["c", "Position de démarrage"],
+      ["d", "Horamètre"],
+      ["f", "Alarme niveau d'huile"],
+      ["g", "Alarme température moteur"],
+      ["h", "Alerte batterie"]
+    ],
+    start: [
+      { t: "Fermer les purges" },
+      { t: "Mettre en eau avant le démarrage" },
+      { t: "Placer l'accélérateur sur « S » (position de démarrage)" },
+      { t: "Tourner le bouton du démarreur sur la droite", d: "Tourner plusieurs fois si besoin, jusqu'au démarrage de la motopompe." },
+      { t: "Ajuster l'accélérateur en fonction du besoin" }
+    ],
+    extra: [
+      "Remplissage huile moteur : vérifier avant démarrage (alarme niveau d'huile).",
+      "Levier d'amorçage : à utiliser pour l'aspiration.",
+      "Remplissage carburant : essence Super uniquement."
+    ],
+    source: "Notice « démarrage motopompe TOHATSU » (PDF, 2 pages)"
+  },
+  {
+    id: "efp500", name: "EFP-500-FL (GEYSER)", emoji: "🌊", accent: "emerald",
+    subtitle: "Motopompe flottante haute pression — Mise en service manuelle", svg: "mpEfp500",
+    fuelNote: "⚠ Réservoir essence = MÉLANGE à 4 % (essence + huile 2 temps) — 5 L",
+    specs: [
+      ["Débit max.", "480 l/min"],
+      ["Élévation max.", "95 m"],
+      ["Refoulement", "2″ mâle"],
+      ["Moteur", "2 temps, 124 cm³"],
+      ["Mise en service", "Manuelle"],
+      ["Capacité réservoir", "5 L"],
+      ["Dimensions", "830 × 515 × 425 mm"],
+      ["Poids", "21,2 kg"],
+      ["Option", "Démarrage électrique"]
+    ],
+    start: [
+      { t: "Essence MÉLANGÉE à 4 % avec huile 2 temps uniquement", warn: true },
+      { t: "Ne PAS projeter d'eau dans la sortie d'échappement", d: "Risque de serrage du moteur.", warn: true },
+      { t: "Amarrer la motopompe flottante" },
+      { t: "Raccorder le tuyau à la sortie de refoulement", d: "Possibilité d'utiliser des flotteurs." },
+      { t: "Brancher la batterie externe (JUMP STARTER) sur la motopompe" },
+      { t: "Ouvrir la vanne carburant (ON)" },
+      { t: "Mettre le levier du starter sur ON" },
+      { t: "Mettre le bouton sur ON" },
+      { t: "Appuyer sur le bouton de démarrage" },
+      { t: "Après le claquage de la motopompe, remettre le levier du starter sur OFF" },
+      { t: "Une fois la motopompe démarrée, retirer la batterie externe" },
+      { t: "Poser doucement la motopompe en marche sur l'eau" },
+      { t: "Régler la pression de refoulement avec le levier d'accélérateur", d: "Sans excès." },
+      { t: "Après l'intervention : rinçage à l'eau claire", d: "Jamais de projection d'eau dans l'échappement." }
+    ],
+    extra: [
+      "Lanceur manuel disponible en secours (si plus de batterie).",
+      "Filtre à air et carburateur accessibles pour l'entretien courant."
+    ],
+    source: "Notice « motopompe flottante » EFP-500-FL (PDF, 2 pages)"
+  },
+  {
+    id: "fyrpak", name: "FYR PAK", emoji: "🔥", accent: "red",
+    subtitle: "Motopompe thermique portable feu de forêt — FT-U BMNR 003", svg: "mpFyrpak",
+    fuelNote: "Jerrican 5 L : mélange essence SP95 / huile 4 %",
+    specs: [
+      ["Marque", "FYR PAK"],
+      ["Moteur", "2 temps, refroidissement à air, 134 cm³, 8 ch (6 kW)"],
+      ["Carburant", "Mélange essence SP95 + 4 % huile moteur 2 temps"],
+      ["Pompe", "Centrifuge — pompe relais feu de forêt"],
+      ["Performances", "250 l/min à 4 bars · 140 l/min à 10 bars · 50 l/min à 13 bars"],
+      ["Alimentation / refoulement", "Refoulement eau diam. 45"],
+      ["Équipement", "Fixée sur claie de portage — jerrican 5 L — durite carburant avec poire d'amorçage"],
+      ["Coût TTC", "4 700 €"]
+    ],
+    start: [
+      { t: "Remplir le jerrican du mélange SP95 + 4 % huile 2 temps" },
+      { t: "Connecter le jerrican avec la durite en respectant le sens du flux", d: "Dévisser le bouchon ¼ de tour pour la mise à l'air libre." },
+      { t: "Raccorder l'alimentation et le refoulement en eau (diam. 45)" },
+      { t: "Pomper 2 fois la poire d'amorçage" },
+      { t: "Basculer le contact sur ON" },
+      { t: "Basculer la commande de starter en position fermée" },
+      { t: "Positionner la poignée de gaz en position ouverte (plein régime)" },
+      { t: "Tirer sèchement sur le lanceur", d: "Jusqu'au premier démarrage moteur." },
+      { t: "Basculer la commande de starter en position ouverte" },
+      { t: "Tirer sèchement sur le lanceur (démarrage définitif)" }
+    ],
+    entretien: [
+      "Souffler le filtre à air après chaque utilisation.",
+      "Remisage : vider le jerrican du mélange restant.",
+      "Remisage : faire fonctionner la pompe jusqu'à consommation complète du carburant resté dans les durites et le carburateur."
+    ],
+    source: "Notice SDIS « FYR-PACK » FT-U BMNR 003 (PDF, 5 pages, BMNR Ésoine — validée CDT P. REVERSAT, 14/08/2009)"
+  }
+];
+
+D.compareMP = {
+  debits: [
+    ["MARK 3", 379, "#fb923c"],
+    ["TOHATSU VE 1500", 2000, "#38bdf8"],
+    ["EFP-500-FL", 480, "#34d399"],
+    ["FYR PAK", 250, "#f87171"]
+  ],
+  note: "Pression max. : MARK 3 → 26,2 bars · TOHATSU → 16 bars · FYR PAK → 13 bars · EFP-500-FL → élévation max. 95 m.",
+  regles: [
+    "MARK 3 : Aspen 2, mélange 50:1 (essence sans plomb mini 87 + huile 2 temps API-TC/JASO FD/ISO-L-EGD)",
+    "TOHATSU VE 1500 : essence Super (pas de mélange)",
+    "EFP-500-FL : mélange 4 % huile 2 temps",
+    "FYR PAK : mélange SP95 + 4 % huile 2 temps"
+  ]
+};
+
+SVGS.mpMark3 = function () {
+  return '<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<rect x="140" y="8" width="280" height="30" rx="8" fill="#f97316"/>'
+  + '<text x="280" y="28" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">MARK 3 WATSON — DÉMARRAGE EN 8 ÉTAPES</text>'
+  + '<defs><marker id="mk3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8"/></marker></defs>'
+  // pompe
+  + '<rect x="200" y="90" width="180" height="70" rx="10" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>'
+  + '<text x="290" y="112" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">MOTEUR WATERAX 140 cm³</text>'
+  + '<text x="290" y="130" text-anchor="middle" fill="#cbd5e1" font-size="11">2 temps · refroidi air · 10,6 ch</text>'
+  + '<text x="290" y="148" text-anchor="middle" fill="#cbd5e1" font-size="11">corde : tourner lentement PUIS tirer vite</text>'
+  + '<circle cx="290" cy="200" r="28" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>'
+  + '<text x="290" y="205" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="700">POMPE</text>'
+  + '<text x="290" y="245" text-anchor="middle" fill="#94a3b8" font-size="10">4 étages · 26,2 bars · 379 l/min · 267 m</text>'
+  // aspiration
+  + '<line x1="262" y1="200" x2="150" y2="200" stroke="#38bdf8" stroke-width="3"/>'
+  + '<text x="150" y="190" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">SYM 40 (aspiration)</text>'
+  // mise en eau
+  + '<line x1="150" y1="215" x2="255" y2="215" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#mk3)"/>'
+  + '<text x="105" y="232" text-anchor="middle" fill="#38bdf8" font-size="10">MISE EN EAU avant démarrage</text>'
+  // refoulement
+  + '<line x1="318" y1="185" x2="430" y2="120" stroke="#f97316" stroke-width="3"/>'
+  + '<text x="452" y="112" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">DSP 40</text>'
+  + '<text x="452" y="127" text-anchor="middle" fill="#cbd5e1" font-size="10">refoulement</text>'
+  // jerrican
+  + '<rect x="20" y="90" width="100" height="64" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>'
+  + '<text x="70" y="112" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">JERRICAN 20 L</text>'
+  + '<text x="70" y="128" text-anchor="middle" fill="#e2e8f0" font-size="10">ASPEN 2 · 50:1</text>'
+  + '<text x="70" y="143" text-anchor="middle" fill="#94a3b8" font-size="9">déporté · flexible à raccorder</text>'
+  + '<line x1="120" y1="122" x2="200" y2="122" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 3"/>'
+  // commandes
+  + '<rect x="20" y="180" width="230" height="120" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="32" y="200" fill="#e2e8f0" font-size="11" font-weight="700">COMMANDES</text>'
+  + '<text x="32" y="220" fill="#cbd5e1" font-size="11">• Starter : position FERMÉE au départ</text>'
+  + '<text x="32" y="238" fill="#cbd5e1" font-size="11">• Accélérateur : IDLE → START (3e position)</text>'
+  + '<text x="32" y="256" fill="#cbd5e1" font-size="11">• Harnais : basculer vers l avant</text>'
+  + '<text x="32" y="274" fill="#cbd5e1" font-size="11">• Arrêt : bouton OFF uniquement</text>'
+  + '<circle cx="212" cy="270" r="11" fill="#7f1d1d" stroke="#f87171" stroke-width="1.5"/>'
+  + '<text x="212" y="274" text-anchor="middle" fill="#fecaca" font-size="9" font-weight="700">OFF</text>'
+  // DEL
+  + '<rect x="270" y="180" width="270" height="120" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="282" y="200" fill="#e2e8f0" font-size="11" font-weight="700">TÉMOIN DEL — 7 ÉTATS</text>'
+  + '<circle cx="295" cy="222" r="8" fill="#22c55e"/><text x="312" y="226" fill="#cbd5e1" font-size="10">vert = réchauffé, OK plein régime</text>'
+  + '<circle cx="295" cy="244" r="8" fill="#facc15"/><text x="312" y="248" fill="#cbd5e1" font-size="10">jaune = câblage / carburant</text>'
+  + '<circle cx="295" cy="266" r="8" fill="#3b82f6"/><text x="312" y="270" fill="#cbd5e1" font-size="10">bleu = survitesse : ARRÊT</text>'
+  + '<circle cx="295" cy="288" r="8" fill="#ef4444"/><text x="312" y="292" fill="#cbd5e1" font-size="10">rouge = température : ARRÊT</text>'
+  + '</svg>';
+};
+
+SVGS.mpTohatsu = function () {
+  return '<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<rect x="105" y="8" width="350" height="30" rx="8" fill="#38bdf8"/>'
+  + '<text x="280" y="28" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">TOHATSU VE 1500 — PANIER HÉLITRANSPORTABLE 271 KG</text>'
+  // élingues
+  + '<line x1="150" y1="78" x2="265" y2="52" stroke="#fbbf24" stroke-width="2"/>'
+  + '<line x1="410" y1="78" x2="295" y2="52" stroke="#fbbf24" stroke-width="2"/>'
+  + '<path d="M255,52 a25,12 0 0 0 50,0" fill="none" stroke="#fbbf24" stroke-width="3"/>'
+  + '<text x="280" y="40" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">ÉLINGUES — HÉLIPORTAGE</text>'
+  // panier
+  + '<rect x="140" y="78" width="280" height="130" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-width="1.5"/>'
+  + '<line x1="140" y1="120" x2="420" y2="120" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="140" y1="162" x2="420" y2="162" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="210" y1="78" x2="210" y2="208" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="350" y1="78" x2="350" y2="208" stroke="#334155" stroke-width="1"/>'
+  + '<text x="280" y="100" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="700">MOTEUR 804 cm³ · 60 ch · refroidi eau</text>'
+  + '<text x="280" y="142" text-anchor="middle" fill="#e2e8f0" font-size="11">POMPE mono-étage · 16 bars</text>'
+  + '<text x="280" y="184" text-anchor="middle" fill="#e2e8f0" font-size="11">2 000 l/min (120 m³/h)</text>'
+  + '<text x="280" y="228" text-anchor="middle" fill="#94a3b8" font-size="10">127 kg (unité) · 75 × 73 × 83 cm · granulométrie 0,5 mm</text>'
+  // aspiration + refoulements
+  + '<line x1="140" y1="143" x2="60" y2="143" stroke="#38bdf8" stroke-width="3"/>'
+  + '<text x="52" y="135" text-anchor="middle" fill="#38bdf8" font-size="11" font-weight="700">AR 100</text>'
+  + '<text x="52" y="162" text-anchor="middle" fill="#94a3b8" font-size="9">aspiration 3 m · amorçage manuel (levier)</text>'
+  + '<line x1="420" y1="120" x2="500" y2="120" stroke="#f97316" stroke-width="3"/>'
+  + '<line x1="420" y1="162" x2="500" y2="162" stroke="#f97316" stroke-width="3"/>'
+  + '<text x="508" y="124" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">DSP 65</text>'
+  + '<text x="508" y="143" text-anchor="middle" fill="#fb923c" font-size="11" font-weight="700">2 sorties</text>'
+  + '<text x="508" y="166" text-anchor="middle" fill="#94a3b8" font-size="9">refoulements</text>'
+  // réservoir + batterie
+  + '<rect x="20" y="250" width="180" height="60" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>'
+  + '<text x="110" y="272" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">RÉSERVOIR 24 L</text>'
+  + '<text x="110" y="290" text-anchor="middle" fill="#e2e8f0" font-size="10">ESSENCE SUPER — PAS de mélange</text>'
+  + '<text x="110" y="304" text-anchor="middle" fill="#94a3b8" font-size="9">22 L/h · autograissage auto</text>'
+  + '<rect x="215" y="250" width="150" height="60" rx="10" fill="#1e293b" stroke="#a3e635" stroke-width="1.5"/>'
+  + '<text x="290" y="272" text-anchor="middle" fill="#a3e635" font-size="11" font-weight="700">BATTERIE 12 V — 16 Ah</text>'
+  + '<text x="290" y="290" text-anchor="middle" fill="#e2e8f0" font-size="10">démarreur électrique + corde</text>'
+  + '<text x="290" y="304" text-anchor="middle" fill="#94a3b8" font-size="9">purges fermées · gaz sur « S »</text>'
+  // commandes
+  + '<rect x="380" y="250" width="160" height="60" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="392" y="268" fill="#e2e8f0" font-size="10" font-weight="700">a interrupteur · b gaz</text>'
+  + '<text x="392" y="283" fill="#e2e8f0" font-size="10">c démarrage · d horamètre</text>'
+  + '<text x="392" y="298" fill="#e2e8f0" font-size="10">f huile · g température · h batterie</text>'
+  + '</svg>';
+};
+
+SVGS.mpEfp500 = function () {
+  return '<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<rect x="115" y="8" width="330" height="30" rx="8" fill="#34d399"/>'
+  + '<text x="280" y="28" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">EFP-500-FL (GEYSER) — MOTOPOMPE FLOTTANTE</text>'
+  // eau
+  + '<path d="M10,252 q18,-10 36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.5"/>'
+  + '<path d="M10,272 q18,-10 36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0 t36,0" fill="none" stroke="#38bdf8" stroke-width="1.5" opacity="0.35"/>'
+  + '<text x="48" y="295" fill="#38bdf8" font-size="10" font-weight="700">EAU</text>'
+  // flotteurs + corps
+  + '<rect x="150" y="210" width="60" height="34" rx="14" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>'
+  + '<rect x="350" y="210" width="60" height="34" rx="14" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>'
+  + '<rect x="205" y="150" width="150" height="80" rx="10" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>'
+  + '<text x="280" y="176" text-anchor="middle" fill="#34d399" font-size="12" font-weight="700">MOTEUR 124 cm³</text>'
+  + '<text x="280" y="194" text-anchor="middle" fill="#cbd5e1" font-size="10">480 l/min · élévation 95 m</text>'
+  + '<text x="280" y="212" text-anchor="middle" fill="#94a3b8" font-size="9">21,2 kg · 830 × 515 × 425 mm</text>'
+  + '<text x="280" y="240" text-anchor="middle" fill="#94a3b8" font-size="9">poser DOUCEMENT sur l eau (en marche)</text>'
+  // refoulement
+  + '<line x1="280" y1="150" x2="280" y2="100" stroke="#34d399" stroke-width="3"/>'
+  + '<line x1="280" y1="100" x2="380" y2="100" stroke="#34d399" stroke-width="3"/>'
+  + '<text x="415" y="104" text-anchor="middle" fill="#34d399" font-size="11" font-weight="700">REFOULEMENT</text>'
+  + '<text x="415" y="118" text-anchor="middle" fill="#cbd5e1" font-size="10">2″ mâle — tuyau (+ flotteurs)</text>'
+  // échappement
+  + '<rect x="20" y="120" width="150" height="58" rx="10" fill="#7f1d1d" stroke="#f87171" stroke-width="1.5"/>'
+  + '<text x="95" y="143" text-anchor="middle" fill="#fecaca" font-size="11" font-weight="700">ÉCHAPPEMENT</text>'
+  + '<text x="95" y="160" text-anchor="middle" fill="#fecaca" font-size="10">AUCUNE EAU dedans (serrage)</text>'
+  // batterie externe
+  + '<rect x="20" y="196" width="150" height="58" rx="10" fill="#1e293b" stroke="#a3e635" stroke-width="1.5"/>'
+  + '<text x="95" y="218" text-anchor="middle" fill="#a3e635" font-size="11" font-weight="700">BATTERIE EXTERNE</text>'
+  + '<text x="95" y="234" text-anchor="middle" fill="#e2e8f0" font-size="10">JUMP STARTER — à RETIRER</text>'
+  + '<text x="95" y="247" text-anchor="middle" fill="#94a3b8" font-size="9">une fois la pompe démarrée</text>'
+  + '<line x1="170" y1="170" x2="205" y2="170" stroke="#a3e635" stroke-width="1.5" stroke-dasharray="4 3"/>'
+  // commandes
+  + '<rect x="380" y="120" width="160" height="120" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="392" y="140" fill="#e2e8f0" font-size="11" font-weight="700">SÉQUENCE</text>'
+  + '<text x="392" y="160" fill="#cbd5e1" font-size="10">• vanne carburant ON</text>'
+  + '<text x="392" y="177" fill="#cbd5e1" font-size="10">• starter ON → bouton ON</text>'
+  + '<text x="392" y="194" fill="#cbd5e1" font-size="10">• bouton de démarrage</text>'
+  + '<text x="392" y="211" fill="#cbd5e1" font-size="10">• starter OFF après claquage</text>'
+  + '<text x="392" y="228" fill="#cbd5e1" font-size="10">• rinçage eau claire ensuite</text>'
+  // carburant
+  + '<rect x="380" y="250" width="160" height="60" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>'
+  + '<text x="460" y="272" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">RÉSERVOIR 5 L</text>'
+  + '<text x="460" y="290" text-anchor="middle" fill="#e2e8f0" font-size="10">MÉLANGE 4 % huile 2 temps</text>'
+  + '<text x="460" y="303" text-anchor="middle" fill="#94a3b8" font-size="9">lanceur manuel en secours</text>'
+  + '</svg>';
+};
+
+SVGS.mpFyrpak = function () {
+  return '<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">'
+  + '<rect x="125" y="8" width="310" height="30" rx="8" fill="#f87171"/>'
+  + '<text x="280" y="28" text-anchor="middle" fill="#0f172a" font-size="14" font-weight="700">FYR PAK — POMPE RELAIS FEU DE FORÊT</text>'
+  // claie
+  + '<rect x="150" y="200" width="260" height="20" rx="6" fill="#1e293b" stroke="#f87171" stroke-width="1.5"/>'
+  + '<line x1="180" y1="200" x2="180" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="215" y1="200" x2="215" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="250" y1="200" x2="250" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="285" y1="200" x2="285" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="320" y1="200" x2="320" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="355" y1="200" x2="355" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<line x1="390" y1="200" x2="390" y2="220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="280" y="242" text-anchor="middle" fill="#94a3b8" font-size="10">CLAIE DE PORTAGE (fixée)</text>'
+  // pompe
+  + '<rect x="215" y="120" width="130" height="76" rx="10" fill="#1e293b" stroke="#f87171" stroke-width="1.5"/>'
+  + '<text x="280" y="144" text-anchor="middle" fill="#f87171" font-size="12" font-weight="700">MOTEUR 134 cm³ · 8 ch</text>'
+  + '<text x="280" y="162" text-anchor="middle" fill="#cbd5e1" font-size="10">2 temps · refroidi air</text>'
+  + '<text x="280" y="180" text-anchor="middle" fill="#cbd5e1" font-size="10">pompe relais · Ø 45</text>'
+  // jerrican + durite + poire
+  + '<rect x="20" y="120" width="100" height="60" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>'
+  + '<text x="70" y="142" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">JERRICAN 5 L</text>'
+  + '<text x="70" y="158" text-anchor="middle" fill="#e2e8f0" font-size="10">SP95 + 4 % HUILE</text>'
+  + '<text x="70" y="172" text-anchor="middle" fill="#94a3b8" font-size="9">bouchon ¼ de tour (air)</text>'
+  + '<path d="M120,150 C160,150 160,150 205,150" fill="none" stroke="#fbbf24" stroke-width="2"/>'
+  + '<circle cx="160" cy="150" r="10" fill="#fbbf24"/>'
+  + '<text x="160" y="128" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="700">POIRE ×2</text>'
+  + '<text x="160" y="178" text-anchor="middle" fill="#94a3b8" font-size="9">amorçage — sens du flux</text>'
+  // refoulement
+  + '<line x1="345" y1="140" x2="440" y2="140" stroke="#f87171" stroke-width="3"/>'
+  + '<text x="475" y="136" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">REFOULEMENT</text>'
+  + '<text x="475" y="152" text-anchor="middle" fill="#cbd5e1" font-size="10">diam. 45</text>'
+  + '<text x="475" y="170" text-anchor="middle" fill="#94a3b8" font-size="9">250 l/min à 4 bars</text>'
+  + '<text x="475" y="184" text-anchor="middle" fill="#94a3b8" font-size="9">140 à 10 · 50 à 13 bars</text>'
+  // commandes
+  + '<rect x="400" y="200" width="140" height="110" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="412" y="220" fill="#e2e8f0" font-size="10" font-weight="700">DÉMARRAGE</text>'
+  + '<text x="412" y="238" fill="#cbd5e1" font-size="10">• contact ON</text>'
+  + '<text x="412" y="254" fill="#cbd5e1" font-size="10">• starter FERMÉ</text>'
+  + '<text x="412" y="270" fill="#cbd5e1" font-size="10">• gaz OUVERT (plein)</text>'
+  + '<text x="412" y="286" fill="#cbd5e1" font-size="10">• tirer sèchement ×1</text>'
+  + '<text x="412" y="302" fill="#cbd5e1" font-size="10">• starter OUVERT → ×1</text>'
+  // entretien
+  + '<rect x="20" y="200" width="360" height="110" rx="10" fill="#0b1220" stroke="#334155" stroke-width="1"/>'
+  + '<text x="32" y="220" fill="#e2e8f0" font-size="11" font-weight="700">ENTRETIEN & REMISAGE</text>'
+  + '<text x="32" y="242" fill="#cbd5e1" font-size="11">• Souffler le filtre à air après chaque utilisation</text>'
+  + '<text x="32" y="262" fill="#cbd5e1" font-size="11">• Vider le jerrican du mélange restant</text>'
+  + '<text x="32" y="282" fill="#cbd5e1" font-size="11">• Carburer à sec (durites + carburateur)</text>'
+  + '<text x="32" y="302" fill="#94a3b8" font-size="10">FT-U BMNR 003 · SDIS Ésoine · CDT P. REVERSAT 14/08/2009 · 4 700 €</text>'
+  + '</svg>';
+};
+</script>
+<script>
+// Formation DIH — application vanilla (PWA) — v3 (ergonomie pédagogique)
+// Réutilise D, SVGS, SIGNES du cœur (web-v3-core.js, contenu verrouillé)
+(function () {
+  "use strict";
+  var LS_CHECKS = "dih-checks-v1";
+  var LS_QUIZ = "dih-quiz-v1";
+  var LS_UI = "dih-ui-v1";
+  var FB_VERSION = "v4";
+
+  function loadLS(key, fb) {
+    try {
+      if (typeof localStorage === "undefined" || localStorage === null) return fb;
+      var v = localStorage.getItem(key);
+      return v ? JSON.parse(v) : fb;
+    } catch (e) { return fb; }
+  }
+  function saveLS(key, obj) {
+    try {
+      if (typeof localStorage === "undefined" || localStorage === null) return;
+      localStorage.setItem(key, JSON.stringify(obj));
+    } catch (e) {}
+  }
+
+  var APP = {
+    tab: "accueil",
+    pump: "mark3",
+    checks: loadLS(LS_CHECKS, {}),
+    quiz: loadLS(LS_QUIZ, {}),
+    ui: loadLS(LS_UI, null) || { open: {}, last: null },
+    version: ""
+  };
+  if (!APP.ui || typeof APP.ui !== "object") APP.ui = { open: {}, last: null };
+  if (!APP.ui.open || typeof APP.ui.open !== "object") APP.ui.open = {};
+  if (typeof APP.ui.last !== "string") APP.ui.last = null;
+
+  function saveUI() { saveLS(LS_UI, APP.ui); }
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  var ACC = {
+    sky:    ["rgba(56,189,248,0.12)", "rgba(56,189,248,0.4)"],
+    amber:  ["rgba(251,191,36,0.12)", "rgba(251,191,36,0.4)"],
+    red:    ["rgba(248,113,113,0.12)", "rgba(248,113,113,0.4)"],
+    violet: ["rgba(167,139,250,0.12)", "rgba(167,139,250,0.4)"],
+    orange:  ["rgba(249,115,22,0.12)", "rgba(249,115,22,0.4)"],
+    emerald: ["rgba(52,211,153,0.12)", "rgba(52,211,153,0.4)"]
+  };
+
+  // ------------------------------------------------------------------
+  // ÉTAT DES ACCORDÉONS (persisté dans dih-ui-v1)
+  // ------------------------------------------------------------------
+  function openList(tk) {
+    var o = APP.ui.open[tk];
+    return Array.isArray(o) ? o : [0];
+  }
+  function ensureOpen(tk, idx) {
+    var o = openList(tk).slice();
+    if (o.indexOf(idx) === -1) { o.push(idx); APP.ui.open[tk] = o; saveUI(); }
+  }
+  function toggleAcc(tk, idx) {
+    var o = openList(tk).slice();
+    var p = o.indexOf(idx);
+    if (p === -1) o.push(idx); else o.splice(p, 1);
+    APP.ui.open[tk] = o; saveUI(); render();
+  }
+  function setAllAcc(tk, open, count) {
+    var o = [];
+    if (open) { for (var i = 0; i < count; i++) o.push(i); }
+    APP.ui.open[tk] = o; saveUI(); render();
+  }
+
+  function accCard(tk, idx, head, body) {
+    var open = openList(tk).indexOf(idx) !== -1;
+    return '<div class="card"><button type="button" class="acchead' + (open ? " open" : "") + '" data-acc="' + tk + "|" + idx + '">' + head + '<span class="chev">▾</span></button><div class="accbody' + (open ? " open" : "") + '">' + body + '</div></div>';
+  }
+  function accHead(icon, title, meta) {
+    return '<span class="st"><span>' + icon + '</span> ' + esc(title) + '</span>' + (meta || "");
+  }
+  function renderToolbar(tk, count) {
+    return '<div class="toolbar"><button type="button" class="tbtn" data-allop="' + tk + '|open">▽ Tout ouvrir</button><button type="button" class="tbtn" data-allop="' + tk + '|close">△ Tout replier</button></div>';
+  }
+
+  // ------------------------------------------------------------------
+  // BLOCS DE CONTENU (identiques v2 — contenu verrouillé)
+  // ------------------------------------------------------------------
+  function renderBlock(b) {
+    var h = "";
+    if (b.h) h += '<h4 class="bh">' + esc(b.h) + '</h4>';
+    if (b.ul) {
+      h += '<ul class="bl">';
+      for (var i = 0; i < b.ul.length; i++) h += '<li><span class="li-txt">' + b.ul[i] + '</span></li>';
+      h += '</ul>';
+    }
+    if (b.table) {
+      h += '<div class="twrap"><table><thead><tr>';
+      for (var c = 0; c < b.table.head.length; c++) h += '<th>' + esc(b.table.head[c]) + '</th>';
+      h += '</tr></thead><tbody>';
+      for (var r = 0; r < b.table.rows.length; r++) {
+        h += '<tr' + (r % 2 ? ' class="odd"' : '') + '>';
+        for (var c2 = 0; c2 < b.table.rows[r].length; c2++) h += '<td>' + esc(b.table.rows[r][c2]) + '</td>';
+        h += '</tr>';
+      }
+      h += '</tbody></table></div>';
+    }
+    if (b.chips) {
+      h += '<div class="chips">';
+      for (var k = 0; k < b.chips.length; k++) h += '<span class="chip">' + esc(b.chips[k]) + '</span>';
+      h += '</div>';
+    }
+    if (b.note) {
+      h += '<div class="note ' + (b.kind === "key" ? "key" : "warn") + '">' + (b.kind === "key" ? "🔑 " : "⚠ ") + b.note + '</div>';
+    }
+    if (b.signes) {
+      h += '<div class="chips">';
+      for (var s = 0; s < b.signes.length; s++) {
+        var code = b.signes[s];
+        h += '<span class="chip"><b class="signe-code">' + esc(code) + '</b> — ' + esc(SIGNES[code]) + '</span>';
+      }
+      h += '</div>';
+    }
+    return h;
+  }
+
+  function renderSection(sec) {
+    var h = "";
+    if (sec.intro) h += '<p class="intro">' + sec.intro + '</p>';
+    if (sec.svg && SVGS[sec.svg]) h += '<div class="drawing">' + SVGS[sec.svg]() + '</div>';
+    if (sec.blocks) {
+      for (var i = 0; i < sec.blocks.length; i++) {
+        var b = sec.blocks[i];
+        if (b.svg && SVGS[b.svg]) h += '<div class="drawing">' + SVGS[b.svg]() + '</div>';
+        h += renderBlock(b);
+      }
+    }
+    return h;
+  }
+
+  function checkKey(docId, phaseIdx) { return docId + "-" + phaseIdx; }
+
+  function countDone(k, len) {
+    var arr = APP.checks[k] || [];
+    var c = 0;
+    for (var i = 0; i < len; i++) if (arr[i]) c++;
+    return c;
+  }
+
+  function toggleCheck(docId, phaseIdx, i) {
+    var k = checkKey(docId, phaseIdx);
+    var arr = APP.checks[k] || [];
+    arr[i] = !arr[i];
+    APP.checks[k] = arr;
+    saveLS(LS_CHECKS, APP.checks);
+    ensureCheckOpen(docId, phaseIdx);
+    render();
+  }
+
+  function resetChecks(docId, phaseIdx) {
+    delete APP.checks[checkKey(docId, phaseIdx)];
+    saveLS(LS_CHECKS, APP.checks);
+    ensureCheckOpen(docId, phaseIdx);
+    render();
+  }
+
+  function ensureCheckOpen(docId, phaseIdx) {
+    if (docId.indexOf("mp-") === 0) {
+      var pid = docId.slice(3);
+      var p = null;
+      for (var j = 0; j < D.motopompes.length; j++) if (D.motopompes[j].id === pid) p = D.motopompes[j];
+      if (p) {
+        // ordre des accordéons pompe : 0 carburant, 1 caractéristiques, 2 démarrage, 3 arrêt…
+        ensureOpen(docId, phaseIdx === 1 && p.stop ? 3 : 2);
+      }
+      return;
+    }
+    ensureOpen(docId, phaseIdx);
+  }
+
+  function renderSteps(docId, phaseIdx, steps) {
+    var k = checkKey(docId, phaseIdx);
+    var arr = APP.checks[k] || [];
+    var count = 0;
+    for (var i = 0; i < steps.length; i++) if (arr[i]) count++;
+    var pct = steps.length ? Math.round((count / steps.length) * 100) : 0;
+    var h = '<div class="pbarrow"><div class="pbar"><div class="pbar-fill" style="width:' + pct + '%;"></div></div>';
+    h += '<span class="pcount">' + count + '/' + steps.length + '</span>';
+    h += '<button type="button" class="reset" data-reset="' + docId + '|' + phaseIdx + '">↺ Reset</button></div>';
+    h += '<ol class="steps">';
+    for (i = 0; i < steps.length; i++) {
+      var s = steps[i];
+      var done = !!arr[i];
+      h += '<li><button type="button" class="step' + (done ? ' done' : '') + '" data-check="' + docId + '|' + phaseIdx + '|' + i + '">';
+      h += '<span class="snum">' + (done ? '✓' : (i + 1)) + '</span>';
+      h += '<span class="stxt">';
+      h += '<span class="stitle' + (s.warn ? ' swarn' : '') + '">' + (s.warn ? '⚠ ' : '') + esc(s.t) + '</span>';
+      if (s.d) h += '<span class="sd">' + s.d + '</span>';
+      h += '</span></button></li>';
+    }
+    h += '</ol>';
+    if (steps.length && count === steps.length) h += '<div class="phase-ok">✅ Phase terminée</div>';
+    return h;
+  }
+
+  // ------------------------------------------------------------------
+  // QUIZ (feedback immédiat + recommencer)
+  // ------------------------------------------------------------------
+  function pick(quizId, qi, oi) {
+    if (!APP.quiz[quizId]) APP.quiz[quizId] = {};
+    APP.quiz[quizId][qi] = oi;
+    saveLS(LS_QUIZ, APP.quiz);
+    ensureQuizOpen(quizId);
+    render();
+  }
+
+  function resetQuiz(quizId) {
+    delete APP.quiz[quizId];
+    saveLS(LS_QUIZ, APP.quiz);
+    ensureQuizOpen(quizId);
+    render();
+  }
+
+  function quizScore(quizId, items) {
+    var q = APP.quiz[quizId] || {};
+    var n = 0;
+    for (var i = 0; i < items.length; i++) if (q[i] === items[i].a) n++;
+    return n;
+  }
+
+  function ensureQuizOpen(quizId) {
+    for (var m = 0; m < D.modules.length; m++) {
+      if (D.modules[m].id === quizId) { ensureOpen(quizId, D.modules[m].sections.length); return; }
+    }
+    var docs = [D.reflexe, D.grue];
+    for (var d = 0; d < docs.length; d++) {
+      if (docs[d].id === quizId) { ensureOpen(docs[d].id, docs[d].phases.length + (docs[d].obs ? 1 : 0)); return; }
+    }
+  }
+
+  function renderQuiz(quizId, items) {
+    var q = APP.quiz[quizId] || {};
+    var answered = 0;
+    for (var k2 = 0; k2 < items.length; k2++) if (q[k2] !== undefined) answered++;
+    var h = '<div class="qreset-row"><button type="button" class="reset" data-resetquiz="' + quizId + '">↺ Recommencer</button></div>';
+    for (var qi = 0; qi < items.length; qi++) {
+      var it = items[qi];
+      h += '<div class="qitem"><p class="qq">' + (qi + 1) + '. ' + esc(it.q) + '</p>';
+      for (var oi = 0; oi < it.opts.length; oi++) {
+        var cls = 'opt';
+        if (q[qi] !== undefined) {
+          if (oi === it.a) cls += ' correct';
+          else if (oi === q[qi]) cls += ' wrong';
+        }
+        h += '<button type="button" class="' + cls + '" data-quiz="' + quizId + '|' + qi + '|' + oi + '">' + esc(it.opts[oi]) + '</button>';
+      }
+      if (q[qi] !== undefined) h += '<p class="qex">' + (q[qi] === it.a ? '✅ ' : '❌ ') + it.ex + '</p>';
+      h += '</div>';
+    }
+    return h;
+  }
+
+  function renderHead(obj) {
+    var a = ACC[obj.accent] || ACC.sky;
+    var style = 'background:' + a[0] + ';border-color:' + a[1] + ';';
+    return '<div class="headband" style="' + style + '"><span class="hb-emoji">' + obj.emoji + '</span><div><h2>' + esc(obj.name) + '</h2><p>' + esc(obj.subtitle) + '</p></div></div>';
+  }
+
+  // ------------------------------------------------------------------
+  // MODULES (équipier / chef) — sections en accordéons
+  // ------------------------------------------------------------------
+  function renderModule(mod) {
+    var tk = mod.id;
+    var h = renderHead(mod);
+    h += renderToolbar(tk, mod.sections.length + 1);
+    for (var i = 0; i < mod.sections.length; i++) {
+      var sec = mod.sections[i];
+      h += accCard(tk, i, accHead(sec.icon, sec.title), renderSection(sec));
+    }
+    var qs = quizScore(mod.id, mod.quiz);
+    h += accCard(tk, mod.sections.length, accHead("✏️", "Contrôle des connaissances", '<span class="qscore">' + qs + '/' + mod.quiz.length + '</span>'), renderQuiz(mod.id, mod.quiz));
+    h += '<p class="src">Source : ' + esc(mod.source) + '</p>';
+    return h;
+  }
+
+  // ------------------------------------------------------------------
+  // FICHE RÉFLEXE / GRUE — vue d'ensemble + phases en accordéons
+  // ------------------------------------------------------------------
+  function renderOverview(doc) {
+    var total = 0, done = 0;
+    var tiles = "";
+    for (var i = 0; i < doc.phases.length; i++) {
+      var ph = doc.phases[i];
+      var c = countDone(checkKey(doc.id, i), ph.steps.length);
+      total += ph.steps.length; done += c;
+      var p = ph.steps.length ? Math.round((c / ph.steps.length) * 100) : 0;
+      tiles += '<button type="button" class="ptile' + (ph.steps.length && c === ph.steps.length ? ' full' : '') + '" data-acc="' + doc.id + '|' + i + '">';
+      tiles += '<span class="pt-ico">' + ph.icon + '</span><b>' + esc(ph.title) + '</b>';
+      tiles += '<span class="pt-count">' + c + '/' + ph.steps.length + '</span>';
+      tiles += '<span class="pt-bar"><span style="width:' + p + '%;"></span></span></button>';
+    }
+    var h = '<div class="card overview"><div class="ov-head"><h3 class="st"><span>📊</span> Vue d\'ensemble</h3><span class="pcount">' + done + '/' + total + '</span></div><div class="pgrid">' + tiles + '</div></div>';
+    return h;
+  }
+
+  function renderPhases(doc) {
+    var tk = doc.id;
+    var h = renderHead(doc);
+    h += renderOverview(doc);
+    h += renderToolbar(tk, doc.phases.length + 1 + (doc.obs ? 1 : 0));
+    for (var i = 0; i < doc.phases.length; i++) {
+      var ph = doc.phases[i];
+      var inner = "";
+      if (ph.intro) inner += '<p class="intro">' + ph.intro + '</p>';
+      inner += renderSteps(doc.id, i, ph.steps);
+      if (ph.warn) {
+        inner += '<div class="note warn">⚠ ';
+        for (var w = 0; w < ph.warn.length; w++) inner += (w > 0 ? '<br>⚠ ' : '') + ph.warn[w];
+        inner += '</div>';
+      }
+      if (ph.note) inner += '<div class="note key">🔑 ' + ph.note + '</div>';
+      h += accCard(tk, i, accHead(ph.icon, ph.title), inner);
+    }
+    var idx = doc.phases.length;
+    if (doc.obs) {
+      var obsInner = '<ul class="bl">';
+      for (var o = 0; o < doc.obs.length; o++) obsInner += '<li><span class="li-txt">' + doc.obs[o] + '</span></li>';
+      obsInner += '</ul>';
+      h += accCard(tk, idx, accHead("📌", "Observations"), obsInner);
+      idx++;
+    }
+    if (doc.quiz) {
+      var qs = quizScore(doc.id, doc.quiz);
+      h += accCard(tk, idx, accHead("✏️", "Contrôle des connaissances", '<span class="qscore">' + qs + '/' + doc.quiz.length + '</span>'), renderQuiz(doc.id, doc.quiz));
+    }
+    h += '<p class="src">Source : ' + esc(doc.source) + '</p>';
+    return h;
+  }
+
+  // ------------------------------------------------------------------
+  // MOTOPOPOMPES
+  // ------------------------------------------------------------------
+  function fmt(n) { return String(n).replace(/(\d)(?=(\d{3})+$)/g, "$1 "); }
+
+  function setPump(id) { APP.pump = id; render(); }
+
+  function renderMotopompes() {
+    var h = '<nav class="subtabs">';
+    for (var i = 0; i < D.motopompes.length; i++) {
+      var p = D.motopompes[i];
+      h += '<button type="button" class="subtab' + (APP.pump === p.id ? ' active' : '') + '" data-pump="' + p.id + '">' + p.emoji + " " + esc(p.name) + '</button>';
+    }
+    h += '<button type="button" class="subtab' + (APP.pump === "compare" ? ' active' : '') + '" data-pump="compare">⚖ Comparatif</button>';
+    h += '</nav>';
+    var pump = null;
+    for (var j = 0; j < D.motopompes.length; j++) if (D.motopompes[j].id === APP.pump) pump = D.motopompes[j];
+    if (APP.pump === "compare") h += renderCompare();
+    else h += renderPump(pump || D.motopompes[0]);
+    return h;
+  }
+
+  function renderPump(p) {
+    var tk = "mp-" + p.id;
+    var n = 0;
+    var h = renderHead({ name: p.name, subtitle: p.subtitle, emoji: p.emoji, accent: p.accent });
+    h += accCard(tk, n++, accHead("⛽", "Carburant"), '<div class="note key">🔑 ' + esc(p.fuelNote) + '</div>');
+    h += '<div class="drawing">' + SVGS[p.svg]() + '</div>';
+    var specsInner = '<div class="specs">';
+    for (var i = 0; i < p.specs.length; i++) {
+      specsInner += '<div class="spec"><span class="k">' + esc(p.specs[i][0]) + '</span><span class="v">' + esc(p.specs[i][1]) + '</span></div>';
+    }
+    specsInner += '</div>';
+    h += accCard(tk, n++, accHead("📋", "Caractéristiques"), specsInner);
+    h += accCard(tk, n++, accHead("▶️", "Démarrage — coche au fur et à mesure"), renderSteps("mp-" + p.id, 0, p.start));
+    if (p.stop) h += accCard(tk, n++, accHead("⏹️", "Arrêt"), renderSteps("mp-" + p.id, 1, p.stop));
+    if (p.controls) {
+      var ctl = '<div class="mpgrid">';
+      for (var c = 0; c < p.controls.length; c++) ctl += '<div class="mpitem"><span class="k">' + esc(p.controls[c][0]) + '</span><span class="v">' + esc(p.controls[c][1]) + '</span></div>';
+      ctl += '</div>';
+      h += accCard(tk, n++, accHead("🎮", "Commandes"), ctl);
+    }
+    if (p.del) {
+      var del = '<div class="del">';
+      for (var d = 0; d < p.del.length; d++) del += '<div class="dot dot-' + p.del[d][2] + '"><b>' + esc(p.del[d][0]) + '</b> — ' + esc(p.del[d][1]) + '</div>';
+      del += '</div>';
+      h += accCard(tk, n++, accHead("💡", "Voyants diagnostiques"), del);
+    }
+    if (p.extra) {
+      var ex = '<ul class="bl">';
+      for (var e = 0; e < p.extra.length; e++) ex += '<li><span class="li-txt">' + p.extra[e] + '</span></li>';
+      ex += '</ul>';
+      h += accCard(tk, n++, accHead("📌", "Points clés"), ex);
+    }
+    if (p.entretien) {
+      var en = '<ul class="bl">';
+      for (var t = 0; t < p.entretien.length; t++) en += '<li><span class="li-txt">' + p.entretien[t] + '</span></li>';
+      en += '</ul>';
+      h += accCard(tk, n++, accHead("🧽", "Entretien / remisage"), en);
+    }
+    h += '<p class="src">Source : ' + esc(p.source) + '</p>';
+    return h;
+  }
+
+  function renderCompare() {
+    var c = D.compareMP;
+    var h = '<div class="card"><h3 class="st"><span>⚖</span> Débits max. (l/min)</h3>';
+    for (var i = 0; i < c.debits.length; i++) {
+      var d = c.debits[i];
+      var w = Math.round((d[1] / 2000) * 100);
+      h += '<div class="barrow"><span class="barlab">' + esc(d[0]) + '</span><div class="barbg"><div class="barfill" style="width:' + w + '%;background:' + d[2] + ';"></div></div><span class="barval">' + fmt(d[1]) + ' l/min</span></div>';
+    }
+    h += '</div>';
+    h += '<div class="card"><h3 class="st"><span>🔑</span> Repères pression</h3><div class="note key">🔑 ' + esc(c.note) + '</div></div>';
+    h += '<div class="card"><h3 class="st"><span>⛽</span> Règles carburant — à ne jamais confondre</h3><ul class="bl">';
+    for (var r = 0; r < c.regles.length; r++) h += '<li><span class="li-txt">' + c.regles[r] + '</span></li>';
+    h += '</ul></div>';
+    return h;
+  }
+
+  // ------------------------------------------------------------------
+  // ACCUEIL — tableau de bord de progression
+  // ------------------------------------------------------------------
+  function stepsTotal() {
+    var n = 0;
+    var docs = [D.reflexe, D.grue];
+    for (var d = 0; d < docs.length; d++) {
+      for (var i = 0; i < docs[d].phases.length; i++) n += docs[d].phases[i].steps.length;
+    }
+    for (var p = 0; p < D.motopompes.length; p++) {
+      n += D.motopompes[p].start.length;
+      if (D.motopompes[p].stop) n += D.motopompes[p].stop.length;
+    }
+    return n;
+  }
+  function stepsDone() {
+    var n = 0;
+    for (var k in APP.checks) {
+      var arr = APP.checks[k];
+      if (!arr) continue;
+      for (var i = 0; i < arr.length; i++) if (arr[i]) n++;
+    }
+    return Math.min(n, stepsTotal());
+  }
+  function quizzesTotal() {
+    return D.modules[0].quiz.length + D.modules[1].quiz.length + D.reflexe.quiz.length + D.grue.quiz.length;
+  }
+  function quizzesDone() {
+    return quizScore(D.modules[0].id, D.modules[0].quiz) + quizScore(D.modules[1].id, D.modules[1].quiz) + quizScore(D.reflexe.id, D.reflexe.quiz) + quizScore(D.grue.id, D.grue.quiz);
+  }
+  function donutSvg(pct) {
+    var r = 54;
+    var c = 2 * Math.PI * r;
+    var off = c * (1 - pct / 100);
+    return '<svg viewBox="0 0 120 120" class="donut" role="img" aria-label="Progression ' + pct + ' pour cent">'
+      + '<circle cx="60" cy="60" r="' + r + '" class="donut-bg"></circle>'
+      + '<circle cx="60" cy="60" r="' + r + '" class="donut-fg" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '"></circle>'
+      + '<text x="60" y="60" text-anchor="middle" dominant-baseline="middle" class="donut-num">' + pct + '%</text>'
+      + '<text x="60" y="78" text-anchor="middle" class="donut-lab">PROGRESSION</text></svg>';
+  }
+
+  function renderAccueil() {
+    var st = stepsTotal(), sd = stepsDone();
+    var qt = quizzesTotal(), qd = quizzesDone();
+    var pct = Math.round(((sd + qd) / (st + qt)) * 100);
+    var h = '<div class="hero"><h2>🎓 ' + esc(D.accueil.titre) + '</h2><p>' + esc(D.accueil.sousTitre) + '</p></div>';
+    h += '<div class="card"><div class="dash">' + donutSvg(pct);
+    h += '<div class="dash-stats">';
+    h += '<div class="dstat">✅ Checklists — <b>' + sd + '/' + st + '</b> étapes validées</div>';
+    h += '<div class="dstat">✏️ Quiz — <b>' + qd + '/' + qt + '</b> bonnes réponses</div>';
+    h += '<div class="dstat">🎯 Entraîne-toi section par section, puis valide-toi avec les quiz.</div>';
+    h += '</div></div></div>';
+    var qe = quizScore(D.modules[0].id, D.modules[0].quiz);
+    var qc = quizScore(D.modules[1].id, D.modules[1].quiz);
+    var rfDone = 0, rfTot = 0;
+    for (var r1 = 0; r1 < D.reflexe.phases.length; r1++) rfTot += D.reflexe.phases[r1].steps.length;
+    rfDone = stepsDoneDoc(D.reflexe);
+    var grDone = stepsDoneDoc(D.grue), grTot = 0;
+    for (var r2 = 0; r2 < D.grue.phases.length; r2++) grTot += D.grue.phases[r2].steps.length;
+    h += '<div class="quickgrid">';
+    h += quickTile(D.modules[0].emoji, D.modules[0].name, "Quiz " + qe + "/" + D.modules[0].quiz.length, D.modules[0].id);
+    h += quickTile(D.modules[1].emoji, D.modules[1].name, "Quiz " + qc + "/" + D.modules[1].quiz.length, D.modules[1].id);
+    h += quickTile(D.reflexe.emoji, "Fiche réflexe", rfDone + "/" + rfTot + " étapes", D.reflexe.id);
+    h += quickTile(D.grue.emoji, "Grue CM", grDone + "/" + grTot + " étapes", D.grue.id);
+    h += quickTile("🚒", "Motopompes", "4 pompes + comparatif", "motopompes");
+    h += '</div>';
+    h += '<div class="card" style="margin-top:0.85rem;"><h3 class="st"><span>🎯</span> Objectifs de la formation</h3><ul class="bl">';
+    for (var i = 0; i < D.accueil.objectifs.length; i++) h += '<li><span class="li-txt">' + D.accueil.objectifs[i] + '</span></li>';
+    h += '</ul></div>';
+    h += '<div class="card"><h3 class="st"><span>🗺️</span> Le parcours</h3>';
+    for (i = 0; i < D.accueil.parcours.length; i++) {
+      var p = D.accueil.parcours[i];
+      h += '<div class="parc"><span class="parc-emoji">' + p[0] + '</span><div><b>' + esc(p[1]) + '</b><p>' + esc(p[2]) + '</p></div></div>';
+    }
+    h += '</div>';
+    h += '<div class="card"><h3 class="st"><span>🚒</span> Motopompes intégrées</h3>';
+    h += '<p class="intro">Les notices de démarrage des 4 motopompes (MARK 3, TOHATSU VE 1500, EFP-500-FL, FYR PAK) sont intégrées — onglet <button type="button" class="link-btn" data-tab="motopompes">🚒 Motopompes</button>.</p></div>';
+    h += '<div class="card"><h3 class="st"><span>⚖</span> Avertissement</h3>';
+    h += '<p class="intro">Application pédagogique de soutien à la formation, d\'après les documents BMPM/SOS HELI. Elle ne remplace ni la formation terrain, ni les fiches officielles, ni les ordres des formateurs et des chefs.</p></div>';
+    return h;
+  }
+
+  function stepsDoneDoc(doc) {
+    var n = 0;
+    for (var i = 0; i < doc.phases.length; i++) n += countDone(checkKey(doc.id, i), doc.phases[i].steps.length);
+    return n;
+  }
+  function quickTile(ico, title, sub, tabId) {
+    return '<button type="button" class="quick" data-tab="' + tabId + '"><span class="quick-ico">' + ico + '</span><span class="quick-txt"><b>' + esc(title) + '</b><small>' + esc(sub) + '</small></span><span class="chev">›</span></button>';
+  }
+
+  // ------------------------------------------------------------------
+  // NAVIGATION — barre d'onglets fixe en bas (pouce)
+  // ------------------------------------------------------------------
+  function tabsDef() {
+    return [
+      { id: "accueil", ico: "🎓", lab: "Accueil" },
+      { id: D.modules[0].id, ico: D.modules[0].emoji, lab: "Équipier" },
+      { id: D.modules[1].id, ico: D.modules[1].emoji, lab: "Chef" },
+      { id: D.reflexe.id, ico: D.reflexe.emoji, lab: "Réflexe" },
+      { id: D.grue.id, ico: D.grue.emoji, lab: "Grue" },
+      { id: "motopompes", ico: "🚒", lab: "Motopompes" }
+    ];
+  }
+
+  function setTab(id) {
+    APP.tab = id;
+    APP.ui.last = id;
+    saveUI();
+    render();
+  }
+
+  function render() {
+    var root = (typeof document !== "undefined" && document) ? document.getElementById("app") : null;
+    if (!root) return;
+    var tabs = tabsDef();
+    var bar = '<nav class="tabbar">';
+    for (var i = 0; i < tabs.length; i++) {
+      bar += '<button type="button" class="tab' + (APP.tab === tabs[i].id ? ' active' : '') + '" data-tab="' + tabs[i].id + '"><span class="tab-ico">' + tabs[i].ico + '</span><span class="tab-lab">' + tabs[i].lab + '</span></button>';
+    }
+    bar += '</nav>';
+    var body = "";
+    if (APP.tab === "accueil") body = renderAccueil();
+    else if (APP.tab === D.reflexe.id) body = renderPhases(D.reflexe);
+    else if (APP.tab === D.grue.id) body = renderPhases(D.grue);
+    else if (APP.tab === "motopompes") body = renderMotopompes();
+    else {
+      var mod = null;
+      for (var m = 0; m < D.modules.length; m++) if (D.modules[m].id === APP.tab) mod = D.modules[m];
+      if (mod) body = renderModule(mod);
+    }
+    var html = '<header class="topbar"><h1 class="title"><span class="thelo">🚁</span> Formation DIH</h1>';
+    html += '<p class="subtitle">Détachement d\'Intervention Héliporté — BMPM / SOS HELI</p></header>';
+    html += '<main class="page">' + body + '</main>';
+    html += '<footer>Contenu extrait des documents de formation BMPM/SOS HELI — Équipier DIH (08/2020) · Chef d\'équipe DIH (08/2019) · Fiche réflexe N°1 (04/2020) · Fiche de tâche grue CM DIH · Notices motopompes (MARK 3, TOHATSU VE 1500, EFP-500-FL, FYR PAK)</footer>';
+    html += bar;
+    root.innerHTML = html;
+    bindEvents(root);
+  }
+
+  function bindEvents(root) {
+    if (!root.querySelectorAll) return;
+    bind(root, "[data-tab]", function (el) { return function () { setTab(el.getAttribute("data-tab")); }; });
+    bind(root, "[data-check]", function (el) {
+      var parts = el.getAttribute("data-check").split("|");
+      return function () { toggleCheck(parts[0], parseInt(parts[1], 10), parseInt(parts[2], 10)); };
+    });
+    bind(root, "[data-reset]", function (el) {
+      var parts = el.getAttribute("data-reset").split("|");
+      return function () { resetChecks(parts[0], parseInt(parts[1], 10)); };
+    });
+    bind(root, "[data-resetquiz]", function (el) { return function () { resetQuiz(el.getAttribute("data-resetquiz")); }; });
+    bind(root, "[data-quiz]", function (el) {
+      var parts = el.getAttribute("data-quiz").split("|");
+      return function () { pick(parts[0], parseInt(parts[1], 10), parseInt(parts[2], 10)); };
+    });
+    bind(root, "[data-pump]", function (el) { return function () { setPump(el.getAttribute("data-pump")); }; });
+    bind(root, "[data-acc]", function (el) {
+      var parts = el.getAttribute("data-acc").split("|");
+      return function () { toggleAcc(parts[0], parseInt(parts[1], 10)); };
+    });
+    bind(root, "[data-allop]", function (el) {
+      var parts = el.getAttribute("data-allop").split("|");
+      var count = accordionCount(parts[0]);
+      return function () { setAllAcc(parts[0], parts[1] === "open", count); };
+    });
+  }
+  function bind(root, sel, makeFn) {
+    var els = root.querySelectorAll(sel);
+    for (var i = 0; i < els.length; i++) {
+      (function (el) {
+        if (el.addEventListener) el.addEventListener("click", makeFn(el));
+      })(els[i]);
+    }
+  }
+  function accordionCount(tk) {
+    for (var m = 0; m < D.modules.length; m++) if (D.modules[m].id === tk) return D.modules[m].sections.length + 1;
+    var docs = [D.reflexe, D.grue];
+    for (var d = 0; d < docs.length; d++) {
+      if (docs[d].id === tk) return docs[d].phases.length + (docs[d].obs ? 1 : 0) + (docs[d].quiz ? 1 : 0);
+    }
+    return 8;
+  }
+
+  function updateBadge() {
+    var el = (typeof document !== "undefined" && document) ? document.getElementById("badge") : null;
+    if (el) el.textContent = "💾 Hors ligne · " + (APP.version || FB_VERSION);
+  }
+
+  function fetchVersion() {
+    if (typeof fetch !== "function") { APP.version = FB_VERSION; updateBadge(); return; }
+    fetch("version.json", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (j) {
+      APP.version = (j && j.version) || FB_VERSION;
+      updateBadge();
+    }).catch(function () { APP.version = APP.version || FB_VERSION; updateBadge(); });
+  }
+
+  var booted = false;
+  function boot() {
+    if (booted) return;
+    booted = true;
+    if (APP.ui.last) {
+      var valid = false;
+      var tabs = tabsDef();
+      for (var i = 0; i < tabs.length; i++) if (tabs[i].id === APP.ui.last) valid = true;
+      if (valid) APP.tab = APP.ui.last;
+    }
+    render();
+    fetchVersion();
+    if (typeof navigator !== "undefined" && navigator && typeof navigator.serviceWorker === "object") {
+      try { navigator.serviceWorker.register("sw.js"); } catch (e) {}
+    }
+  }
+
+  if (typeof document !== "undefined" && document && document.addEventListener) {
+    document.addEventListener("DOMContentLoaded", boot);
+    if (typeof document.readyState === "string" && document.readyState === "complete") boot();
+  }
+
+  if (typeof window !== "undefined" && window) {
+    window.__DIH_APP = { APP: APP, boot: boot, render: render, setTab: setTab, setPump: setPump, toggleCheck: toggleCheck, resetChecks: resetChecks, pick: pick, quizScore: quizScore, resetQuiz: resetQuiz, toggleAcc: toggleAcc, setAllAcc: setAllAcc };
+  }
+})();
+</script>
+</body>
+</html>

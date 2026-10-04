@@ -1,0 +1,17 @@
+{
+  "name": "Formation DIH — BMPM",
+  "short_name": "Formation DIH",
+  "description": "Formation DIH : équipier, chef d'équipe, fiche réflexe N°1, grue CM + notices des 4 motopompes (MARK 3, TOHATSU VE 1500, EFP-500-FL, FYR PAK) — BMPM / SOS HELI",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
