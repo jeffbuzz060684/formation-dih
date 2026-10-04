@@ -1,0 +1,3 @@
+[build]
+  command = "node tools/gen-icons.js"
+  publish = "."
