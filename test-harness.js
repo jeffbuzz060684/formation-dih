@@ -1,4 +1,4 @@
-// test-harness.js — Formation DIH v7 — harnais de tests
+// test-harness.js — Formation DIH v8 — harnais de tests
 // Usage : node test-harness.js (à la racine du dépôt)
 // Vérifie : structure index.html, cœur de données, rendu app, interactions,
 // checklists, quiz, persistance, accordéons v3, PWA (sw/manifest/version/workflow), icônes.
@@ -79,7 +79,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   var fetchCalls = [];
   var fetch = function (url, opts) {
     fetchCalls.push(url);
-    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v7", date: "2026-10-04" }); } });
+    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v8", date: "2026-10-04" }); } });
   };
   var APP_EL = { innerHTML: "", querySelectorAll: function (sel) { return QSA(this.innerHTML, sel.slice(1, -1)); } };
   var BADGE_EL = { textContent: "💾 Hors ligne" };
@@ -312,8 +312,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // ============================================================
   await null; await null; await null; await null;
   ok("badge: fetch version.json", fetchCalls.length >= 1 && fetchCalls[0] === "version.json");
-  ok("badge: texte 💾 Hors ligne · v7", BADGE_EL.textContent === "💾 Hors ligne · v7");
-  ok("badge: APP.version v7", A.APP.version === "v7");
+  ok("badge: texte 💾 Hors ligne · v8", BADGE_EL.textContent === "💾 Hors ligne · v8");
+  ok("badge: APP.version v8", A.APP.version === "v8");
 
   // ============================================================
   // 9. PERSISTANCE (ré-éval = rechargement)
@@ -332,7 +332,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // 10. PWA — sw, manifest, version, workflow, icône
   // ============================================================
   var sw = slurp("sw.js");
-  ok("sw: cache formation-dih-v7", sw.indexOf('"formation-dih-v7"') !== -1);
+  ok("sw: cache formation-dih-v8", sw.indexOf('"formation-dih-v8"') !== -1);
   ok("sw: shell index.html", sw.indexOf('"./index.html"') !== -1);
   ok("sw: shell manifest + icon svg", sw.indexOf('"./manifest.webmanifest"') !== -1 && sw.indexOf('"./icon.svg"') !== -1);
   ok("sw: shell icônes PNG", sw.indexOf("icon-192.png") !== -1 && sw.indexOf("icon-512.png") !== -1);
@@ -353,7 +353,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
 
   var version = JSON.parse(slurp("version.json"));
   ok("version: app formation-dih", version.app === "formation-dih");
-  ok("version: v7", version.version === "v7");
+  ok("version: v8", version.version === "v8");
+  ok("v8: footer sources retiré", index.indexOf("Contenu extrait") === -1 && index.indexOf("<footer>") === -1);
   ok("version: date", version.date === "2026-10-04");
 
   var yml = slurp(".github/workflows/pages.yml");
