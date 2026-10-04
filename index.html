@@ -249,7 +249,7 @@ accueil: {
   parcours: [
     ["👷", "ÉQUIPIER DIH", "Savoirs essentiels : matériel, stick, établissements, bivouac, sécurité hélico, sling"],
     ["⭐", "CHEF D'ÉQUIPE", "Perfectionnement : hydraulique, guidage radio, zones DZ, rotations, soutien"],
-    ["🚨", "FICHE RÉFLEXE N°1", "Départ en mission « Feux de forêts » — 4 phases à cocher"],
+    ["🚨", "FICHE RÉFLEXE N°1", "Départ en mission « Feux de forêts » — 3 phases à cocher"],
     ["🏗", "GRUE CM DIH", "Fiche de tâche — 5 phases à cocher"],
   ],
 },
@@ -677,16 +677,7 @@ reflexe: {
       ],
     },
     {
-      title: "Phase 3 — Préparation de la mission", icon: "🎒",
-      steps: [
-        { t: "Se munir de la clé N°23 du bureau HELI (Bat A, 1er étage)", d: "A/o CdG LVN, ou à défaut STD LVN. Trousseau sur les portatifs ANTARES pour : mezzanine, réserve carburant, petit local Bat B (PAS le local GIMAé)." },
-        { t: "Préparer le sac du chef de stick", d: "Cartes IGN, DFCI et boussole · radios (7 Antarès 80 MHz, VHF marine et aéro + accus) · chargeurs accus, multi-prises." },
-        { t: "Selon le lieu et le type de mission — matériels supplémentaires", d: "Rations (local DIH Bat B) et eau pour 48 h minimum · couchages et vêtements chauds DIH (duvets, polaires, tentes, rechanges) : sacs OPS DIH déjà constitués · trousse de premiers secours · trousse à outils · sac protection auditive et lunettes." },
-        { t: "Matériel complémentaire", d: "Groupe éclairage / électrogènes portables · tronçonneuses · débroussailleuses · bâches supplémentaires (500, 800, 1000) · bidons carburant (mélange) supplémentaires (garage caisson carburant HELI)." },
-      ],
-    },
-    {
-      title: "Phase 4 — Départ en mission", icon: "🚀",
+      title: "Phase 3 — Départ en mission", icon: "🚀",
       steps: [
         { t: "Communiquer la liste du personnel au COSSIM", d: "Renseigner la fiche « personnel » dans le bureau HELI : qualité · quantité · coordonnées individuelles · éventuellement le numéro de mobile du chef de stick." },
         { t: "Si intervention hors commune : perception à l'état-major (a/o CdC HELI et OGEM)", d: "Carte carburant · cartes autoroute · argent en numéraire · si départ pour la Corse : voir le CMP pour médicaments contre le mal de mer." },
@@ -702,11 +693,8 @@ reflexe: {
     { q: "Que signifie le A de PATRACDR ?", opts: ["Armement", "Alimentation", "Antenne"], a: 1, ex: "Personnel · Armement · Tenues · Radios · Alimentation · Commandement · Déroulement · Rendez-vous." },
     { q: "Quel est le numéro de l'adjudant de SOS ?", opts: ["06 32 87 16 70", "06 23 78 61 07", "06 87 32 16 70"], a: 0, ex: "06 32 87 16 70 — à informer dès la réception de l'alerte." },
     { q: "Quel engagement minimum pour constituer le stick ?", opts: ["1 CCF", "2 CCF", "3 CCF"], a: 1, ex: "S'assurer de l'engagement minimum de 2 CCF." },
-    { q: "Quelle clé ouvre le bureau HELI ?", opts: ["Clé N°13", "Clé N°23", "Clé N°32"], a: 1, ex: "La clé N°23 — bureau HELI, Bat A 1er étage, a/o CdG LVN ou STD LVN." },
     { q: "Le D de DPIF signifie…", opts: ["Direction", "Départ", "Distance"], a: 0, ex: "Direction · Point à atteindre · Itinéraire · Formation." },
     { q: "À combien de pax le stick peut-il travailler en attendant d'être complété ?", opts: ["5 pax", "7 pax", "9 pax"], a: 1, ex: "7 pax en attente d'être complété (référentiel)." },
-    { q: "Où se trouve la clé N°23 si le CdG LVN est absent ?", opts: ["Au STD LVN", "Au COSSIM", "Au garage HELI"], a: 0, ex: "A/o CdG LVN, si absent au STD LVN." },
-    { q: "Combien de radios Antarès dans le sac du chef de stick ?", opts: ["5", "7", "9"], a: 1, ex: "7 Antarès (80 MHz) + VHF marine et aéro + accus." },
   ],
 },
 
@@ -1460,7 +1448,7 @@ SVGS.mpFyrpak = function () {
   var LS_CHECKS = "dih-checks-v1";
   var LS_QUIZ = "dih-quiz-v1";
   var LS_UI = "dih-ui-v1";
-  var FB_VERSION = "v4";
+  var FB_VERSION = "v5";
 
   function loadLS(key, fb) {
     try {

@@ -1,4 +1,4 @@
-// test-harness.js — Formation DIH v3 — harnais de tests
+// test-harness.js — Formation DIH v5 — harnais de tests
 // Usage : node test-harness.js (à la racine du dépôt)
 // Vérifie : structure index.html, cœur de données, rendu app, interactions,
 // checklists, quiz, persistance, accordéons v3, PWA (sw/manifest/version/workflow), icônes.
@@ -49,7 +49,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("structure: PATRACDR présent", index.indexOf("PATRACDR") !== -1);
   ok("structure: DPIF présent", index.indexOf("DPIF") !== -1);
   ok("structure: téléphone adjudant", index.indexOf("06 32 87 16 70") !== -1);
-  ok("structure: clé N°23", index.indexOf("N°23") !== -1);
+  ok("structure: clé N°23 retirée", index.indexOf("N°23") === -1);
   ok("structure: BIP LONG", index.indexOf("BIP LONG") !== -1);
   ok("structure: STANAG", index.indexOf("STANAG") !== -1);
   ok("structure: 13 hommes", index.indexOf("13 HOMMES") !== -1);
@@ -75,7 +75,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   var fetchCalls = [];
   var fetch = function (url, opts) {
     fetchCalls.push(url);
-    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v4", date: "2026-10-04" }); } });
+    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v5", date: "2026-10-04" }); } });
   };
   var APP_EL = { innerHTML: "", querySelectorAll: function (sel) { return QSA(this.innerHTML, sel.slice(1, -1)); } };
   var BADGE_EL = { textContent: "💾 Hors ligne" };
@@ -127,18 +127,17 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("data: equipier quiz 10", D.modules[0].quiz.length === 10);
   ok("data: chef 7 sections", D.modules[1].sections.length === 7);
   ok("data: chef quiz 10", D.modules[1].quiz.length === 10);
-  ok("data: reflexe 4 phases", D.reflexe.phases.length === 4);
+  ok("data: reflexe 3 phases", D.reflexe.phases.length === 3);
   ok("data: reflexe phase1 5 étapes", D.reflexe.phases[0].steps.length === 5);
   ok("data: reflexe phase2 2 étapes", D.reflexe.phases[1].steps.length === 2);
-  ok("data: reflexe phase3 4 étapes", D.reflexe.phases[2].steps.length === 4);
-  ok("data: reflexe phase4 3 étapes", D.reflexe.phases[3].steps.length === 3);
-  ok("data: reflexe quiz 8", D.reflexe.quiz.length === 8);
+  ok("data: reflexe phase3 (départ) 3 étapes", D.reflexe.phases[2].steps.length === 3);
+  ok("data: reflexe quiz 5", D.reflexe.quiz.length === 5);
   ok("data: reflexe 2 observations", D.reflexe.obs.length === 2);
   ok("data: grue 5 phases", D.grue.phases.length === 5);
   ok("data: grue phase2 13 étapes", D.grue.phases[1].steps.length === 13);
   ok("data: grue phase3 3 warnings", D.grue.phases[2].warn.length === 3);
   ok("data: grue quiz 5", D.grue.quiz.length === 5);
-  ok("data: total 33 questions", 10 + 10 + 8 + 5 === 33);
+  ok("data: total 30 questions", 10 + 10 + 5 + 5 === 30);
 
   var allOk = true;
   [D.modules[0].quiz, D.modules[1].quiz, D.reflexe.quiz, D.grue.quiz].forEach(function (qs) {
@@ -253,13 +252,13 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("tab reflexe: phase 1", APP_EL.innerHTML.indexOf("Réception de l") !== -1);
   ok("tab reflexe: PATRACDR", APP_EL.innerHTML.indexOf("PATRACDR") !== -1);
   ok("tab reflexe: téléphone adjudant", APP_EL.innerHTML.indexOf("06 32 87 16 70") !== -1);
-  ok("tab reflexe: clé N°23", APP_EL.innerHTML.indexOf("N°23") !== -1);
-  ok("tab reflexe: 4 phases", cnt(APP_EL.innerHTML, /Phase \d/g) >= 4);
+  ok("tab reflexe: clé N°23 retirée", APP_EL.innerHTML.indexOf("N°23") === -1 && APP_EL.innerHTML.indexOf("sac du chef de stick") === -1);
+  ok("tab reflexe: 3 phases", cnt(APP_EL.innerHTML, /Phase \d/g) >= 3);
   ok("tab reflexe: observations", APP_EL.innerHTML.indexOf("Observations") !== -1);
-  ok("tab reflexe: quiz 0/8", APP_EL.innerHTML.indexOf("0/8") !== -1);
+  ok("tab reflexe: quiz 0/5", APP_EL.innerHTML.indexOf("0/5") !== -1);
   ok("tab reflexe: 7 pax en attente", APP_EL.innerHTML.indexOf("7 pax") !== -1);
-  ok("v3: vue d'ensemble réflexe 0/14", APP_EL.innerHTML.indexOf("0/14") !== -1);
-  ok("v3: accordéons réflexe (4 tuiles + 6 cartes)", cnt(APP_EL.innerHTML, /data-acc="reflexe\|/g) === 10);
+  ok("v5: vue d'ensemble réflexe 0/10", APP_EL.innerHTML.indexOf("0/10") !== -1);
+  ok("v5: accordéons réflexe (3 tuiles + 5 cartes)", cnt(APP_EL.innerHTML, /data-acc="reflexe\|/g) === 8);
 
   A.setTab("grue");
   ok("tab grue: rendu", APP_EL.innerHTML.indexOf("GRUE") !== -1);
@@ -301,16 +300,16 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("quiz: classe wrong après mauvaise réponse", APP_EL.innerHTML.indexOf('class="opt wrong"') !== -1);
   ok("quiz: score reste 1/10", APP_EL.innerHTML.indexOf("1/10") !== -1);
   ok("quiz: persisté localStorage", lsStore["dih-quiz-v1"] !== undefined && JSON.parse(lsStore["dih-quiz-v1"]).equipier["0"] === 2);
-  A.pick("reflexe", 4, 0);
-  ok("quiz: reflexe 1/8", A.quizScore("reflexe", D.reflexe.quiz) === 1);
+  A.pick("reflexe", 3, 0);
+  ok("quiz: reflexe 1/5", A.quizScore("reflexe", D.reflexe.quiz) === 1);
 
   // ============================================================
   // 8. BADGE VERSION (fetch version.json → microtasks)
   // ============================================================
   await null; await null; await null; await null;
   ok("badge: fetch version.json", fetchCalls.length >= 1 && fetchCalls[0] === "version.json");
-  ok("badge: texte 💾 Hors ligne · v4", BADGE_EL.textContent === "💾 Hors ligne · v4");
-  ok("badge: APP.version v4", A.APP.version === "v4");
+  ok("badge: texte 💾 Hors ligne · v5", BADGE_EL.textContent === "💾 Hors ligne · v5");
+  ok("badge: APP.version v5", A.APP.version === "v5");
 
   // ============================================================
   // 9. PERSISTANCE (ré-éval = rechargement)
@@ -318,7 +317,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   eval(scripts[1]);
   var A2 = win.__DIH_APP;
   A2.setTab("reflexe");
-  ok("persistance: quiz restauré 1/8", APP_EL.innerHTML.indexOf("1/8") !== -1);
+  ok("persistance: quiz restauré 1/5", APP_EL.innerHTML.indexOf("1/5") !== -1);
   A2.setTab("grue");
   ok("persistance: checks grue restaurés 3/13", APP_EL.innerHTML.indexOf("3/13") !== -1);
   A2.setTab("equipier");
@@ -329,7 +328,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // 10. PWA — sw, manifest, version, workflow, icône
   // ============================================================
   var sw = slurp("sw.js");
-  ok("sw: cache formation-dih-v4", sw.indexOf('"formation-dih-v4"') !== -1);
+  ok("sw: cache formation-dih-v5", sw.indexOf('"formation-dih-v5"') !== -1);
   ok("sw: shell index.html", sw.indexOf('"./index.html"') !== -1);
   ok("sw: shell manifest + icon svg", sw.indexOf('"./manifest.webmanifest"') !== -1 && sw.indexOf('"./icon.svg"') !== -1);
   ok("sw: shell icônes PNG", sw.indexOf("icon-192.png") !== -1 && sw.indexOf("icon-512.png") !== -1);
@@ -350,7 +349,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
 
   var version = JSON.parse(slurp("version.json"));
   ok("version: app formation-dih", version.app === "formation-dih");
-  ok("version: v4", version.version === "v4");
+  ok("version: v5", version.version === "v5");
   ok("version: date", version.date === "2026-10-04");
 
   var yml = slurp(".github/workflows/pages.yml");
@@ -464,10 +463,10 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("v3: score quiz équipier affiché sur accueil", APP_EL.innerHTML.indexOf("1/10") !== -1);
   ok("v3: stats quiz accueil", APP_EL.innerHTML.indexOf("Quiz") !== -1 && APP_EL.innerHTML.indexOf("bonnes réponses") !== -1);
   A2.setTab("reflexe");
-  ok("v3: réflexe quiz 1/8 avant reset", APP_EL.innerHTML.indexOf("1/8") !== -1);
+  ok("v5: réflexe quiz 1/5 avant reset", APP_EL.innerHTML.indexOf("1/5") !== -1);
   ok("v3: bouton recommencer présent", APP_EL.innerHTML.indexOf('data-resetquiz="reflexe"') !== -1);
   A2.resetQuiz("reflexe");
-  ok("v3: resetQuiz → 0/8", APP_EL.innerHTML.indexOf("0/8") !== -1 && APP_EL.innerHTML.indexOf("1/8") === -1);
+  ok("v3: resetQuiz → 0/5", APP_EL.innerHTML.indexOf("0/5") !== -1 && APP_EL.innerHTML.indexOf("1/5") === -1);
   A2.setTab("grue");
   var grueTotal = 0;
   for (var g = 0; g < D.grue.phases.length; g++) grueTotal += D.grue.phases[g].steps.length;
