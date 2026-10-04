@@ -13,3 +13,5 @@ Application pédagogique BMPM — Détachement d'Intervention Héliporté.
 PWA installable : https://jeffbuzz060684.github.io/formation-dih/
 
 Chrome → ⋮ → « Ajouter à l'écran d'accueil ».
+
+Déploiement : GitHub Pages — automatique à chaque push.
