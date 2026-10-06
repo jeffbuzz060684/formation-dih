@@ -1119,6 +1119,47 @@ D.motopompes = [
       ["Rouge clignotant", "Température moteur au-dessus du seuil d'avertissement ; au-delà de la température max autorisée : ARRÊT DU MOTEUR.", "danger"],
       ["Rouge fixe", "Gradient de température trop élevé : ARRÊT DU MOTEUR — carburateur trop pauvre ou pas d'huile dans le carburant.", "danger"]
     ],
+    carb: {
+      concerne: "MARK-3 Watson Edition et MARK-3 Essential, avec ou sans réservoir de carburant intégré — corrections de terrain liées à l'altitude ou aux conditions d'utilisation (pas une procédure complète d'entretien).",
+      avant: [
+        "Réglage en eau, pompe correctement amorcée (aspiration fiable, sans fuite).",
+        "Vérifier l'absence de bulles d'air ou de problème de débit dans l'alimentation en carburant.",
+        "Faire chauffer le moteur avant le réglage final.",
+        "Réglage final du haut régime POMPE REFOULANT DE L'EAU sous charge normale — JAMAIS à plein régime sans charge."
+      ],
+      vis: [
+        ["Vis H", "Haut régime — la vis avec les ailettes. Mélange à haut régime : réglage principal en fonctionnement normal."],
+        ["Vis L", "Bas régime — démarrage, bas régime et accélération. À ne réinitialiser que si le moteur ne démarre pas ou cale (cas 2 et 3)."]
+      ],
+      riche: ["Moteur irrégulier, ratés — régime et performances en baisse.", "Fumée excessive, encrassement de la bougie, calamine, gommage des segments."],
+      pauvre: ["Régime et son qui augmentent d'abord — puis température en hausse.", "Lubrification réduite → risque de surchauffe et de casse moteur."],
+      objectif: "L'objectif n'est PAS le régime maximal : conserver un réglage final légèrement plus RICHE que le régime max (vis H revenir de ½ tour) pour la lubrification et éviter la surchauffe.",
+      cas: [
+        ["Démarre et atteint le plein régime, mais fonctionne mal (chutes de régime, ratés)", "Cas 1 — affiner la vis H"],
+        ["Démarre, mais cale à l'accélération", "Cas 2 — prérégler H et L, puis cas 1"],
+        ["Ne démarre pas", "Cas 3 — prérégler H et L, puis cas 1"]
+      ],
+      cas1: [
+        ["1", "Pompe amorcée et refoulant : laisser chauffer, puis accélérer au plein régime de fonctionnement.", "Moteur chaud, LED verte fixe, plein régime sous charge."],
+        ["2", "Tourner lentement la vis H dans le sens des aiguilles (mélange plus pauvre).", "Le régime monte : son plus aigu et plus fort."],
+        ["3", "Continuer lentement jusqu'à ce que le régime (et le son) commence à baisser — NE PAS rester sur ce réglage pauvre.", "Régime maximal atteint (ce n'est pas le réglage final)."],
+        ["4", "Revenir de ½ tour dans le sens inverse des aiguilles.", "Réglage final légèrement riche — son régulier, bonnes performances."]
+      ],
+      cas23: [
+        ["1", "Moteur ARRÊTÉ : fermer doucement les vis H et L en butée, sans forcer.", "Les deux vis sont complètement fermées."],
+        ["2", "Ouvrir chaque vis selon l'altitude (tableau ci-dessous).", "Ouverture conforme à l'altitude."],
+        ["3", "Démarrer ou redémarrer la pompe (cas 3 : vérifier que le moteur n'est pas noyé).", "Le moteur démarre et monte en régime sans caler."],
+        ["4", "Pompe amorcée, refoulant, à plein régime : suivre la procédure du cas 1.", "Réglage final de la vis H affiné."]
+      ],
+      altitudes: [
+        ["Moins de 1 000 m", "1¼ tour par vis"],
+        ["1 000 – 2 000 m", "1 tour par vis (ouverture plus faible possible selon conditions)"],
+        ["Plus de 2 000 m", "¾ de tour par vis (ouverture plus faible possible selon conditions)"]
+      ],
+      mywaterax: "MARK-3 Watson Edition : surveiller régime et température en direct via l'application MyWATERAX Pump Dashboard (Bluetooth, App Store / Google Play) — indisponible sur l'Essential.",
+      persiste: "Si le problème persiste : cesser de régler le carburateur et chercher une autre cause (alimentation carburant, admission d'air, bougie, aspiration obstruée…). NE PAS appauvrir davantage pour compenser une autre défaillance.",
+      source: "WATERAX — « Réglage du carburateur MARK-3® », guide de terrain de l'opérateur, Rev. A (30/09/2026, PDF 3 pages)"
+    },
     source: "Notice « démarrage motopompe MARCK-3 » (PDF, 2 pages)"
   },
   {
@@ -1457,7 +1498,7 @@ SVGS.mpFyrpak = function () {
   var LS_CHECKS = "dih-checks-v1";
   var LS_QUIZ = "dih-quiz-v1";
   var LS_UI = "dih-ui-v1";
-  var FB_VERSION = "v8";
+  var FB_VERSION = "v9";
 
   function loadLS(key, fb) {
     try {
@@ -1836,6 +1877,9 @@ SVGS.mpFyrpak = function () {
       del += '</div>';
       h += accCard(tk, n++, accHead("💡", "Voyants diagnostiques"), del);
     }
+    if (p.carb) {
+      h += accCard(tk, n++, accHead("🔧", "Réglage carburateur (altitude)"), renderCarb(p.carb));
+    }
     if (p.extra) {
       var ex = '<ul class="bl">';
       for (var e = 0; e < p.extra.length; e++) ex += '<li><span class="li-txt">' + p.extra[e] + '</span></li>';
@@ -1849,6 +1893,39 @@ SVGS.mpFyrpak = function () {
       h += accCard(tk, n++, accHead("🧽", "Entretien / remisage"), en);
     }
     h += '<p class="src">Source : ' + esc(p.source) + '</p>';
+    return h;
+  }
+
+  // Réglage carburateur MARK-3 (guide terrain WATERAX Rev. A) — v9
+  function renderCarb(c) {
+    var h = '<p class="intro">' + esc(c.concerne) + '</p>';
+    h += '<h3 class="qq">✅ Avant de régler</h3><ul class="bl">';
+    for (var a = 0; a < c.avant.length; a++) h += '<li><span class="li-txt">' + esc(c.avant[a]) + '</span></li>';
+    h += '</ul>';
+    h += '<h3 class="qq">🔩 Les deux vis</h3><div class="specs">';
+    for (var v = 0; v < c.vis.length; v++) h += '<div class="spec"><span class="k">' + esc(c.vis[v][0]) + '</span><span class="v">' + esc(c.vis[v][1]) + '</span></div>';
+    h += '</div>';
+    h += '<h3 class="qq">🛢️ Trop riche (trop de carburant)</h3><ul class="bl">';
+    for (var r = 0; r < c.riche.length; r++) h += '<li><span class="li-txt">' + esc(c.riche[r]) + '</span></li>';
+    h += '</ul><h3 class="qq">🌡️ Trop pauvre (pas assez de carburant)</h3><ul class="bl">';
+    for (var pa = 0; pa < c.pauvre.length; pa++) h += '<li><span class="li-txt">' + esc(c.pauvre[pa]) + '</span></li>';
+    h += '</ul>';
+    h += '<div class="note key">🔑 ' + esc(c.objectif) + '</div>';
+    h += '<h3 class="qq">🧭 Quel cas s\'applique ?</h3><div class="specs">';
+    for (var cs = 0; cs < c.cas.length; cs++) h += '<div class="spec"><span class="k">' + esc(c.cas[cs][0]) + '</span><span class="v">' + esc(c.cas[cs][1]) + '</span></div>';
+    h += '</div>';
+    h += '<h3 class="qq">1️⃣ Cas 1 — démarre mais fonctionne mal (sous charge)</h3><div class="specs">';
+    for (var u = 0; u < c.cas1.length; u++) h += '<div class="spec"><span class="k">Étape ' + esc(c.cas1[u][0]) + '</span><span class="v">' + esc(c.cas1[u][1]) + ' <b>Résultat :</b> ' + esc(c.cas1[u][2]) + '</span></div>';
+    h += '</div>';
+    h += '<h3 class="qq">2️⃣ Cas 2 & 3 — cale à l\'accélération ou ne démarre pas</h3><div class="specs">';
+    for (var w = 0; w < c.cas23.length; w++) h += '<div class="spec"><span class="k">Étape ' + esc(c.cas23[w][0]) + '</span><span class="v">' + esc(c.cas23[w][1]) + ' <b>Résultat :</b> ' + esc(c.cas23[w][2]) + '</span></div>';
+    h += '</div>';
+    h += '<h3 class="qq">⛰️ Préréglage selon l\'altitude (vis fermées puis ouverture)</h3><div class="specs">';
+    for (var al = 0; al < c.altitudes.length; al++) h += '<div class="spec"><span class="k">' + esc(c.altitudes[al][0]) + '</span><span class="v">' + esc(c.altitudes[al][1]) + '</span></div>';
+    h += '</div>';
+    h += '<div class="note">📱 ' + esc(c.mywaterax) + '</div>';
+    h += '<div class="note key">⚠️ ' + esc(c.persiste) + '</div>';
+    h += '<p class="src">Source : ' + esc(c.source) + '</p>';
     return h;
   }
 

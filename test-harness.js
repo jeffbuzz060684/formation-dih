@@ -1,4 +1,4 @@
-// test-harness.js — Formation DIH v8 — harnais de tests
+// test-harness.js — Formation DIH v9 — harnais de tests
 // Usage : node test-harness.js (à la racine du dépôt)
 // Vérifie : structure index.html, cœur de données, rendu app, interactions,
 // checklists, quiz, persistance, accordéons v3, PWA (sw/manifest/version/workflow), icônes.
@@ -79,7 +79,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   var fetchCalls = [];
   var fetch = function (url, opts) {
     fetchCalls.push(url);
-    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v8", date: "2026-10-04" }); } });
+    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v9", date: "2026-10-06" }); } });
   };
   var APP_EL = { innerHTML: "", querySelectorAll: function (sel) { return QSA(this.innerHTML, sel.slice(1, -1)); } };
   var BADGE_EL = { textContent: "💾 Hors ligne" };
@@ -312,8 +312,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // ============================================================
   await null; await null; await null; await null;
   ok("badge: fetch version.json", fetchCalls.length >= 1 && fetchCalls[0] === "version.json");
-  ok("badge: texte 💾 Hors ligne · v8", BADGE_EL.textContent === "💾 Hors ligne · v8");
-  ok("badge: APP.version v8", A.APP.version === "v8");
+  ok("badge: texte 💾 Hors ligne · v9", BADGE_EL.textContent === "💾 Hors ligne · v9");
+  ok("badge: APP.version v9", A.APP.version === "v9");
 
   // ============================================================
   // 9. PERSISTANCE (ré-éval = rechargement)
@@ -332,7 +332,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // 10. PWA — sw, manifest, version, workflow, icône
   // ============================================================
   var sw = slurp("sw.js");
-  ok("sw: cache formation-dih-v8", sw.indexOf('"formation-dih-v8"') !== -1);
+  ok("sw: cache formation-dih-v9", sw.indexOf('"formation-dih-v9"') !== -1);
   ok("sw: shell index.html", sw.indexOf('"./index.html"') !== -1);
   ok("sw: shell manifest + icon svg", sw.indexOf('"./manifest.webmanifest"') !== -1 && sw.indexOf('"./icon.svg"') !== -1);
   ok("sw: shell icônes PNG", sw.indexOf("icon-192.png") !== -1 && sw.indexOf("icon-512.png") !== -1);
@@ -353,9 +353,9 @@ function cnt(html, re) { return (html.match(re) || []).length; }
 
   var version = JSON.parse(slurp("version.json"));
   ok("version: app formation-dih", version.app === "formation-dih");
-  ok("version: v8", version.version === "v8");
+  ok("version: v9", version.version === "v9");
   ok("v8: footer sources retiré", index.indexOf("Contenu extrait") === -1 && index.indexOf("<footer>") === -1);
-  ok("version: date", version.date === "2026-10-04");
+  ok("version: date", version.date === "2026-10-06");
 
   var yml = slurp(".github/workflows/pages.yml");
   ok("yml: push main", yml.indexOf("branches: [main]") !== -1);
@@ -434,8 +434,16 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("mp: onglet rendu — MARK 3 par défaut", APP_EL.innerHTML.indexOf("MARK 3 WATSON") !== -1);
   ok("mp: 5 sous-onglets (4 pompes + comparatif)", cnt(APP_EL.innerHTML, /data-pump="/g) === 5);
   ok("mp: sous-onglet actif mark3", APP_EL.innerHTML.indexOf('class="subtab active" data-pump="mark3"') !== -1);
-  ok("mp: 5 cartes (carburant + specs + démarrage + arrêt + voyants)", cnt(APP_EL.innerHTML, /class="card"/g) === 5);
+  ok("mp: 6 cartes (carburant + specs + démarrage + arrêt + voyants + carburateur)", cnt(APP_EL.innerHTML, /class="card"/g) === 6);
   ok("mp: carte carburant", APP_EL.innerHTML.indexOf("Carburant") !== -1);
+  ok("v9: accordéon Réglage carburateur rendu (mark3)", APP_EL.innerHTML.indexOf("Réglage carburateur (altitude)") !== -1);
+  ok("v9: carb données — 3 altitudes (1¼ / 1 / ¾ tour)", D.motopompes[0].carb.altitudes.length === 3 && D.motopompes[0].carb.altitudes[0][1].indexOf("1¼ tour") !== -1 && D.motopompes[0].carb.altitudes[2][1].indexOf("¾ de tour") !== -1);
+  ok("v9: carb vis H/L + objectif ½ tour riche", D.motopompes[0].carb.vis[0][0] === "Vis H" && D.motopompes[0].carb.vis[1][0] === "Vis L" && D.motopompes[0].carb.objectif.indexOf("½ tour") !== -1);
+  ok("v9: carb cas1 4 étapes / cas23 4 étapes", D.motopompes[0].carb.cas1.length === 4 && D.motopompes[0].carb.cas23.length === 4);
+  ok("v9: carb jamais sans charge (HTML)", APP_EL.innerHTML.indexOf("JAMAIS à plein régime sans charge") !== -1);
+  ok("v9: carb MyWATERAX Watson Edition", APP_EL.innerHTML.indexOf("MyWATERAX Pump Dashboard") !== -1);
+  ok("v9: carb source WATERAX Rev. A", APP_EL.innerHTML.indexOf("WATERAX") !== -1 && D.motopompes[0].carb.source.indexOf("Rev. A") !== -1);
+  ok("v9: carb uniquement mark3 (pas sur les 3 autres)", D.motopompes[1].carb === undefined && D.motopompes[2].carb === undefined && D.motopompes[3].carb === undefined);
   ok("mp: carte caractéristiques", APP_EL.innerHTML.indexOf("Caractéristiques") !== -1);
   ok("mp: démarrage 0/8", APP_EL.innerHTML.indexOf("0/8") !== -1);
   ok("mp: arrêt 0/1", APP_EL.innerHTML.indexOf("0/1") !== -1);
