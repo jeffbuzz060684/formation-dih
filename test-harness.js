@@ -1,4 +1,4 @@
-// test-harness.js — Formation DIH v9 — harnais de tests
+// test-harness.js — Formation DIH v10 — harnais de tests
 // Usage : node test-harness.js (à la racine du dépôt)
 // Vérifie : structure index.html, cœur de données, rendu app, interactions,
 // checklists, quiz, persistance, accordéons v3, PWA (sw/manifest/version/workflow), icônes.
@@ -79,7 +79,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   var fetchCalls = [];
   var fetch = function (url, opts) {
     fetchCalls.push(url);
-    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v9", date: "2026-10-06" }); } });
+    return Promise.resolve({ json: function () { return Promise.resolve({ app: "formation-dih", version: "v10", date: "2026-10-06" }); } });
   };
   var APP_EL = { innerHTML: "", querySelectorAll: function (sel) { return QSA(this.innerHTML, sel.slice(1, -1)); } };
   var BADGE_EL = { textContent: "💾 Hors ligne" };
@@ -312,8 +312,8 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // ============================================================
   await null; await null; await null; await null;
   ok("badge: fetch version.json", fetchCalls.length >= 1 && fetchCalls[0] === "version.json");
-  ok("badge: texte 💾 Hors ligne · v9", BADGE_EL.textContent === "💾 Hors ligne · v9");
-  ok("badge: APP.version v9", A.APP.version === "v9");
+  ok("badge: texte 💾 Hors ligne · v10", BADGE_EL.textContent === "💾 Hors ligne · v10");
+  ok("badge: APP.version v10", A.APP.version === "v10");
 
   // ============================================================
   // 9. PERSISTANCE (ré-éval = rechargement)
@@ -332,7 +332,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   // 10. PWA — sw, manifest, version, workflow, icône
   // ============================================================
   var sw = slurp("sw.js");
-  ok("sw: cache formation-dih-v9", sw.indexOf('"formation-dih-v9"') !== -1);
+  ok("sw: cache formation-dih-v10", sw.indexOf('"formation-dih-v10"') !== -1);
   ok("sw: shell index.html", sw.indexOf('"./index.html"') !== -1);
   ok("sw: shell manifest + icon svg", sw.indexOf('"./manifest.webmanifest"') !== -1 && sw.indexOf('"./icon.svg"') !== -1);
   ok("sw: shell icônes PNG", sw.indexOf("icon-192.png") !== -1 && sw.indexOf("icon-512.png") !== -1);
@@ -353,7 +353,7 @@ function cnt(html, re) { return (html.match(re) || []).length; }
 
   var version = JSON.parse(slurp("version.json"));
   ok("version: app formation-dih", version.app === "formation-dih");
-  ok("version: v9", version.version === "v9");
+  ok("version: v10", version.version === "v10");
   ok("v8: footer sources retiré", index.indexOf("Contenu extrait") === -1 && index.indexOf("<footer>") === -1);
   ok("version: date", version.date === "2026-10-06");
 
@@ -444,6 +444,10 @@ function cnt(html, re) { return (html.match(re) || []).length; }
   ok("v9: carb MyWATERAX Watson Edition", APP_EL.innerHTML.indexOf("MyWATERAX Pump Dashboard") !== -1);
   ok("v9: carb source WATERAX Rev. A", APP_EL.innerHTML.indexOf("WATERAX") !== -1 && D.motopompes[0].carb.source.indexOf("Rev. A") !== -1);
   ok("v9: carb uniquement mark3 (pas sur les 3 autres)", D.motopompes[1].carb === undefined && D.motopompes[2].carb === undefined && D.motopompes[3].carb === undefined);
+  ok("v10: 3 photos du guide intégrées (data URI)", D.motopompes[0].carb.imgPompe.indexOf("data:image/jpeg;base64,") === 0 && D.motopompes[0].carb.imgVis.indexOf("data:image/jpeg;base64,") === 0 && D.motopompes[0].carb.imgApp.indexOf("data:image/jpeg;base64,") === 0);
+  ok("v10: photos rendues dans l'accordéon carburateur", cnt(APP_EL.innerHTML, /data:image\/jpeg;base64,/g) === 3);
+  ok("v10: légendes photos (zhint)", APP_EL.innerHTML.indexOf("MARK-3 Watson Edition — touche la photo") !== -1 && APP_EL.innerHTML.indexOf("Repérage des vis H (ailettes) et L") !== -1 && APP_EL.innerHTML.indexOf("MyWATERAX Pump Dashboard (Watson Edition) — touche") !== -1);
+  ok("v10: css .drawing img", index.indexOf(".drawing img") !== -1);
   ok("mp: carte caractéristiques", APP_EL.innerHTML.indexOf("Caractéristiques") !== -1);
   ok("mp: démarrage 0/8", APP_EL.innerHTML.indexOf("0/8") !== -1);
   ok("mp: arrêt 0/1", APP_EL.innerHTML.indexOf("0/1") !== -1);

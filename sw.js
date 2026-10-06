@@ -1,4 +1,4 @@
-var CACHE = "formation-dih-v9";
+var CACHE = "formation-dih-v10";
 var SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", function (e) {
